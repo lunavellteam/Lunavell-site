@@ -1,192 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Lunavell LTD — Calm Solutions for a Chaotic World</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Lunavell LTD is a London-based calm studio designing beauty, crafting calmness and transforming turbulent days into quiet clarity.">
+  <meta charset="UTF-8" />
+  <title>Lunavell LTD — Calm Solutions for a Chaotic World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Lunavell LTD is a London-based calm studio designing beauty, crafting calmness and delivering long-term emotional value.">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <style>
-        :root {
-            --page-bg: #f8f4ef;
-            --card-bg: #fbf7f1;
-            --ink: #151515;
-            --ink-soft: #4c4c4c;
-            --accent-dot: #d4a46a;
-            --border-soft: #e9e1d8;
-            --pill-bg: #f4eee6;
-            --pill-border: #eadfce;
-            --radius-pill: 999px;
-            --radius-card: 32px;
-            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.05);
-            --max-width: 1120px;
-        }
+  <style>
+    :root {
+      --page-bg: #f8f4ef;     /* white cloud */
+      --card-bg: #fbf7f1;
+      --ink: #151515;
+      --ink-soft: #4c4c4c;
+      --accent-dot: #d4a46a;
+      --border-soft: #e9e1d8;
+      --pill-bg: #f4eee6;
+      --pill-border: #eadfce;
+      --radius-pill: 999px;
+      --radius-card: 32px;
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.05);
+      --max-width: 1120px;
+    }
 
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            background: radial-gradient(circle at top, #f8f4ef, #fbf7f1 70%);
-            color: var(--ink);
-            font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-            line-height: 1.6;
-        }
+    body {
+      background: radial-gradient(circle at top, #f8f4ef, #fbf7f1 70%);
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
 
-        .page {
-            min-height: 100vh;
-            padding: 32px 16px 64px;
-        }
+    .page {
+      min-height: 100vh;
+      padding: 32px 16px 64px;
+    }
 
-        .page-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
+    .page-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
 
-        /* HEADER + LOGO */
-        .top-header {
-            max-width: 100%;
-            padding: 24px 0 12px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    /* LOGO NO TOPO */
+    .site-logo {
+      width: 95px;        /* menor, mais The Row */
+      height: auto;
+      display: block;
+      margin: 20px auto 8px auto;  /* centralizada e perto do topo */
+    }
 
-        .site-logo {
-            width: 100px; /* tamanho final — elegante */
-            height: auto;
-            display: block;
-        }
+    /* META TOP */
+    .site-meta {
+      text-align: left;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      margin-top: 8px;
+      color: var(--ink-soft);
+    }
 
-        /* TOP META AREA */
-        .site-meta {
-            text-align: left;
-            letter-spacing: 0.38em;
-            text-transform: uppercase;
-            font-size: 0.74rem;
-            margin-top: 12px;
-            color: var(--ink-soft);
-        }
+    /* Pills */
+    .pill {
+      display: inline-block;
+      padding: 10px 18px;
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      border-radius: var(--radius-pill);
+      margin-right: 8px;
+      margin-top: 10px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
 
-        /* Pills */
-        .pill {
-            display: inline-block;
-            padding: 10px 18px;
-            background: var(--pill-bg);
-            border: 1px solid var(--pill-border);
-            border-radius: var(--radius-pill);
-            margin-right: 8px;
-            margin-top: 8px;
-            font-size: 0.82rem;
-            letter-spacing: 0.04em;
-        }
+    /* Navegação simples */
+    .top-nav {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
 
-        /* Sections */
-        .card {
-            background: var(--card-bg);
-            padding: 32px;
-            border-radius: var(--radius-card);
-            box-shadow: var(--shadow-soft);
-            margin-top: 32px;
-        }
+    .top-nav a {
+      text-decoration: none;
+      color: var(--ink);
+      margin-right: 18px;
+    }
 
-        h1 {
-            font-family: "Playfair Display", serif;
-            font-size: 2.2rem;
-            font-weight: 500;
-            line-height: 1.23;
-            margin-bottom: 12px;
-        }
+    .top-nav a.active {
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 3px;
+    }
 
-        h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-top: 0;
-        }
+    /* Card principal */
+    .card {
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      margin-top: 32px;
+    }
 
-        p {
-            color: var(--ink-soft);
-            font-size: 1rem;
-            margin-bottom: 16px;
-        }
-    </style>
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.23;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--ink-soft);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 24px 20px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- HEADER COM LOGO -->
-    <header class="top-header">
-        <img
-            src="assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
-            alt="Lunavell logo"
-            class="site-logo"
-        />
-    </header>
+  <!-- LOGO MÃE NO TOPO -->
+  <img
+    src="assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+    alt="Lunavell logo"
+    class="site-logo"
+  />
 
-    <div class="page">
-        <div class="page-inner">
+  <div class="page">
+    <div class="page-inner">
 
-            <!-- META TEXT (LONDON, CATEGORY etc.) -->
-            <div class="site-meta">
-                L U N A V E L L &nbsp;&nbsp; L T D<br>
-                L O N D O N &nbsp; • &nbsp; W E L L N E S S – A D J A C E N T, &nbsp; H O M E &nbsp; & A M P ; &nbsp; S E A S O N A L &nbsp; C A L M
-            </div>
+      <!-- LUNAVELL LTD + LOCAL -->
+      <div class="site-meta">
+        L U N A V E L L &nbsp;&nbsp; L T D<br>
+        L O N D O N &nbsp; • &nbsp; W E L L N E S S – A D J A C E N T, &nbsp; H O M E &nbsp; &amp; &nbsp; S E A S O N A L &nbsp; C A L M
+      </div>
 
-            <!-- PILLS -->
-            <div style="margin-top: 16px;">
-                <span class="pill">LONDON</span>
-                <span class="pill">BUSINESS ENQUIRIES</span>
-            </div>
+      <!-- PILLS TOPO -->
+      <div style="margin-top: 16px;">
+        <span class="pill">LONDON</span>
+        <span class="pill">BUSINESS ENQUIRIES</span>
+      </div>
 
-            <!-- NAVIGATION -->
-            <div style="margin-top: 24px; font-size: 0.9rem; letter-spacing: 0.18em;">
-                <strong>TOP</strong> &nbsp;&nbsp;
-                ABOUT &nbsp;&nbsp;
-                MISSION &nbsp;&nbsp;
-                APPROACH &nbsp;&nbsp;
-                CONTACT &nbsp;&nbsp;
-                POLICIES
-            </div>
+      <!-- NAV -->
+      <nav class="top-nav">
+        <a href="#top" class="active">TOP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#mission">MISSION</a>
+        <a href="#approach">APPROACH</a>
+        <a href="#contact">CONTACT</a>
+        <a href="#policies">POLICIES</a>
+      </nav>
 
-            <!-- CONTENT BLOCK -->
-            <div class="card">
+      <!-- CARD PRINCIPAL -->
+      <section class="card" id="top">
+        <span class="pill">CLOUD-INSPIRED CALM STUDIO</span>
+        <span class="pill">SOFT WHITE • CLEAR MIND</span>
 
-                <span class="pill">CLOUD-INSPIRED CALM STUDIO</span>
-                <span class="pill">SOFT WHITE • CLEAR MIND</span>
+        <h1>BRINGING CALM SOLUTIONS FOR A CHAOTIC WORLD.</h1>
 
-                <h1>BRINGING CALM SOLUTIONS FOR A CHAOTIC WORLD.</h1>
-                <p><em>Inhale, exhale — we take care of the rest.</em></p>
+        <p><em>Inhale, exhale — we take care of the rest.</em></p>
 
-                <p>
-                    Beauty, comfort and light that turn grey days into gentle calm.
-                    Our mission is born from the desire to bring rest, focus and quiet beauty
-                    to turbulent places — softening urban winters, long workdays and overstimulated minds.
-                </p>
+        <p>
+          Beauty, comfort and light that turn grey days into gentle calm.
+          Our mission is born from the desire to bring rest, focus and quiet beauty
+          to turbulent places — softening urban winters, long workdays and overstimulated minds.
+        </p>
 
-                <h2>DESIGNING BEAUTY. CRAFTING CALMNESS.</h2>
-                <p>
-                    Lunavell LTD is a London-based company designing beauty,
-                    crafting calmness and delivering long-term emotional value.
-                    We create sensorial experiences that make everyday life softer —
-                    inviting clarity, warmth and gentle presence into modern living.
-                </p>
+        <h2>DESIGNING BEAUTY. CRAFTING CALMNESS.</h2>
 
-            </div>
+        <p>
+          Lunavell LTD is a London-based company designing beauty, crafting calmness
+          and delivering long-term emotional value. We create sensorial experiences
+          that make everyday life softer — inviting clarity, warmth and gentle presence
+          into modern living.
+        </p>
+      </section>
 
-        </div>
     </div>
+  </div>
 
 </body>
 </html>
