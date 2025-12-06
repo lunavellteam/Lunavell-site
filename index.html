@@ -4,86 +4,103 @@
   <meta charset="UTF-8">
   <title>Lunavell LTD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body {
+    :root {
+      --cloud-white: #F7F7F4;
+      --fog-grey: #D9D9D9;
+      --ink-black: #1A1A1A;
+      --soft-silver: #C2C2C2;
+    }
+
+    * {
       margin: 0;
-      font-family: "Georgia", serif;
-      background: #F7F7F4;
-      color: #1A1A1A;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--cloud-white);
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink-black);
+      line-height: 1.65;
     }
 
     header {
+      padding: 40px 24px 20px;
+      max-width: 1200px;
+      margin: auto;
       text-align: center;
-      padding: 40px 20px 20px;
     }
 
     header img {
-      max-width: 220px;
-      margin-bottom: 20px;
+      width: 180px;
+      margin-bottom: 24px;
     }
 
     nav {
-      font-size: 11px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      font-size: 13px;
       letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-    }
-
-    nav span {
-      margin: 0 12px;
-      color: #666;
     }
 
     section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 100px 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 24px;
       text-align: center;
     }
 
     h1 {
-      font-size: 44px;
-      line-height: 1.1;
-      margin-bottom: 20px;
+      font-size: 48px;
+      margin-bottom: 24px;
     }
 
     p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 17px;
-      line-height: 1.6;
+      font-size: 18px;
       color: #444;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .image-block {
+      margin-top: 64px;
     }
 
     .image-block img {
       width: 100%;
-      max-width: 900px;
-      margin-top: 60px;
-      border-radius: 14px;
+      max-width: 1200px;
+      border-radius: 28px;
+      display: block;
+      margin: auto;
     }
 
     .divider {
       height: 1px;
-      background: #D9D9D9;
-      margin: 100px auto;
-      max-width: 800px;
+      background: var(--fog-grey);
+      margin: 0 auto;
+      max-width: 600px;
     }
 
     footer {
       text-align: center;
-      padding: 80px 20px;
-      font-size: 12px;
+      padding: 80px 24px;
+      font-size: 14px;
       color: #777;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- LOGO -->
+  <!-- HEADER -->
   <header>
     <img src="assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
     <nav>
       <span>TOP</span>
+      <span>ABOUT</span>
       <span>MISSION</span>
       <span>APPROACH</span>
       <span>CONTACT</span>
@@ -93,21 +110,24 @@
   <!-- HERO -->
   <section>
     <h1>BRINGING calm solutions<br>for a chaotic world.</h1>
+
     <p>Inhale, exhale — we take care of the rest.</p>
 
     <div class="image-block">
-      <img src="assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png" alt="Lunavell Hero London">
+      <img src="assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png" alt="Lunavell Hero">
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ABOUT OBJECTS -->
+  <!-- ABOUT -->
   <section>
     <h1>Designing beauty.<br>Crafting calmness.</h1>
+
     <p>
-      Lunavell LTD is a London-based calm studio designing beauty,
-      crafting emotional comfort and delivering long-term sensory value.
+      Lunavell LTD is a London-based calm studio designing beauty, crafting
+      emotional comfort and delivering long-term emotional value for modern
+      city life.
     </p>
 
     <div class="image-block">
@@ -120,14 +140,15 @@
   <!-- MISSION -->
   <section>
     <h1>A quiet commitment<br>to easing the day.</h1>
+
     <p>
-      Lunavell exists to make the everyday softer — from long London
-      winters to overstimulated schedules that still crave ritual, light
-      and calm structure.
+      Soft calm brings us focus, silence and direction.
+      Lunavell begins in this same place — where clarity is gentle,
+      structure is quiet and the future is shaped with precise intention.
     </p>
 
     <div class="image-block">
-      <img src="assets/91D72278-7D54-4265-AD8C-9F8D4B763047.png" alt="Mission London Window">
+      <img src="assets/91D72278-7D54-4265-AD8C-9F8D4B763047.png" alt="Mission Image">
     </div>
   </section>
 
@@ -136,35 +157,33 @@
   <!-- APPROACH -->
   <section>
     <h1>Minimal objects.<br>Maximum calm.</h1>
+
     <p>
-      Neutral palettes, soft silhouettes, cloud-inspired forms.
-      We design for longevity, not noise.
+      Our design approach is intentionally restrained: soft palettes,
+      cloud-inspired silhouettes and emotional comfort as structure.
     </p>
 
     <div class="image-block">
-      <img src="assets/F3145325-149E-4D63-82F2-A299E075ADD3.png" alt="Approach Sofa Lamp">
+      <img src="assets/F3145325-149E-4D63-82F2-A299E075ADD3.png" alt="Approach Image">
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- EXTRA AMBIENCE -->
+  <!-- CONTACT -->
   <section>
-    <h1>London-based calm studio.</h1>
-    <p>
-      Inside: warmth, structure, silence.  
-      Outside: grey, movement, rain.
-    </p>
+    <h1>London • Business Enquiries</h1>
 
-    <div class="image-block">
-      <img src="assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png" alt="London Atmosphere">
-    </div>
+    <p>
+      Lunavell LTD operates from London, serving calm-adjacent retail,
+      seasonal objects and wholesale partnerships.
+    </p>
+    <p style="margin-top: 24px;">hello@lunavell.co.uk</p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    © Lunavell LTD — London · Wellness-Adjacent · Home & Seasonal Calm  
-    <br>
-    hello@lunavell.co.uk
+    Lunavell LTD — London • Wellness-adjacent • Home & Seasonal Calm  
   </footer>
 
 </body>
