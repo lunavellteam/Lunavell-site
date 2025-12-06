@@ -1,37 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Lunavell LTD – Calm Solutions for a Chaotic World</title>
+  <meta charset="utf-8" />
+  <title>Lunavell LTD – Calm Technology for a Chaotic World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Lunavell LTD is a London-based calm studio designing beauty, crafting calmness and delivering long-term emotional value through wellness-adjacent, home & seasonal products." />
 
-  <!-- Meta básica para Amazon / branding -->
-  <meta name="description" content="Lunavell LTD is a London-based calm studio designing beauty, crafting calmness and delivering long-term emotional value through wellness-adjacent home and seasonal products." />
-
-  <!-- Fonts – cabeçalho serif fino + texto sans neutro -->
+  <!-- Calm luxury fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --page-bg: #f8f4ef;          /* white cloud vibe */
-      --card-bg: #fbf7f1;
-      --ink: #151515;
-      --ink-soft: #4c4c4c;
-      --accent-dot: #d4a46a;       /* pequeno toque quente, bem discreto */
-      --border-soft: #e9e1d8;
-      --pill-bg: #f4eee6;
-      --pill-border: #eadfce;
-      --radius-pill: 999px;
-      --radius-card: 32px;
-      --shadow-soft: 0 20px 40px rgba(0,0,0,0.03);
-      --max-width: 1120px;
+      --bg-cloud: #f6f3ee;        /* white-cloud / softly warm */
+      --bg-card: #f9f6f1;
+      --text-main: #171512;
+      --text-soft: #5f574e;
+      --pill-bg: #f0e7dd;
+      --pill-dot: #c9a27a;
+      --border-soft: #e2d7ca;
+      --accent-black: #111111;
+      --accent-link: #222222;
     }
 
     * {
       box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -39,74 +35,64 @@
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--page-bg);
-      color: var(--ink);
+      background: radial-gradient(circle at top left, #fdf8f2 0, var(--bg-cloud) 45%, #f3efe8 100%);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 16px 80px;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .page-shell {
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    /* HEADER / NAV  -------------------------------------------------- */
 
-    .page {
-      min-height: 100vh;
-      padding: 32px 20px 80px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .page-inner {
-      width: 100%;
-      max-width: var(--max-width);
-    }
-
-    /* ===================== TOP BAR ===================== */
-
-    .top-bar {
+    header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 32px;
       margin-bottom: 32px;
     }
 
     .brand-lockup {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
+      gap: 4px;
     }
 
-    .brand-lockup span {
+    .brand-wordmark {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--accent-black);
       white-space: nowrap;
     }
 
-    .brand-logo-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    .brand-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      white-space: nowrap;
     }
 
-    .brand-logo-row img {
-      height: 28px;                /* ajusta se quiser maior/menor */
-      width: auto;
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      flex: 1;
     }
 
     .top-pills {
       display: flex;
+      gap: 8px;
       flex-wrap: wrap;
-      gap: 10px;
       justify-content: flex-end;
     }
 
@@ -114,205 +100,369 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 16px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--pill-border);
+      padding: 6px 14px;
+      border-radius: 999px;
       background: var(--pill-bg);
       font-size: 11px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--ink-soft);
-      white-space: nowrap;
+      color: var(--text-soft);
+      border: 1px solid rgba(0,0,0,0.02);
     }
 
     .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent-dot);
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--pill-dot);
+      flex-shrink: 0;
     }
 
-    /* ===================== NAVBAR ===================== */
-
-    .nav {
+    .nav-links {
       display: flex;
-      flex-wrap: wrap;
       gap: 18px;
-      margin-bottom: 32px;
-      font-size: 12px;
-      letter-spacing: 0.18em;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 11px;
+      letter-spacing: 0.20em;
       text-transform: uppercase;
-      color: var(--ink-soft);
     }
 
-    .nav a {
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-soft);
       position: relative;
-      padding-bottom: 4px;
+      padding-bottom: 3px;
     }
 
-    .nav a::after {
+    .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
       width: 0;
       height: 1px;
-      background: var(--ink);
-      transition: width 0.25s ease;
+      background: var(--accent-black);
+      transition: width 160ms ease-out;
     }
 
-    .nav a:hover::after,
-    .nav a:focus-visible::after {
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent-black);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
       width: 100%;
     }
 
-    .nav a.active {
-      color: var(--ink);
-    }
+    /* LAYOUT SECTIONS  ----------------------------------------------- */
 
-    .nav a.active::after {
-      width: 100%;
+    section {
+      margin-top: 40px;
+      scroll-margin-top: 120px;
     }
-
-    /* ===================== HERO ===================== */
 
     .hero-card {
-      background: radial-gradient(circle at top left, #fcf6ee 0, var(--card-bg) 40%, var(--page-bg) 100%);
-      border-radius: var(--radius-card);
-      padding: 40px 32px 36px;
-      box-shadow: var(--shadow-soft);
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 32px 26px 32px;
       border: 1px solid var(--border-soft);
-      margin-bottom: 24px;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.04),
+        0 1px 0 rgba(255, 255, 255, 0.8) inset;
     }
 
     .hero-tags {
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 8px;
+      margin-bottom: 20px;
     }
 
-    .hero-pill {
-      padding: 6px 16px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--pill-border);
-      background: var(--pill-bg);
+    .hero-tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.04);
+      background: rgba(255,255,255,0.8);
       font-size: 11px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--ink-soft);
-      white-space: nowrap;
+      color: var(--text-soft);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 40px;
+      align-items: start;
     }
 
     .hero-title {
-      font-family: 'Playfair Display', 'Times New Roman', serif;
-      font-size: clamp(30px, 4vw, 42px);
-      line-height: 1.1;
-      letter-spacing: 0.04em;
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 36px;
+      line-height: 1.12;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin: 0 0 14px;
+      margin-bottom: 8px;
     }
 
     .hero-subline {
       font-style: italic;
       font-size: 14px;
-      color: var(--ink-soft);
-      margin-bottom: 24px;
+      color: var(--text-soft);
+      margin-bottom: 22px;
     }
 
-    .hero-body {
-      max-width: 560px;
-      font-size: 14px;
-      color: var(--ink-soft);
-    }
-
-    .hero-body b {
-      color: var(--ink);
+    .hero-body strong {
       font-weight: 500;
     }
 
-    /* ===================== ABOUT CARD ===================== */
+    .hero-body {
+      font-size: 14px;
+      color: var(--text-soft);
+      max-width: 36rem;
+    }
 
-    .about-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-card);
-      padding: 32px 32px 30px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
-      margin-top: 20px;
+    .hero-sidecard {
+      background: rgba(255,255,255,0.88);
+      border-radius: 18px;
+      padding: 20px 18px 18px;
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-side-label {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .hero-side-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-black);
+    }
+
+    .hero-side-body {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .hero-side-meta {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .hero-badge {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-black);
+      color: #f9f7f3;
+      font-size: 11px;
+      letter-spacing: 0.18em;
     }
 
     .section-label {
       font-size: 11px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 8px;
+      color: var(--text-soft);
+      margin-bottom: 10px;
     }
 
-    .about-title {
-      font-family: 'Playfair Display', 'Times New Roman', serif;
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 22px;
+      padding: 26px 24px 24px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .section-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
       font-size: 22px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin: 0 0 14px;
+      margin-bottom: 10px;
     }
 
-    .about-text {
+    .section-body {
       font-size: 14px;
-      color: var(--ink-soft);
-      max-width: 620px;
+      color: var(--text-soft);
+      max-width: 52rem;
     }
 
-    .about-text b {
-      color: var(--ink);
+    .stack-2col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.8fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .muted-note {
+      font-size: 12px;
+      color: var(--text-soft);
+      opacity: 0.9;
+    }
+
+    /* CONTACT + POLICIES --------------------------------------------- */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 28px;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .contact-list li + li {
+      margin-top: 6px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    a.link-soft {
+      color: var(--accent-link);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      padding-bottom: 1px;
+    }
+
+    a.link-soft:hover,
+    a.link-soft:focus-visible {
+      border-bottom-color: var(--accent-black);
+      color: var(--accent-black);
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .policy-item-title {
+      font-size: 12px;
       font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: var(--accent-black);
     }
 
-    /* ===================== BASIC RESPONSIVE ===================== */
+    /* FOOTER --------------------------------------------------------- */
 
-    @media (max-width: 720px) {
-      .page {
-        padding: 20px 16px 60px;
+    footer {
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    /* RESPONSIVE ----------------------------------------------------- */
+
+    @media (max-width: 840px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
       }
 
-      .top-bar {
-        flex-direction: column;
+      .brand-wordmark {
+        font-size: 18px;
+        letter-spacing: 0.32em;
+      }
+
+      .brand-subtitle {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+      }
+
+      nav {
         align-items: flex-start;
       }
 
-      .top-pills {
+      .nav-links {
         justify-content: flex-start;
-      }
-
-      .hero-card,
-      .about-card {
-        padding: 26px 22px 24px;
-        border-radius: 24px;
-      }
-
-      .nav {
         gap: 14px;
-        font-size: 11px;
+      }
+
+      .hero-card {
+        padding: 24px 20px 24px;
+      }
+
+      .hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+      }
+
+      .stack-2col,
+      .contact-grid,
+      .policy-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      body {
+        padding: 20px 14px 60px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand-wordmark {
+        font-size: 16px;
+        letter-spacing: 0.26em;
+      }
+      .hero-card {
+        border-radius: 18px;
+      }
+      .section-card {
+        border-radius: 18px;
       }
     }
   </style>
 </head>
-<body id="top">
-  <div class="page">
-    <div class="page-inner">
 
-      <!-- ========== TOP BAR (LOGO + CONTEXTO) ========== -->
-      <header class="top-bar">
-        <div class="brand-lockup">
-          <div class="brand-logo-row">
-            <!-- TROCAR o src abaixo pelo caminho real do seu arquivo de logo -->
-            <img src="assets/lunavell-logo-black.png" alt="Lunavell logo" />
-          </div>
-          <span>L U N A V E L L &nbsp;&nbsp; L T D</span>
-          <span>L O N D O N &nbsp; • &nbsp; W E L L N E S S – A D J A C E N T, &nbsp; H O M E &nbsp; &amp; &nbsp; S E A S O N A L &nbsp; C A L M</span>
+<body>
+  <div class="page-shell" id="top">
+    <header>
+      <div class="brand-lockup">
+        <div class="brand-wordmark">
+          LUNAVELL LTD
         </div>
+        <div class="brand-subtitle">
+          LONDON • WELLNESS-ADJACENT, HOME &amp; SEASONAL CALM
+        </div>
+      </div>
 
+      <nav aria-label="Site navigation">
         <div class="top-pills">
           <div class="pill">
             <span class="pill-dot"></span>
@@ -320,103 +470,229 @@
           </div>
           <div class="pill">
             <span class="pill-dot"></span>
-            <span>Business enquiries</span>
+            <span>Business Enquiries</span>
           </div>
         </div>
-      </header>
 
-      <!-- ========== NAVBAR ========== -->
-      <nav class="nav">
-        <a href="#top" class="active">Top</a>
-        <a href="#about">About</a>
-        <a href="#mission">Mission</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact">Contact</a>
-        <a href="#policies">Policies</a>
+        <div class="nav-links">
+          <a href="#top">Top</a>
+          <a href="#about">About</a>
+          <a href="#mission">Mission</a>
+          <a href="#approach">Approach</a>
+          <a href="#contact">Contact</a>
+          <a href="#policies">Policies</a>
+        </div>
       </nav>
+    </header>
 
-      <!-- ========== HERO / MISSION OVERVIEW ========== -->
-      <main>
-        <section class="hero-card" id="mission">
-          <div class="hero-tags">
-            <span class="hero-pill">Cloud-inspired calm studio</span>
-            <span class="hero-pill">Soft white • clear mind</span>
+    <!-- HERO / MISSION SUMMARY ------------------------------------ -->
+
+    <section aria-labelledby="hero-heading">
+      <div class="hero-card">
+        <div class="hero-tags">
+          <span class="hero-tag">Cloud-inspired calm studio</span>
+          <span class="hero-tag">Soft white • clear mind</span>
+        </div>
+
+        <div class="hero-layout">
+          <div>
+            <h1 class="hero-title" id="hero-heading">
+              BRINGING calm solutions for a chaotic world.
+            </h1>
+            <p class="hero-subline">
+              Inhale, exhale — we take care of the rest.
+            </p>
+            <p class="hero-body">
+              <strong>Beauty, comfort and light that turn grey days into gentle calm.</strong>
+              Our mission is born from the desire to bring rest, focus and quiet beauty to turbulent places — softening urban winters, long workdays and overstimulated minds.
+            </p>
           </div>
 
-          <h1 class="hero-title">
-            BRINGING calm solutions for<br />
-            a chaotic world.
-          </h1>
+          <aside class="hero-sidecard" aria-label="Lunavell overview">
+            <div class="hero-side-label">
+              LONDON-BASED CALM STUDIO
+            </div>
+            <div class="hero-side-title">
+              Designing calm for modern city life.
+            </div>
+            <p class="hero-side-body">
+              Lunavell exists to make the everyday softer — from long, grey London seasons to overfull schedules that still crave beauty, comfort and a sense of quiet ritual.
+            </p>
+            <div class="hero-side-meta">
+              <span>Wellness-adjacent • Home &amp; seasonal calm</span>
+              <span class="hero-badge">SOFT WHITE • CLEAR MIND</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-          <p class="hero-subline">
-            Inhale, exhale — we take care of the rest.
+    <!-- ABOUT ------------------------------------------------------ -->
+
+    <section id="about" aria-labelledby="about-heading">
+      <div class="section-label">ABOUT LUNAVELL LTD</div>
+      <div class="section-card">
+        <h2 class="section-title" id="about-heading">
+          DESIGNING BEAUTY. CRAFTING CALMNESS.
+        </h2>
+        <p class="section-body">
+          Lunavell LTD is a London-based company designing beauty, crafting calmness and delivering long-term emotional value. We create sensorial experiences that make everyday life softer — inviting clarity, warmth and gentle presence into modern city routines.
+        </p>
+      </div>
+    </section>
+
+    <!-- MISSION ---------------------------------------------------- -->
+
+    <section id="mission" aria-labelledby="mission-heading">
+      <div class="section-label">MISSION</div>
+      <div class="section-card stack-2col">
+        <div>
+          <h2 class="section-title" id="mission-heading">
+            A QUIET COMMITMENT TO EASING THE DAY.
+          </h2>
+          <p class="section-body">
+            Lunavell’s mission is to quietly upgrade the emotional climate of the spaces we live in — from small London flats to shared homes and work corners that double as refuge. We believe that light, texture, temperature and tiny rituals can completely shift how a day feels.
           </p>
+        </div>
+        <div class="section-body">
+          <p>
+            Instead of chasing loud wellness promises, we design calm, considered solutions that simply make it easier to breathe: discreet objects, light-driven experiences and tactile details that soften overstimulation.
+          </p>
+          <p>
+            Every Lunavell decision is guided by three questions:
+          </p>
+          <ul style="margin-top:6px; padding-left:18px;">
+            <li>Does this create more calm than noise?</li>
+            <li>Will it still feel relevant and beautiful in five winters?</li>
+            <li>Does it respect the pace and reality of urban life?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <div class="hero-body">
+    <!-- APPROACH --------------------------------------------------- -->
+
+    <section id="approach" aria-labelledby="approach-heading">
+      <div class="section-label">APPROACH</div>
+      <div class="section-card stack-2col">
+        <div>
+          <h2 class="section-title" id="approach-heading">
+            MINIMAL OBJECTS. MAXIMUM CALM.
+          </h2>
+          <p class="section-body">
+            Our design approach is intentionally restrained: neutral palettes, soft silhouettes and quiet, cloud-inspired details. We work where beauty, practicality and emotional comfort meet — always prioritising long-term use over momentary trends.
+          </p>
+        </div>
+        <div class="section-body">
+          <p>
+            Lunavell focuses on objects and experiences that:
+          </p>
+          <ul style="margin-top:6px; padding-left:18px;">
+            <li>Support daily routines in darker, colder months.</li>
+            <li>Offer sensory comfort without visual clutter.</li>
+            <li>Feel timeless in both minimal and layered interiors.</li>
+          </ul>
+          <p style="margin-top:8px;">
+            We collaborate with carefully selected partners and manufacturers, ensuring that every future Lunavell product aligns with our standards of calm aesthetics, safety and durability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT ---------------------------------------------------- -->
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="section-label">CONTACT</div>
+      <div class="section-card contact-grid">
+        <div>
+          <h2 class="section-title" id="contact-heading">
+            LONDON • BUSINESS ENQUIRIES.
+          </h2>
+          <p class="section-body">
+            For partnership enquiries, marketplace listings, wholesale or calm-adjacent collaborations, please reach out using the details below. Lunavell LTD currently operates from London, serving online marketplaces and retail partners in the UK and beyond.
+          </p>
+        </div>
+        <div>
+          <p class="contact-label">PRIMARY CONTACT</p>
+          <ul class="contact-list" style="margin-top:6px;">
+            <li><strong>Lunavell LTD</strong></li>
+            <li>Registered in England &amp; Wales</li>
+            <li>Company number: <!-- add here when ready -->••••••••</li>
+          </ul>
+
+          <p class="contact-label" style="margin-top:16px;">BUSINESS EMAIL</p>
+          <ul class="contact-list" style="margin-top:6px;">
+            <li>
+              <a class="link-soft" href="mailto:hello@lunavell.co.uk">
+                hello@lunavell.co.uk
+              </a>
+            </li>
+          </ul>
+
+          <p class="contact-label" style="margin-top:16px;">REGISTERED OFFICE (UK)</p>
+          <ul class="contact-list" style="margin-top:6px;">
+            <li><!-- Replace with your official registered office address when ready -->Official registered office address to be confirmed.</li>
+          </ul>
+
+          <p class="muted-note" style="margin-top:14px;">
+            Please note: Lunavell does not currently operate a public retail showroom. Meetings are by appointment only.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICIES --------------------------------------------------- -->
+
+    <section id="policies" aria-labelledby="policies-heading">
+      <div class="section-label">POLICIES OVERVIEW</div>
+      <div class="section-card">
+        <h2 class="section-title" id="policies-heading">
+          CALM, CLEAR AND TRANSPARENT.
+        </h2>
+        <p class="section-body" style="margin-bottom:18px;">
+          As Lunavell introduces physical products to market, this section will outline our core store policies in clear, accessible language. Until then, the structure below reflects how we intend to handle customer care for marketplaces such as Amazon and other retail partners.
+        </p>
+
+        <div class="policy-grid">
+          <div>
+            <div class="policy-item-title">RETURNS &amp; REFUNDS</div>
             <p>
-              <b>Beauty, comfort and light that turn grey days into gentle calm.</b><br />
-              Our mission is born from the desire to bring rest, focus and quiet beauty to turbulent places — softening
-              urban winters, long workdays and overstimulated minds.
+              Products will be eligible for returns in line with UK consumer law and specific marketplace rules. We prioritise fair, calm resolutions and clear timelines for processing refunds or replacements.
             </p>
           </div>
-        </section>
-
-        <!-- ========== ABOUT LUNAVELL ========== -->
-        <section class="about-card" id="about">
-          <div class="section-label">About Lunavell LTD</div>
-          <h2 class="about-title">Designing beauty. Crafting calmness.</h2>
-          <div class="about-text">
+          <div>
+            <div class="policy-item-title">SHIPPING &amp; DELIVERY</div>
             <p>
-              Lunavell LTD is a London-based company designing beauty, crafting calmness and delivering
-              long-term emotional value. We create sensorial experiences that make everyday life softer —
-              inviting clarity, warmth and gentle presence into modern city routines.
+              Detailed information on shipping methods, delivery windows and tracking options will be provided per product and region, with a focus on reliable, well-packaged deliveries.
             </p>
           </div>
-        </section>
-
-        <!-- ========== PLACEHOLDERS DAS PRÓXIMAS SEÇÕES ========== -->
-        <!-- Vamos preencher o conteúdo detalhado disso nas próximas etapas -->
-
-        <section id="approach" class="about-card" style="margin-top: 24px; opacity: 0.9;">
-          <div class="section-label">Approach</div>
-          <h2 class="about-title">Quiet design. Considered details.</h2>
-          <div class="about-text">
+          <div>
+            <div class="policy-item-title">PRIVACY &amp; COOKIES</div>
             <p>
-              We work slowly, intentionally and with a long-term view. Each Lunavell piece is developed to feel
-              timeless, understated and emotionally supportive — from colour and material choices to the way light
-              falls in a room.
+              Lunavell respects the privacy of all customers and visitors. A full Privacy &amp; Cookies Policy will be available before we begin processing customer data directly through this website.
             </p>
           </div>
-        </section>
-
-        <section id="contact" class="about-card" style="margin-top: 24px;">
-          <div class="section-label">Contact</div>
-          <div class="about-text">
+          <div>
+            <div class="policy-item-title">WARRANTY &amp; PRODUCT CARE</div>
             <p>
-              For business enquiries, partnerships or marketplace questions, please email:<br />
-              <b>hello@lunavell.co.uk</b>
-            </p>
-            <p style="font-size: 12px; opacity: 0.9;">
-              Lunavell LTD • Registered in England &amp; Wales<br />
-              Company number: <!-- opcional --> <span>••••••••</span> • London, United Kingdom
+              Where applicable, Lunavell products will include clear care instructions and, where relevant, limited warranties that align with the nature of each device or calm object.
             </p>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section id="policies" class="about-card" style="margin-top: 24px;">
-          <div class="section-label">Policies</div>
-          <div class="about-text">
-            <p style="font-size: 13px;">
-              This website is an official brand studio page for Lunavell LTD and is used to communicate our mission,
-              company details and marketplace presence. Detailed privacy, returns and marketplace policies will be
-              provided on the relevant retail platforms where Lunavell products are sold.
-            </p>
-          </div>
-        </section>
+    <!-- FOOTER ----------------------------------------------------- -->
 
-      </main>
-
-    </div>
+    <footer>
+      <span>© <span id="year"></span> Lunavell LTD. All rights reserved.</span>
+      <span>UK-registered company • Wellness-adjacent, home &amp; seasonal calm.</span>
+    </footer>
   </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
