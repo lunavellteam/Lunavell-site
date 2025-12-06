@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lunavell LTD – Calm Technology for a Chaotic World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Lunavell LTD is a UK company designing calm, considered wellness and home products for modern city life. Built for long winters, small spaces and busy minds." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cloud: #f5f5f4;
+      --paper: #ffffff;
+      --ink: #141414;
+      --muted: #6e6e6e;
+      --accent: #d1b08a; /* champagne / sunset discreto */
+      --border-soft: #e3e3df;
+      --max-width: 1120px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 24px 55px rgba(0,0,0,0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0, #f5f5f4 55%, #ecebe7 100%);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* -------- NAV -------- */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(245,245,244,0.94);
+      border-bottom: 1px solid rgba(224,224,220,0.9);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: 0.18em;
+      font-size: 0.96rem;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .logo span {
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--ink);
+      transition: width 0.18s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0,0,0,0.12);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: rgba(255,255,255,0.92);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 720px) {
+      nav ul {
+        display: none;
+      }
+    }
+
+    /* -------- LAYOUT BASE -------- */
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section-heading {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin-bottom: 20px;
+    }
+
+    /* -------- HERO -------- */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 40px;
+      padding-top: 56px;
+      padding-bottom: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.5rem, 3.2vw, 3.1rem);
+      line-height: 1.06;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+    }
+
+    .btn-ghost {
+      padding: 11px 20px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0,0,0,0.18);
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+    }
+
+    .hero-meta {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-media {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      background: radial-gradient(circle at top left, #ffffff 0, #f7f4f0 36%, #eae7e1 82%, #e3dfd8 100%);
+      box-shadow: var(--shadow-soft);
+      min-height: 260px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-cloud {
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.85) 0, transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.9) 0, transparent 55%),
+        radial-gradient(circle at 50% 90%, rgba(255,255,255,0.8) 0, transparent 55%);
+      opacity: 0.9;
+      filter: blur(4px);
+      animation: drift 22s linear infinite alternate;
+    }
+
+    @keyframes drift {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-8px, 6px, 0); }
+    }
+
+    .hero-tag {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-block {
+      position: relative;
+      z-index: 1;
+      margin-top: 40px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.94);
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid rgba(0,0,0,0.05);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-block-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .hero-block-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-pill {
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
+    }
+
+    /* -------- ABOUT / BRAND STORY -------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+    }
+
+    .card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    /* -------- PRODUCT PREVIEW -------- */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--paper);
+      border-radius: 20px;
+      padding: 16px 16px 18px;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .product-tag {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .product-name {
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .product-text {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* -------- TRUST STRIP -------- */
+
+    .trust-strip {
+      margin-top: 26px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: rgba(255,255,255,0.9);
+      padding: 10px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      align-items: center;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trust-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* -------- CONTACT & POLICIES -------- */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .policy-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .policy-list a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    /* -------- FOOTER -------- */
+
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      background: #f2f2f0;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    /* -------- RESPONSIVE -------- */
+
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-media {
+        order: -1;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 30px 16px;
+      }
+
+      .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-media {
+        margin-top: 6px;
+      }
+
+      h1 {
+        font-size: 2.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-inner">
+      <div class="logo"><span>Lunavell</span> Ltd</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#policies">Policies</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="#contact">London • Business enquiries</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="top">
+      <div>
+        <div class="eyebrow">UK registered company • Wellness, home & seasonal products</div>
+        <h1>Building calm technology<br>for a chaotic world.</h1>
+        <p>
+          Lunavell LTD designs quiet, considered products for modern city life — from seasonal light lamps for
+          long winters to discreet home devices that make everyday routines softer, warmer and easier.
+        </p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary">Explore product lines</a>
+          <a href="#about" class="btn-ghost">About Lunavell LTD</a>
+        </div>
+        <div class="hero-meta">
+          Based in London • Serving online marketplaces and retail partners in the UK and beyond.
+        </div>
+      </div>
+
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-cloud"></div>
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          <span>Cloud Dancer inspired • Soft white, clear mind</span>
+        </div>
+
+        <div class="hero-block">
+          <div>
+            <div class="hero-block-title">Lunavell Cloud Lamp</div>
+            <div class="hero-block-text">
+              A soft, uplifting light designed to echo a clear winter sky –
+              created for darker months in cities like London.
+            </div>
+          </div>
+          <div class="hero-pill">Winter 2026 • Preview</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND STORY -->
+    <section class="section" id="about">
+      <h2 class="section-heading">About Lunavell LTD</h2>
+      <p class="section-sub">
+        Lunavell LTD is a private company registered in the United Kingdom.
+        We operate in retail and wholesale of wellness, beauty-adjacent and home lifestyle products, with an emphasis on seasonal comfort and calm technology.
+      </p>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3>Approach</h3>
+          <p>
+            Our work starts with how people actually live: small flats, long commutes, grey skies and busy minds.
+            We develop minimalist, durable products that combine a clean visual language with functional, everyday benefits.
+            Think: sunrise lamps for darker seasons, discreet dryers for wet winters, and comfort devices that feel at home in a calm, neutral interior.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Company details</h3>
+          <p>
+            Lunavell LTD<br>
+            Registered in England &amp; Wales<br>
+            SIC Codes: 47910 • 46499 • 46190 • 46900<br><br>
+            Company registration number, VAT number and full registered office address will be displayed here as soon as they are finalised in the official records.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT PREVIEW -->
+    <section class="section" id="products">
+      <h2 class="section-heading">Selected product lines</h2>
+      <p class="section-sub">
+        Our collection focuses on calm, functional pieces that quietly support everyday life.
+        Below are examples of current and upcoming product categories.
+      </p>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-tag">Seasonal light</div>
+          <div class="product-name">Lunavell Cloud Lamp</div>
+          <p class="product-text">
+            A compact, minimal lamp that mimics the softness of natural daylight. Designed for winter mornings
+            and grey afternoons, particularly in northern cities where sunlight is limited.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-tag">Home devices</div>
+          <div class="product-name">Boot &amp; Shoe Dryer</div>
+          <p class="product-text">
+            Discreet drying devices created for rainy seasons. Practical enough for daily use, calm enough to sit
+            in the hallway of a neutral, minimal home.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-tag">Comfort &amp; warmth</div>
+          <div class="product-name">Heating &amp; recovery accessories</div>
+          <p class="product-text">
+            Future lines focused on warmth, muscle recovery and rest.
+            Designed to pair with long working days, cold flats and the need to slow down at home.
+          </p>
+        </article>
+      </div>
+
+      <div class="trust-strip">
+        <span class="trust-pill">
+          <span class="trust-dot"></span> UK company &amp; marketplace compliant
+        </span>
+        <span class="trust-pill">
+          <span class="trust-dot"></span> Clear policies for returns &amp; warranties
+        </span>
+        <span class="trust-pill">
+          <span class="trust-dot"></span> Designed with long-term use in mind
+        </span>
+      </div>
+    </section>
+
+    <!-- CONTACT & POLICIES -->
+    <section class="section" id="contact">
+      <h2 class="section-heading">Contact & business enquiries</h2>
+      <p class="section-sub">
+        For wholesale, retail or marketplace enquiries, please use the email address below.
+        We are open to collaborations with distributors, retailers and online platforms aligned with our values.
+      </p>
+
+      <div class="contact-grid">
+        <div class="card">
+          <p>
+            <strong>Email:</strong><br>
+            contact@lunavell.co.uk (placeholder – once your official email is created, update this line)<br><br>
+
+            <strong>Registered office:</strong><br>
+            Your UK registered company address will be displayed here once confirmed.<br><br>
+
+            We aim to respond to business enquiries within 2–3 working days.
+          </p>
+        </div>
+
+        <div class="card" id="policies">
+          <h3>Policies &amp; legal</h3>
+          <ul class="policy-list">
+            <li><a href="#privacy">Privacy policy (summary)</a></li>
+            <li><a href="#returns">Returns &amp; refunds (summary)</a></li>
+            <li><a href="#shipping">Shipping &amp; delivery (summary)</a></li>
+            <li><a href="#terms">Terms &amp; conditions (summary)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICY SUMMARIES -->
+    <section class="section" id="privacy">
+      <h2 class="section-heading">Privacy & data</h2>
+      <p class="section-sub">
+        Lunavell LTD respects customer privacy. We only collect information that is necessary to process orders,
+        operate our business and comply with legal requirements. Data is not sold to third parties.
+        A full, detailed privacy policy will be published before any direct-to-consumer sales begin.
+      </p>
+    </section>
+
+    <section class="section" id="returns">
+      <h2 class="section-heading">Returns & refunds</h2>
+      <p class="section-sub">
+        We follow fair and transparent returns rules. Defective or damaged products can be returned or refunded in
+        line with UK consumer law and the policies of each marketplace where our products are sold (for example,
+        Amazon’s own returns policy when selling via FBA). Product-specific terms will be clearly stated on each listing.
+      </p>
+    </section>
+
+    <section class="section" id="shipping">
+      <h2 class="section-heading">Shipping & delivery</h2>
+      <p class="section-sub">
+        Shipping methods and delivery times depend on the channel (such as Amazon FBA, wholesale or other partners).
+        We work with established logistics providers to ensure safe, traceable delivery and will always display
+        estimated delivery times at checkout or on product listings.
+      </p>
+    </section>
+
+    <section class="section" id="terms">
+      <h2 class="section-heading">Terms & conditions</h2>
+      <p class="section-sub">
+        All sales made by Lunavell LTD are subject to our terms and conditions, which will be published in full in
+        a dedicated document. These include information about pricing, orders, warranties, limitation of liability
+        and governing law (England &amp; Wales).
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Lunavell LTD • All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#returns">Returns</a>
+        <a href="#shipping">Shipping</a>
+        <a href="#terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Atualiza o ano automaticamente
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
