@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Discover — Lunavell</title>
+  <title>Discover Lunavell</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -17,7 +17,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: white;
+      background: #fff;
       color: #111;
     }
 
@@ -26,15 +26,18 @@
       color: inherit;
     }
 
-    /* ========== DESKTOP HEADER ========== */
+    /* ===== DESKTOP HEADER ===== */
 
     .desktop-header {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       padding: 28px 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #eee;
+      z-index: 20;
     }
 
     .desktop-logo img {
@@ -43,24 +46,24 @@
 
     .desktop-nav {
       display: flex;
-      align-items: center;
       gap: 32px;
       font-size: 13px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
     }
 
-    /* ========== MOBILE HEADER ========== */
+    /* ===== MOBILE HEADER ===== */
 
     .mobile-shell {
       display: none;
       background: #fff;
-      text-align: center;
-      border-bottom: 1px solid #eee;
+      position: relative;
+      z-index: 15;
     }
 
     .mobile-logo {
       padding: 22px 0 10px;
+      text-align: center;
     }
 
     .mobile-logo img {
@@ -71,50 +74,59 @@
       display: flex;
       justify-content: space-around;
       padding: 12px 0 16px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
       font-size: 13px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
     }
 
-    /* ========== PAGE HEADER IMAGE ========== */
+    /* ===== DISCOVER HERO ===== */
 
     .discover-hero {
+      min-height: 100vh;
       width: 100%;
-      height: 70vh;
-      background: url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
+      background: url("assets/discover-hero.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      color: #fff;
+      position: relative;
     }
 
-    /* ========== CONTENT ========== */
+    .discover-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: 1;
+    }
 
     .discover-content {
+      position: relative;
+      z-index: 2;
       max-width: 900px;
-      margin: 0 auto;
-      padding: 90px 24px 120px;
-      text-align: center;
     }
 
-    .discover-content h2 {
+    .discover-content h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 48px;
+      font-size: 54px;
+      font-weight: 600;
       margin-bottom: 28px;
     }
 
     .discover-content p {
-      font-size: 15px;
-      letter-spacing: 0.05em;
-      line-height: 1.9;
-      max-width: 720px;
-      margin: 0 auto 80px;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      line-height: 1.8;
+      margin-bottom: 18px;
     }
 
-    .block {
-      margin-bottom: 100px;
-    }
-
-    /* ========== RESPONSIVE ========== */
+    /* ===== RESPONSIVE ===== */
 
     @media (max-width: 768px) {
-
       .desktop-header {
         display: none;
       }
@@ -124,17 +136,17 @@
       }
 
       .discover-hero {
-        height: 55vh;
+        min-height: calc(100vh - 180px);
+        padding: 60px 20px;
       }
 
-      .discover-content h2 {
-        font-size: 36px;
+      .discover-content h1 {
+        font-size: 40px;
       }
 
       .discover-content p {
-        font-size: 14px;
+        font-size: 13px;
       }
-
     }
   </style>
 </head>
@@ -170,40 +182,21 @@
     </nav>
   </header>
 
-  <!-- HERO IMAGE -->
-  <section class="discover-hero"></section>
+  <!-- DISCOVER HERO -->
+  <section class="discover-hero">
+    <div class="discover-content">
+      <h1>Inhale. Exhale. We take care of the rest.</h1>
 
-  <!-- CONTENT -->
-  <section class="discover-content">
-
-    <div class="block">
-      <h2>Our Mission</h2>
       <p>
-        Beauty, comfort and light that transform even the greyest days into calm.
-        Lunavell is born from the desire to return rest, focus and quiet beauty to turbulent spaces.
-        We don’t create objects — we shape atmospheres, sensations and states of being.
+        Lunavell is a London-based retail brand born from the desire to bring clarity
+        back into an increasingly chaotic world.
+      </p>
+
+      <p>
+        We create practical, sensory experiences designed to soften the everyday,
+        restore focus and elevate the ordinary into ritual.
       </p>
     </div>
-
-    <div class="block">
-      <h2>Our Approach</h2>
-      <p>
-        Calm is not an aesthetic. It is infrastructure.
-        Our process is minimal, intentional and human.
-        Each form is refined to allow presence, not performance.
-        Silence, light and texture are our primary materials.
-      </p>
-    </div>
-
-    <div class="block">
-      <h2>Coming Soon</h2>
-      <p>
-        Lunavell is currently in a phase of research, design and curation.
-        Our first sensory collections will be revealed soon.
-        For now, remain within the atmosphere.
-      </p>
-    </div>
-
   </section>
 
 </body>
