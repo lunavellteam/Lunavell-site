@@ -5,6 +5,7 @@
   <title>LUNAVELL — Calm solutions for modern life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -32,39 +33,37 @@
       top: 0;
       left: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
-      padding: 32px 80px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      padding: 24px 80px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      letter-spacing: 1px;
+    .logo img {
+      height: 42px;
     }
 
-    .menu-btn {
+    nav a {
+      margin-left: 30px;
       font-size: 13px;
-      letter-spacing: 2px;
-      cursor: pointer;
+      letter-spacing: 1px;
     }
 
     /* HERO */
     .hero {
       min-height: 100vh;
-      background: 
+      background:
         linear-gradient(
-          rgba(255,255,255,0.12),
-          rgba(255,255,255,0.12)
+          rgba(255,255,255,0.15),
+          rgba(255,255,255,0.15)
         ),
-        url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
+        url("hero.jpg") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 20px;
+      padding: 140px 20px;
       text-align: center;
     }
 
@@ -76,17 +75,14 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(42px, 6vw, 88px);
       font-weight: 700;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       line-height: 1.05;
     }
 
     .hero p {
       font-size: 14px;
       letter-spacing: 1.5px;
-    }
-
-    .cta {
-      margin-top: 50px;
+      margin-bottom: 40px;
     }
 
     .cta a {
@@ -115,10 +111,29 @@
     }
 
     .section-text {
-      max-width: 700px;
+      max-width: 760px;
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.9;
       opacity: 0.9;
+    }
+
+    /* SHOP COMING SOON */
+    .coming-soon {
+      text-align: center;
+      padding: 200px 80px;
+    }
+
+    .coming-soon h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      margin-bottom: 30px;
+    }
+
+    .coming-soon p {
+      font-size: 18px;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.8;
     }
 
     /* FOOTER */
@@ -142,54 +157,16 @@
       opacity: 0.5;
     }
 
-    /* FULLSCREEN MENU */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(255,255,255,0.98);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.5s ease;
-    }
-
-    .overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .overlay a {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      margin: 14px 0;
-      transition: 0.3s ease;
-    }
-
-    .overlay a:hover {
-      opacity: 0.4;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 40px;
-      right: 80px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      cursor: pointer;
-    }
-
     @media (max-width: 768px) {
       header {
         padding: 20px 30px;
       }
-      section, footer {
+
+      nav {
+        display: none;
+      }
+
+      section, footer, .coming-soon {
         padding: 120px 30px;
       }
     }
@@ -200,54 +177,71 @@
 
 <!-- HEADER -->
 <header>
-  <div class="logo">LUNAVELL</div>
-  <div class="menu-btn" onclick="toggleMenu()">MENU</div>
+  <div class="logo">
+    <img src="logo.png" alt="Lunavell Logo">
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#mission">Mission</a>
+    <a href="#approach">Approach</a>
+    <a href="#journal">Journal</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<!-- FULLSCREEN MENU -->
-<div class="overlay" id="menu">
-  <div class="close-btn" onclick="toggleMenu()">CLOSE</div>
-
-  <a href="#">Home</a>
-  <a href="#">Shop</a>
-  <a href="#">Mission</a>
-  <a href="#">Approach</a>
-  <a href="#">Journal</a>
-  <a href="#">About</a>
-  <a href="#">Contact</a>
-  <a href="#">Policies</a>
-</div>
-
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="hero-content">
     <h1>Calm solutions for modern life.</h1>
     <p>Silence is our raw material. London-based. Globally designed.</p>
-
     <div class="cta">
-      <a href="#">DISCOVER LUNAVELL</a>
+      <a href="#mission">DISCOVER LUNAVELL</a>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section>
-  <h2 class="section-title">A calm studio born in London</h2>
+<!-- MISSION -->
+<section id="mission">
+  <h2 class="section-title">Our Mission</h2>
   <p class="section-text">
-    Lunavell creates wellness, beauty and home objects designed to restore equilibrium in modern life.
-    Inspired by light, silence and the soft power of presence, our products transform everyday routines
-    into rituals of quiet luxury.
+    Beauty, comfort and light that transform even the greyest days into calm.
+    Lunavell is born from the desire to return rest, focus and quiet beauty to turbulent spaces.
+    We don’t create objects — we shape atmospheres, sensations and states of being.
   </p>
 </section>
 
 <!-- APPROACH -->
-<section>
+<section id="approach">
   <h2 class="section-title">Our Approach</h2>
   <p class="section-text">
-    We believe calm is not decoration. It is infrastructure. Each piece is designed with intention,
-    reduced to its essence, engineered to slow the body and focus the mind.
+    Lunavell does not exist to sell objects.
+    It exists to return presence, breath and softness to modern life.
+    We believe calm is not decoration. It is infrastructure.
   </p>
 </section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">A calm studio born in London</h2>
+  <p class="section-text">
+    A London-based company devoted to beauty, calm and emotional resonance.
+    Lunavell exists to make life feel lighter, slower and more intentional.
+  </p>
+</section>
+
+<!-- SHOP COMING SOON -->
+<div class="coming-soon" id="shop">
+  <h2>Coming Soon</h2>
+  <p>
+    Lunavell is currently in a phase of creation, research and curation.
+    Our first sensory experiences will be released soon.
+    <br><br>
+    For now, we invite you to remain within the atmosphere.
+  </p>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -263,12 +257,6 @@
     © 2026 Lunavell Ltd — London, United Kingdom
   </div>
 </footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-  }
-</script>
 
 </body>
 </html>
