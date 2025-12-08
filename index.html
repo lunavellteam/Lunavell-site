@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>LUNAVELL — Calm solutions for modern life</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Lunavell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -16,277 +16,123 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #ffffff;
+      background: white;
       color: #111;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER */
     header {
-      position: fixed;
-      width: 100%;
+      position: absolute;
       top: 0;
-      left: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      padding: 20px 24px;
+      width: 100%;
+      padding: 28px 60px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      z-index: 10;
     }
 
     .logo img {
-      height: 48px;
+      height: 68px;
     }
 
-    .menu-btn {
-      font-size: 12px;
-      letter-spacing: 3px;
-      cursor: pointer;
+    nav a {
+      margin-left: 36px;
+      text-decoration: none;
+      color: #111;
+      font-size: 13px;
+      letter-spacing: 2px;
     }
 
-    /* MOBILE MENU */
-    .mobile-menu {
-      position: fixed;
-      inset: 0;
-      background: #ffffff;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.4s ease;
-    }
-
-    .mobile-menu.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .mobile-menu a {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      margin: 12px 0;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      cursor: pointer;
-    }
-
-    /* HERO */
     .hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(
-          rgba(255,255,255,0.15),
-          rgba(255,255,255,0.15)
-        ),
-        url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
+      height: 100vh;
+      width: 100%;
+      background: url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 140px 20px 80px;
       text-align: center;
+      padding: 0 20px;
     }
 
     .hero-content {
       max-width: 900px;
+      background: rgba(255,255,255,0.55);
+      padding: 70px 60px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 7vw, 64px);
-      font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.05;
+      font-size: 58px;
+      font-weight: 600;
+      margin-bottom: 18px;
     }
 
     .hero p {
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      margin-bottom: 40px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin-bottom: 50px;
     }
 
-    .cta a {
+    .hero a {
       display: inline-block;
-      padding: 14px 44px;
+      padding: 16px 48px;
       border: 1px solid #111;
+      text-decoration: none;
+      color: #111;
       font-size: 12px;
       letter-spacing: 3px;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    .cta a:hover {
+    .hero a:hover {
       background: #111;
-      color: #fff;
+      color: white;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 120px 24px;
-    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 38px;
+      }
 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      margin-bottom: 28px;
-    }
+      header {
+        padding: 20px;
+      }
 
-    .section-text {
-      max-width: 760px;
-      font-size: 17px;
-      line-height: 1.9;
-      opacity: 0.9;
-    }
-
-    /* SHOP */
-    .coming-soon {
-      text-align: center;
-      padding: 160px 24px;
-    }
-
-    .coming-soon h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 44px;
-      margin-bottom: 24px;
-    }
-
-    .coming-soon p {
-      font-size: 17px;
-      max-width: 620px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 100px 24px;
-      border-top: 1px solid #eee;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    .copyright {
-      margin-top: 50px;
-      font-size: 12px;
-      opacity: 0.5;
+      nav a {
+        margin-left: 18px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo">
     <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
   </div>
 
-  <div class="menu-btn" onclick="toggleMenu()">MENU</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="discover.html">Shop</a>
+    <a href="discover.html">Mission</a>
+    <a href="discover.html">Approach</a>
+    <a href="#">Journal</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="close-btn" onclick="toggleMenu()">CLOSE</div>
-
-  <a href="#home" onclick="toggleMenu()">Home</a>
-  <a href="#shop" onclick="toggleMenu()">Shop</a>
-  <a href="#mission" onclick="toggleMenu()">Mission</a>
-  <a href="#approach" onclick="toggleMenu()">Approach</a>
-  <a href="#journal" onclick="toggleMenu()">Journal</a>
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="home">
+<section class="hero">
   <div class="hero-content">
     <h1>Calm solutions for modern life.</h1>
     <p>Silence is our raw material. London-based. Globally designed.</p>
-    <div class="cta">
-      <a href="#mission">DISCOVER LUNAVELL</a>
-    </div>
+    <a href="discover.html">DISCOVER LUNAVELL</a>
   </div>
 </section>
-
-<!-- MISSION -->
-<section id="mission">
-  <h2 class="section-title">Our Mission</h2>
-  <p class="section-text">
-    Beauty, comfort and light that transform even the greyest days into calm.
-    Lunavell is born from the desire to return rest, focus and quiet beauty to turbulent spaces.
-    We don’t create objects — we shape atmospheres, sensations and states of being.
-  </p>
-</section>
-
-<!-- APPROACH -->
-<section id="approach">
-  <h2 class="section-title">Our Approach</h2>
-  <p class="section-text">
-    Lunavell does not exist to sell objects.
-    It exists to return presence, breath and softness to modern life.
-    We believe calm is not decoration. It is infrastructure.
-  </p>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2 class="section-title">A calm studio born in London</h2>
-  <p class="section-text">
-    A London-based company devoted to beauty, calm and emotional resonance.
-    Lunavell exists to make life feel lighter, slower and more intentional.
-  </p>
-</section>
-
-<!-- SHOP -->
-<div class="coming-soon" id="shop">
-  <h2>Coming Soon</h2>
-  <p>
-    Lunavell is currently in a phase of creation, research and curation.
-    Our first sensory experiences will be released soon.
-    <br><br>
-    For now, we invite you to remain within the atmosphere.
-  </p>
-</div>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Refund Policy</a>
-    <a href="#">Shipping Policy</a>
-    <a href="#">Terms & Conditions</a>
-    <a href="#">Cookie Policy</a>
-  </div>
-
-  <div class="copyright">
-    © 2026 Lunavell Ltd — London, United Kingdom
-  </div>
-</footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("active");
-  }
-</script>
 
 </body>
 </html>
