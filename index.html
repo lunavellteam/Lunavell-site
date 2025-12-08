@@ -25,13 +25,12 @@
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 24px 40px;
+      padding: 24px 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      z-index: 10;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(6px);
+      background: white;
+      z-index: 100;
     }
 
     .logo img {
@@ -40,17 +39,14 @@
 
     nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      gap: 36px;
     }
 
     nav a {
-      margin-left: 28px;
       text-decoration: none;
       color: #111;
       font-size: 13px;
       letter-spacing: 2px;
-      font-weight: 400;
     }
 
     /* ===== HERO ===== */
@@ -62,18 +58,19 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 20px 40px;
+      padding: 0 20px;
     }
 
     .hero-content {
       max-width: 900px;
+      padding: 0 40px;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 56px;
+      font-size: 58px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero p {
@@ -97,29 +94,26 @@
       color: white;
     }
 
-    /* ===== MOBILE AJUSTES ===== */
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-
       header {
         flex-direction: column;
-        gap: 14px;
-        padding: 20px 20px;
+        gap: 16px;
+        padding: 18px;
       }
 
       .logo img {
-        height: 100px;
+        height: 95px;
       }
 
       nav {
-        width: 100%;
-        justify-content: center;
+        gap: 20px;
         flex-wrap: wrap;
-        gap: 14px;
+        justify-content: center;
       }
 
-      nav a {
-        margin: 0;
-        font-size: 12px;
+      .hero {
+        padding-top: 160px;
       }
 
       .hero h1 {
@@ -135,7 +129,6 @@
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo">
     <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
@@ -143,16 +136,12 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="discover.html">Shop</a>
     <a href="discover.html">Mission</a>
-    <a href="discover.html">Approach</a>
-    <a href="#">Journal</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="discover.html">Shop</a>
+    <a href="#">More</a>
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Calm solutions for modern life.</h1>
