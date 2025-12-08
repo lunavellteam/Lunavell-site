@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discover — Lunavell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========== DESKTOP HEADER ========== */
+
+    .desktop-header {
+      width: 100%;
+      padding: 28px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+    }
+
+    .desktop-logo img {
+      height: 46px;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    /* ========== MOBILE HEADER ========== */
+
+    .mobile-shell {
+      display: none;
+      background: #fff;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-logo {
+      padding: 22px 0 10px;
+    }
+
+    .mobile-logo img {
+      height: 120px;
+    }
+
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0 16px;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    /* ========== PAGE HEADER IMAGE ========== */
+
+    .discover-hero {
+      width: 100%;
+      height: 70vh;
+      background: url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
+    }
+
+    /* ========== CONTENT ========== */
+
+    .discover-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 90px 24px 120px;
+      text-align: center;
+    }
+
+    .discover-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin-bottom: 28px;
+    }
+
+    .discover-content p {
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      line-height: 1.9;
+      max-width: 720px;
+      margin: 0 auto 80px;
+    }
+
+    .block {
+      margin-bottom: 100px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+
+    @media (max-width: 768px) {
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .discover-hero {
+        height: 55vh;
+      }
+
+      .discover-content h2 {
+        font-size: 36px;
+      }
+
+      .discover-content p {
+        font-size: 14px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MOBILE HEADER -->
+  <div class="mobile-shell">
+    <div class="mobile-logo">
+      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
+    </div>
+    <nav class="mobile-nav-top">
+      <a href="index.html">Home</a>
+      <a href="discover.html">Mission</a>
+      <a href="discover.html">Shop</a>
+      <a href="discover.html">More</a>
+    </nav>
+  </div>
+
+  <!-- DESKTOP HEADER -->
+  <header class="desktop-header">
+    <div class="desktop-logo">
+      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="discover.html">Shop</a>
+      <a href="discover.html">Mission</a>
+      <a href="discover.html">Approach</a>
+      <a href="#">Journal</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO IMAGE -->
+  <section class="discover-hero"></section>
+
+  <!-- CONTENT -->
+  <section class="discover-content">
+
+    <div class="block">
+      <h2>Our Mission</h2>
+      <p>
+        Beauty, comfort and light that transform even the greyest days into calm.
+        Lunavell is born from the desire to return rest, focus and quiet beauty to turbulent spaces.
+        We don’t create objects — we shape atmospheres, sensations and states of being.
+      </p>
+    </div>
+
+    <div class="block">
+      <h2>Our Approach</h2>
+      <p>
+        Calm is not an aesthetic. It is infrastructure.
+        Our process is minimal, intentional and human.
+        Each form is refined to allow presence, not performance.
+        Silence, light and texture are our primary materials.
+      </p>
+    </div>
+
+    <div class="block">
+      <h2>Coming Soon</h2>
+      <p>
+        Lunavell is currently in a phase of research, design and curation.
+        Our first sensory collections will be revealed soon.
+        For now, remain within the atmosphere.
+      </p>
+    </div>
+
+  </section>
+
+</body>
+</html>
