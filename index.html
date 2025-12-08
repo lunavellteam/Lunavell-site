@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lunavell LTD</title>
+  <title>LUNAVELL — Calm solutions for modern life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --cloud-white: #F7F7F4;
-      --fog-grey: #D9D9D9;
-      --ink-black: #1A1A1A;
-      --soft-silver: #C2C2C2;
-    }
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -20,77 +16,141 @@
     }
 
     body {
-      background: var(--cloud-white);
-      font-family: Georgia, serif;
-      color: var(--ink-black);
-      line-height: 1.7;
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     header {
-      text-align: center;
-      padding: 48px 24px 24px;
-    }
-
-    header img {
-      max-width: 220px;
-      margin-bottom: 24px;
-    }
-
-    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      padding: 30px 80px;
       display: flex;
-      justify-content: center;
-      gap: 32px;
-      font-size: 12px;
-      letter-spacing: 3px;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: 120px auto;
-      padding: 0 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      justify-content: space-between;
       align-items: center;
     }
 
-    h1 {
-      font-size: clamp(32px, 6vw, 72px);
-      line-height: 1.1;
-      margin-bottom: 24px;
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      letter-spacing: 1px;
     }
 
-    p {
+    nav a {
+      margin-left: 30px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: 
+        linear-gradient(
+          rgba(255,255,255,0.15),
+          rgba(255,255,255,0.15)
+        ),
+        url("hero.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      color: #111;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 6vw, 88px);
+      font-weight: 700;
+      margin-bottom: 30px;
+      line-height: 1.05;
+    }
+
+    .hero p {
       font-size: 16px;
-      color: #444;
+      letter-spacing: 1px;
     }
 
-    .image-block {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      border-radius: 24px;
-      overflow: hidden;
+    .cta {
+      margin-top: 50px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 16px 50px;
+      border: 1px solid #111;
+      font-size: 14px;
+      letter-spacing: 2px;
+      transition: 0.3s ease;
+    }
+
+    .cta a:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    section {
+      padding: 160px 80px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin-bottom: 40px;
+    }
+
+    .section-text {
+      max-width: 700px;
+      font-size: 18px;
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+
+    footer {
+      padding: 120px 80px;
       background: #fff;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      border-top: 1px solid #eee;
     }
 
-    .image-block img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      font-size: 14px;
+      letter-spacing: 1px;
     }
 
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--soft-silver);
-      margin: 120px 0;
+    .copyright {
+      margin-top: 60px;
+      font-size: 12px;
+      opacity: 0.5;
     }
 
-    @media (max-width: 900px) {
-      section {
-        grid-template-columns: 1fr;
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      section, footer {
+        padding: 120px 30px;
       }
     }
   </style>
@@ -98,83 +158,65 @@
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+  <div class="logo">LUNAVELL</div>
   <nav>
-    <span>TOP</span>
-    <span>MISSION</span>
-    <span>APPROACH</span>
-    <span>CONTACT</span>
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Mission</a>
+    <a href="#">Approach</a>
+    <a href="#">Journal</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section>
-  <div>
-    <h1>BRINGING calm solutions<br>for a chaotic world.</h1>
-    <p><em>Inhale, exhale — we take care of the rest.</em></p><br>
-    <p>
-      Beauty, comfort and light that turn grey days into gentle calm.
-      Our mission is born from the desire to bring rest, focus and quiet beauty
-      to turbulent places — softening urban winters, long workdays and overstimulated minds.
-    </p>
-  </div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Calm solutions for modern life.</h1>
+    <p>Silence is our raw material. London-based. Globally designed.</p>
 
-  <div class="image-block">
-    <img src="./assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png" alt="Hero London Room">
+    <div class="cta">
+      <a href="#">DISCOVER LUNAVELL</a>
+    </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ABOUT OBJECTS -->
+<!-- ABOUT -->
 <section>
-  <div>
-    <h1>Designing beauty.<br>Crafting calmness.</h1>
-    <p>
-      Lunavell LTD is a London-based calm studio designing beauty,
-      crafting emotional comfort and delivering long-term quiet value.
-    </p>
-  </div>
-
-  <div class="image-block">
-    <img src="./assets/87D502ED-EE1B-4CD4-B094-A1C507008EB6.png" alt="Skincare Objects">
-  </div>
+  <h2 class="section-title">A calm studio born in London</h2>
+  <p class="section-text">
+    Lunavell creates wellness, beauty and home objects designed to restore equilibrium in modern life.
+    Inspired by light, silence and the soft power of presence, our products transform everyday routines
+    into rituals of quiet luxury.
+  </p>
 </section>
-
-<div class="divider"></div>
-
-<!-- MISSION -->
-<section>
-  <div>
-    <h1>A quiet commitment<br>to easing the modern life.</h1>
-    <p>
-      We believe silence, light and form are technologies of the soul.
-      Our objects invite you to slow down — without asking.
-    </p>
-  </div>
-
-  <div class="image-block">
-    <img src="./assets/91D72278-7D54-4265-AD8C-9F8D4B763047.png" alt="London Window">
-  </div>
-</section>
-
-<div class="divider"></div>
 
 <!-- APPROACH -->
 <section>
-  <div>
-    <h1>Calm is not an aesthetic.<br>It is a decision.</h1>
-    <p>
-      Our approach is minimal, intentional and human.
-      Each form is refined to allow presence, not performance.
-    </p>
+  <h2 class="section-title">Our Approach</h2>
+  <p class="section-text">
+    We believe calm is not decoration. It is infrastructure. Each piece is designed with intention,
+    reduced to its essence, engineered to slow the body and focus the mind.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Refund Policy</a>
+    <a href="#">Shipping Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Cookie Policy</a>
   </div>
 
-  <div class="image-block">
-    <img src="./assets/F3145325-149E-4D63-82F2-A299E075ADD3.png" alt="Sofa Lamp Ritual">
+  <div class="copyright">
+    © 2026 Lunavell Ltd — London, United Kingdom
   </div>
-</section>
+</footer>
 
 </body>
 </html>
