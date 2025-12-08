@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Lunavell</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -20,6 +20,7 @@
       color: #111;
     }
 
+    /* ===== DESKTOP HEADER ===== */
     header {
       position: absolute;
       top: 0;
@@ -32,7 +33,11 @@
     }
 
     .logo img {
-      height: 20px;
+      height: 70px; 
+    }
+
+    nav {
+      display: flex;
     }
 
     nav a {
@@ -43,6 +48,7 @@
       letter-spacing: 2px;
     }
 
+    /* ===== HERO ===== */
     .hero {
       height: 100vh;
       width: 100%;
@@ -56,9 +62,8 @@
 
     .hero-content {
       max-width: 900px;
-      background: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.6);
       padding: 70px 60px;
-      border-radius: 6px;
       backdrop-filter: blur(4px);
     }
 
@@ -66,17 +71,16 @@
       font-family: 'Playfair Display', serif;
       font-size: 58px;
       font-weight: 600;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .hero p {
-      font-size: 15px;
+      font-size: 14px;
       letter-spacing: 1px;
-      margin-bottom: 50px;
+      margin-bottom: 45px;
     }
 
     .hero a {
-      display: inline-block;
       padding: 16px 48px;
       border: 1px solid #111;
       text-decoration: none;
@@ -91,18 +95,72 @@
       color: white;
     }
 
+    /* ===== MOBILE HEADER ===== */
+    .mobile-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 18px;
+      text-align: center;
+      z-index: 20;
+    }
+
+    .mobile-header img {
+      height: 80px;
+    }
+
+    /* ===== MOBILE BOTTOM NAV ===== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      border-top: 1px solid #ddd;
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-around;
+      font-size: 12px;
+      letter-spacing: 2px;
+      z-index: 20;
+    }
+
+    .mobile-nav a {
+      text-decoration: none;
+      color: #111;
+    }
+
+    /* ===== MOBILE ONLY ===== */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 38px;
-      }
-
       header {
-        padding: 20px;
+        display: none;
       }
 
-      nav a {
-        margin-left: 18px;
-        font-size: 11px;
+      .mobile-header {
+        display: block;
+      }
+
+      .mobile-nav {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: 120px;
+        padding-bottom: 120px;
+      }
+
+      .hero-content {
+        padding: 40px 26px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 12px;
       }
     }
   </style>
@@ -110,9 +168,17 @@
 
 <body>
 
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+  <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png
+" alt="Lunavell Logo">
+</div>
+
+<!-- DESKTOP HEADER -->
 <header>
   <div class="logo">
-    <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+    <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png
+" alt="Lunavell Logo">
   </div>
 
   <nav>
@@ -126,6 +192,7 @@
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Calm solutions for modern life.</h1>
@@ -133,6 +200,14 @@
     <a href="discover.html">DISCOVER LUNAVELL</a>
   </div>
 </section>
+
+<!-- MOBILE BOTTOM NAV -->
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="discover.html">Mission</a>
+  <a href="discover.html">Shop</a>
+  <a href="discover.html">More</a>
+</div>
 
 </body>
 </html>
