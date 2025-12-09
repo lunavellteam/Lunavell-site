@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Discover — Lunavell</title>
+  <title>Lunavell — Discover</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -26,7 +26,8 @@
       color: inherit;
     }
 
-    /* ===== DESKTOP HEADER ===== */
+    /* ========== DESKTOP HEADER ========== */
+
     .desktop-header {
       position: absolute;
       top: 0;
@@ -36,27 +37,34 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      z-index: 20;
+      z-index: 30;
     }
 
     .desktop-logo img {
       height: 46px;
+      display: block;
     }
 
     .desktop-nav {
       display: flex;
+      align-items: center;
       gap: 32px;
       font-size: 13px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
     }
 
-    /* ===== MOBILE HEADER ===== */
+    .desktop-nav a {
+      color: #111;
+    }
+
+    /* ========== MOBILE HEADER (LOGO + 4 LINKS) ========== */
+
     .mobile-shell {
       display: none;
       background: #fff;
       position: relative;
-      z-index: 20;
+      z-index: 25;
     }
 
     .mobile-logo {
@@ -66,6 +74,7 @@
 
     .mobile-logo img {
       height: 120px;
+      display: inline-block;
     }
 
     .mobile-nav-top {
@@ -80,42 +89,112 @@
       text-transform: uppercase;
     }
 
-    /* ===== HERO DISCOVER ===== */
-    .discover-hero {
+    .mobile-nav-top a {
+      color: #111;
+    }
+
+    /* ========== PANELS (3 TELAS) ========== */
+
+    .panel {
+      position: relative;
       min-height: 100vh;
       width: 100%;
-      background: url("assets/0B2DA06D-E64D-4F50-883C-2B348ECD5609.png") center/cover no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 24px;
       text-align: center;
-      position: relative;
-    }
-
-    .discover-content {
-      max-width: 900px;
+      padding: 0 40px;
       color: #fff;
-      text-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      overflow: hidden;
     }
 
-    .discover-content h1 {
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      /* leve véu frio para leitura */
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 20, 0.55),
+        rgba(10, 10, 20, 0.35)
+      );
+      mix-blend-mode: multiply;
+    }
+
+    .panel-inner {
+      position: relative;
+      max-width: 820px;
+    }
+
+    .panel h1,
+    .panel h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 52px;
       font-weight: 600;
-      margin-bottom: 28px;
       line-height: 1.1;
+      margin-bottom: 20px;
     }
 
-    .discover-content p {
-      font-size: 14.5px;
-      line-height: 1.8;
+    .panel-1 h1 {
+      font-size: 52px;
+    }
+
+    .panel-2 h2,
+    .panel-3 h2 {
+      font-size: 40px;
+    }
+
+    .panel p {
+      font-size: 16px;
+      line-height: 1.7;
       letter-spacing: 0.08em;
-      max-width: 650px;
-      margin: 0 auto 18px;
     }
 
-    /* ===== RESPONSIVE ===== */
+    .panel-1 p {
+      margin-top: 16px;
+    }
+
+    .panel-2 p,
+    .panel-3 p {
+      margin-top: 10px;
+    }
+
+    /* backgrounds */
+    .panel-1 {
+      background-image: url("assets/discover-space.jpg");       /* banheiro cinematográfico */
+    }
+
+    .panel-2 {
+      background-image: url("assets/discover-objects.jpg");     /* still life produtos + vela */
+    }
+
+    .panel-3 {
+      background-image: url("assets/discover-ritual.jpg");      /* gesto / mãos / água / vapor */
+    }
+
+    /* ========== RESPONSIVE ========== */
+
+    @media (max-width: 900px) {
+      .panel {
+        padding: 0 22px;
+      }
+
+      .panel-1 h1 {
+        font-size: 38px;
+      }
+
+      .panel-2 h2,
+      .panel-3 h2 {
+        font-size: 30px;
+      }
+
+      .panel p {
+        font-size: 14px;
+      }
+    }
+
     @media (max-width: 768px) {
       .desktop-header {
         display: none;
@@ -125,17 +204,13 @@
         display: block;
       }
 
-      .discover-hero {
-        min-height: calc(100vh - 180px);
-        padding: 40px 18px 60px;
+      .panel {
+        min-height: calc(100vh - 180px); /* compensa área da logo + menu */
+        padding: 40px 18px 70px;
       }
 
-      .discover-content h1 {
-        font-size: 36px;
-      }
-
-      .discover-content p {
-        font-size: 13px;
+      .panel-inner {
+        max-width: 640px;
       }
     }
   </style>
@@ -143,9 +218,10 @@
 
 <body>
 
-  <!-- MOBILE HEADER -->
+  <!-- MOBILE: LOGO + 4 LINKS -->
   <div class="mobile-shell">
     <div class="mobile-logo">
+      <!-- usa a MESMA logo .jpeg alta que você já está usando no index -->
       <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
     </div>
     <nav class="mobile-nav-top">
@@ -159,30 +235,51 @@
   <!-- DESKTOP HEADER -->
   <header class="desktop-header">
     <div class="desktop-logo">
+      <!-- mesma logo .png do desktop do index -->
       <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
     </div>
     <nav class="desktop-nav">
       <a href="index.html">Home</a>
       <a href="discover.html">Shop</a>
       <a href="discover.html">Mission</a>
-      <a href="#">Approach</a>
+      <a href="discover.html">Approach</a>
       <a href="#">Journal</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="discover-hero">
-    <div class="discover-content">
+  <!-- PANEL 1 – THE SPACE -->
+  <section class="panel panel-1">
+    <div class="panel-inner">
       <h1>Inhale. Exhale. We take care of the rest.</h1>
-
       <p>
-        Lunavell is a London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world.
+        Lunavell is a London-based retail brand born from the desire to bring clarity
+        back into an increasingly chaotic world.
       </p>
+    </div>
+  </section>
 
+  <!-- PANEL 2 – THE OBJECTS -->
+  <section class="panel panel-2">
+    <div class="panel-inner">
+      <h2>Objects of quiet luxury.</h2>
       <p>
-        We create practical, sensory experiences designed to soften the everyday, restore focus and elevate the ordinary into ritual.
+        We create practical, sensory companions – candles, oils and treatments –
+        designed to soften the everyday, slow the tempo and bring the body gently
+        back into the room.
+      </p>
+    </div>
+  </section>
+
+  <!-- PANEL 3 – THE RITUAL -->
+  <section class="panel panel-3">
+    <div class="panel-inner">
+      <h2>Everyday, turned into ritual.</h2>
+      <p>
+        From the first drop of water to the final breath of steam, Lunavell exists
+        to transform ordinary moments into calm, repeatable rituals that hold you
+        together when the world feels loud.
       </p>
     </div>
   </section>
