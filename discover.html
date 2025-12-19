@@ -1,76 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Discover — Lunavell</title>
+  <meta charset="UTF-8">
+  <title>Lunavell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      /* Lunavell cold neutral palette */
-      --c0:#ffffff;
-      --c1:#f6f6f6;
-      --c2:#e9e9e9;
-      --c3:#dcdcdc;
-
-      --ink:#0f0f10;
-      --paper: var(--c0);
-
-      /* overlay: subtle, not that "black kill" */
-      --scrim: rgba(10, 10, 12, 0.14);
-      --scrim-strong: rgba(10, 10, 12, 0.22);
-
-      --maxw: 980px;
-      --pad: clamp(18px, 3.5vw, 44px);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    *{ box-sizing:border-box; }
-    html, body{ height:100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: var(--paper);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
     }
 
-    /* Optional: if you already have a global header, you can delete this */
-    header{
-      position: sticky;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========== DESKTOP HEADER ========== */
+
+    .desktop-header {
+      position: absolute;
       top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,0.86);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(15,15,16,0.06);
+      left: 0;
+      width: 100%;
+      padding: 28px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
     }
-    .nav{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 16px var(--pad);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 20px;
+
+    .desktop-logo img {
+      height: 46px;
+      display: block;
     }
-    .brand{
-      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-      letter-spacing: .12em;
-      font-size: 16px;
-      text-transform: uppercase;
-      opacity: .9;
-    }
-    .menu{
-      display:flex; gap: 22px;
-      font-size: 12px;
-      letter-spacing: .28em;
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 13px;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
     }
-    .menu a{
-      text-decoration:none;
-      color: rgba(15,15,16,0.70);
-    }
-    .menu a:hover{ color: rgba(15,15,16,0.95); }
 
     /* ===== Discover: scroll + cinematic fade ===== */
 
