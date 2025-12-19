@@ -11,33 +11,35 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; }
-    body {
+
+    /* TRAVA A “PÁGINA DESCENDO” */
+    body{
       font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #111;
-      overflow-x: hidden;
+      background:#fff;
+      color:#111;
+      overflow: hidden;         /* <- mata o scroll */
+      height: 100vh;
+      width: 100vw;
+      touch-action: none;       /* <- evita “scroll nativo” no iOS/Android */
+      overscroll-behavior: none;
     }
+
     a { text-decoration: none; color: inherit; }
 
     /* ========== DESKTOP HEADER (IGUAL AO HERO) ========== */
     .desktop-header {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       padding: 28px 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 50;
-      pointer-events: none; /* evita “puxar” scroll */
     }
-    .desktop-header a { pointer-events: auto; }
 
-    .desktop-logo img {
-      height: 46px;
-      display: block;
-    }
+    .desktop-logo img { height: 46px; display: block; }
+
     .desktop-nav {
       display: flex;
       align-items: center;
@@ -46,7 +48,6 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
     }
-    .desktop-nav a { color: #111; }
 
     /* ========== MOBILE HEADER (IGUAL AO HERO) ========== */
     .mobile-shell {
@@ -55,14 +56,17 @@
       position: relative;
       z-index: 60;
     }
+
     .mobile-logo {
       padding: 22px 0 10px;
       text-align: center;
     }
+
     .mobile-logo img {
       height: 120px;
       display: inline-block;
     }
+
     .mobile-nav-top {
       display: flex;
       justify-content: space-around;
@@ -74,43 +78,41 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
     }
-    .mobile-nav-top a { color: #111; }
 
-    /* ========== DISCOVER: SCROLL QUE CONTROLA FADE ========== */
-    /* Este wrapper cria “altura” pra scroll, mas as cenas ficam FIXAS */
-    .scroll-stage {
-      height: 300vh; /* 3 cenas */
-      position: relative;
-      background: #fff;
-    }
-
-    .fixed-canvas {
+    /* ========== CANVAS FIXO (CENAS) ========== */
+    .fixed-canvas{
       position: fixed;
       inset: 0;
       z-index: 1;
-      /* segura layout bonito (iOS) */
       transform: translateZ(0);
-      will-change: opacity;
     }
 
     .scene {
       position: absolute;
       inset: 0;
       background-size: cover;
-      background-position: center center; /* centraliza de verdade */
+      background-position: center center;
       background-repeat: no-repeat;
       opacity: 0;
-      transition: opacity 0.12s linear; /* suave, sem “scroll de página” */
-      filter: none;
+      will-change: opacity;
+      transition: opacity 180ms linear;
     }
 
-    /* 3 cenas (em camadas) */
     .scene.s1 { background-image: url("assets/discover-01-bath.JPG"); }
     .scene.s2 { background-image: url("assets/discover-02-objects.JPG"); }
     .scene.s3 { background-image: url("assets/discover-03-water.JPG"); }
 
-    /* Texto central: mesma vibe de proporção do Hero */
-    .overlay {
+    /* véu leve pra leitura */
+    .veil{
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.18);
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    /* TEXTO CENTRAL */
+    .overlay{
       position: absolute;
       inset: 0;
       display: flex;
@@ -122,12 +124,12 @@
       pointer-events: none;
     }
 
-    .overlay-inner {
-      max-width: 900px; /* igual ao hero-inner */
-      pointer-events: auto; /* só o botão clica */
+    .overlay-inner{
+      max-width: 900px;
+      pointer-events: auto; /* botão clicável */
     }
 
-    .kicker {
+    .kicker{
       font-size: 12px;
       letter-spacing: 0.32em;
       text-transform: uppercase;
@@ -135,17 +137,17 @@
       color: rgba(17,17,17,0.65);
     }
 
-    .overlay h1 {
+    .overlay h1{
       font-family: 'Playfair Display', serif;
-      font-size: 58px;  /* igual ao Hero */
+      font-size: 58px;
       font-weight: 600;
       line-height: 1.1;
       margin-bottom: 18px;
       color: #111;
     }
 
-    .overlay p {
-      font-size: 14px; /* igual ao Hero */
+    .overlay p{
+      font-size: 14px;
       letter-spacing: 0.02em;
       line-height: 1.7;
       margin: 0 auto 34px;
@@ -153,7 +155,7 @@
       color: rgba(17,17,17,0.78);
     }
 
-    .cta {
+    .cta{
       display: inline-block;
       padding: 16px 56px;
       border: 1px solid #111;
@@ -162,46 +164,58 @@
       text-transform: uppercase;
       background: rgba(255,255,255,0.08);
       transition: all 0.25s ease;
-      pointer-events: auto;
     }
-    .cta:hover {
-      background: #111;
-      color: #fff;
-    }
+    .cta:hover{ background:#111; color:#fff; }
 
-    /* Um leve “veil” pra garantir leitura sem matar a foto */
-    .veil {
+    /* Indicador discreto (opcional, mas ajuda o user entender que “troca”) */
+    .dots{
       position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.18);
-      z-index: 5;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 20;
+      opacity: 0.55;
       pointer-events: none;
     }
+    .dot{
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(17,17,17,0.55);
+      background: transparent;
+    }
+    .dot.on{
+      background: rgba(17,17,17,0.75);
+      border-color: rgba(17,17,17,0.75);
+    }
 
-    /* Mobile: segue as regras do Hero */
+    /* MOBILE AJUSTES (IGUAL AO HERO) */
     @media (max-width: 768px) {
-      .desktop-header { display: none; }
-      .mobile-shell { display: block; }
+      .desktop-header{ display:none; }
+      .mobile-shell{ display:block; }
 
-      /* compensa a área do header mobile */
-      .fixed-canvas {
-        top: 180px; /* logo+menu */
+      .fixed-canvas{
+        top: 180px;
         height: calc(100vh - 180px);
       }
 
-      .overlay h1 { font-size: 40px; }
-      .overlay p { font-size: 13px; }
-      .kicker { font-size: 11px; }
+      .overlay h1{ font-size: 40px; }
+      .overlay p{ font-size: 13px; }
+      .kicker{ font-size: 11px; }
 
-      .cta {
+      .cta{
         width: min(92vw, 520px);
         padding: 16px 0;
       }
+
+      .dots{ right: 10px; }
     }
 
-    /* Preferência do usuário: reduz movimento */
     @media (prefers-reduced-motion: reduce) {
-      .scene { transition: none; }
+      .scene{ transition: none; }
     }
   </style>
 </head>
@@ -237,31 +251,34 @@
     </nav>
   </header>
 
-  <!-- SCROLL STAGE (altura para o fade “cinematic”) -->
-  <main class="scroll-stage" id="scrollStage">
-    <div class="fixed-canvas" id="fixedCanvas" aria-hidden="false">
-      <div class="scene s1" id="scene1"></div>
-      <div class="scene s2" id="scene2"></div>
-      <div class="scene s3" id="scene3"></div>
+  <!-- CENAS FIXAS (NÃO DESCE, SÓ FADE) -->
+  <div class="fixed-canvas" id="fixedCanvas">
+    <div class="scene s1" id="scene1"></div>
+    <div class="scene s2" id="scene2"></div>
+    <div class="scene s3" id="scene3"></div>
 
-      <div class="veil"></div>
+    <div class="veil"></div>
 
-      <!-- TEXTO (troca junto com o fade) -->
-      <div class="overlay">
-        <div class="overlay-inner">
-          <div class="kicker" id="kicker">DISCOVER LUNAVELL</div>
-          <h1 id="headline">Inhale. Exhale. We take care of the rest.</h1>
-          <p id="sub">
-            London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world.
-          </p>
-          <a class="cta" href="discover.html">Explore the Collection</a>
-        </div>
+    <div class="dots" aria-hidden="true">
+      <div class="dot on" id="dot1"></div>
+      <div class="dot" id="dot2"></div>
+      <div class="dot" id="dot3"></div>
+    </div>
+
+    <div class="overlay">
+      <div class="overlay-inner">
+        <div class="kicker" id="kicker">DISCOVER LUNAVELL</div>
+        <h1 id="headline">Inhale. Exhale. We take care of the rest.</h1>
+        <p id="sub">
+          London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world.
+        </p>
+        <a class="cta" href="discover.html">Explore the Collection</a>
       </div>
     </div>
-  </main>
+  </div>
 
   <script>
-    // ====== CONFIG ======
+    // ====== TEXTOS ======
     const scenes = [
       {
         el: document.getElementById('scene1'),
@@ -282,36 +299,36 @@
 
     const headlineEl = document.getElementById('headline');
     const subEl = document.getElementById('sub');
+    const dot1 = document.getElementById('dot1');
+    const dot2 = document.getElementById('dot2');
+    const dot3 = document.getElementById('dot3');
 
-    // clamp
     const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
-    // Calcula progresso do scroll dentro do stage (0..1)
-    function getProgress() {
-      const stage = document.getElementById('scrollStage');
-      const rect = stage.getBoundingClientRect();
+    // progress: 0..1 (0=scene1, 0.5=scene2, 1=scene3)
+    let target = 0;
+    let current = 0;
 
-      // stage começa no topo quando rect.top = 0
-      const scrollable = stage.offsetHeight - window.innerHeight;
-      const scrolled = clamp(-rect.top, 0, scrollable);
-      return scrollable > 0 ? (scrolled / scrollable) : 0;
+    // Ajuste fino da sensibilidade
+    const WHEEL_SENS = 0.00135;  // desktop
+    const TOUCH_SENS = 0.0019;   // mobile
+
+    function setDots(idx){
+      dot1.classList.toggle('on', idx === 0);
+      dot2.classList.toggle('on', idx === 1);
+      dot3.classList.toggle('on', idx === 2);
     }
 
-    // Faz crossfade em 3 cenas: [0..0.5] transita 1->2, [0.5..1] transita 2->3
-    function render() {
-      const p = getProgress(); // 0..1
-      const seg = p * 2;       // 0..2
+    function render(p){
+      const seg = p * 2; // 0..2
 
-      // Opacidades
-      let o1 = 0, o2 = 0, o3 = 0;
-      if (seg <= 1) {
-        // 1 -> 2
+      let o1=0,o2=0,o3=0;
+      if(seg <= 1){
         o1 = 1 - seg;
         o2 = seg;
         o3 = 0;
-      } else {
-        // 2 -> 3
-        const t = seg - 1; // 0..1
+      }else{
+        const t = seg - 1;
         o1 = 0;
         o2 = 1 - t;
         o3 = t;
@@ -321,37 +338,74 @@
       scenes[1].el.style.opacity = o2.toFixed(4);
       scenes[2].el.style.opacity = o3.toFixed(4);
 
-      // Troca texto pela cena “dominante”
       const dominantIndex =
         (o1 >= o2 && o1 >= o3) ? 0 :
         (o2 >= o1 && o2 >= o3) ? 1 : 2;
 
-      const current = scenes[dominantIndex];
+      setDots(dominantIndex);
 
-      // Só atualiza se mudou (evita flicker)
-      if (headlineEl.textContent !== current.headline) {
-        headlineEl.textContent = current.headline;
-        subEl.textContent = current.sub;
+      const s = scenes[dominantIndex];
+      if(headlineEl.textContent !== s.headline){
+        headlineEl.textContent = s.headline;
+        subEl.textContent = s.sub;
       }
     }
 
-    // Suaviza updates no scroll
-    let ticking = false;
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          render();
-          ticking = false;
-        });
-        ticking = true;
-      }
+    // anima suavemente até o target (cinema)
+    function tick(){
+      // easing
+      current += (target - current) * 0.10;
+      if(Math.abs(target - current) < 0.0005) current = target;
+
+      render(current);
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    // ====== CONTROLES (sem scroll de página) ======
+    function onWheel(e){
+      e.preventDefault();
+      target = clamp(target + (e.deltaY * WHEEL_SENS), 0, 1);
+    }
+    window.addEventListener('wheel', onWheel, { passive: false });
+
+    // Touch (swipe) para iPhone
+    let lastY = null;
+    function onTouchStart(e){
+      if(!e.touches || !e.touches[0]) return;
+      lastY = e.touches[0].clientY;
+    }
+    function onTouchMove(e){
+      e.preventDefault();
+      if(lastY === null || !e.touches || !e.touches[0]) return;
+      const y = e.touches[0].clientY;
+      const dy = lastY - y;  // swipe up -> dy positivo
+      lastY = y;
+      target = clamp(target + (dy * TOUCH_SENS), 0, 1);
+    }
+    function onTouchEnd(){
+      lastY = null;
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', render);
+    window.addEventListener('touchstart', onTouchStart, { passive: false });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
 
-    // Inicializa: primeira cena visível
-    render();
+    // Teclado (setas / page down/up)
+    window.addEventListener('keydown', (e) => {
+      const step = 0.08;
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault(); target = clamp(target + step, 0, 1);
+      }
+      if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault(); target = clamp(target - step, 0, 1);
+      }
+      if (e.key === 'Home') { e.preventDefault(); target = 0; }
+      if (e.key === 'End')  { e.preventDefault(); target = 1; }
+    }, { passive: false });
+
+    // Estado inicial
+    render(0);
   </script>
 
 </body>
