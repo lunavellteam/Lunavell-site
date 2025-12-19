@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lunavell — Discover</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Discover — Lunavell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts (IGUAL AO HERO) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #111;
+      background:#fff;
+      color:#111;
+      overflow-x:hidden;
     }
+    a { text-decoration:none; color:inherit; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ================= HEADER (IGUAL AO HERO) ================= */
-
+    /* ========== DESKTOP HEADER (same as Hero) ========== */
     .desktop-header {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -37,171 +28,176 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      z-index: 30;
-      pointer-events: auto;
+      z-index: 50;
+      pointer-events: none; /* lets clicks pass except nav/logo */
     }
+    .desktop-header * { pointer-events: auto; }
 
-    .desktop-logo img {
-      height: 46px;
-      display: block;
-    }
+    .desktop-logo img { height: 46px; display:block; }
 
     .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 13px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
+      display:flex;
+      align-items:center;
+      gap:32px;
+      font-size:13px;
+      letter-spacing:0.25em;
+      text-transform:uppercase;
     }
+    .desktop-nav a { color:#111; }
 
-    .desktop-nav a {
-      color: #111;
-    }
-
-    /* ========== MOBILE HEADER ========== */
-
+    /* ========== MOBILE HEADER (same as Hero) ========== */
     .mobile-shell {
-      display: none;
-      background: #fff;
+      display:none;
+      background:#fff;
       position: relative;
-      z-index: 25;
+      z-index: 50;
     }
-
     .mobile-logo {
       padding: 22px 0 10px;
-      text-align: center;
+      text-align:center;
     }
-
-    .mobile-logo img {
-      height: 120px;
-      display: inline-block;
-    }
+    .mobile-logo img { height:120px; display:inline-block; }
 
     .mobile-nav-top {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
       padding: 12px 0 16px;
-      border-top: 1px solid #f1f1f1;
-      border-bottom: 1px solid #f1f1f1;
-      font-size: 13px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+      border-top:1px solid #f1f1f1;
+      border-bottom:1px solid #f1f1f1;
+      font-size:13px;
+      letter-spacing:0.3em;
+      text-transform:uppercase;
+    }
+    .mobile-nav-top a { color:#111; }
+
+    @media (max-width: 768px) {
+      .desktop-header { display:none; }
+      .mobile-shell { display:block; }
     }
 
-    /* ================= DISCOVER SCROLL ================= */
-
-    .discover {
-      height: 100vh;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
+    /* ========== DISCOVER FADE SCROLLER (C behavior) ========== */
+    :root{
+      --c1:#ffffff;
+      --c2:#f6f6f6;
+      --c3:#e9e9e9;
+      --c4:#dcdcdc;
     }
 
-    .scene {
+    /* space to scroll through 3 scenes */
+    .discover-scroll {
+      height: 320vh; /* gives room for silky fades */
       position: relative;
+      background: var(--c1);
+    }
+
+    /* sticky viewport that stays still while you scroll */
+    .discover-stage {
+      position: sticky;
+      top: 0;
       height: 100vh;
       width: 100%;
-      scroll-snap-align: start;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
       overflow: hidden;
+      background: var(--c1);
     }
 
-    .scene::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    /* image layers stacked */
+    .scene {
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition: opacity 0.06s linear; /* micro smoothing; main smoothing comes from scroll */
       background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
-      transform: scale(1.02);
+      background-position: center center; /* fixes the “only right side” issue */
+      transform: scale(1.02); /* tiny editorial “lens” feel */
+      filter: saturate(0.92) contrast(0.98);
     }
 
-    .scene::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+    /* gentle veil to keep palette + text legibility */
+    .scene::after{
+      content:"";
+      position:absolute;
+      inset:0;
       background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0.82),
-        rgba(246,246,246,0.75),
-        rgba(233,233,233,0.68)
+        rgba(255,255,255,0.08) 0%,
+        rgba(255,255,255,0.18) 45%,
+        rgba(255,255,255,0.28) 100%
       );
+      pointer-events:none;
     }
 
-    .scene-content {
-      position: relative;
-      z-index: 2;
-      max-width: 880px;
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    /* assign backgrounds */
+    .scene.scene-1 { background-image: url("assets/discover-01-bath.JPG"); }
+    .scene.scene-2 { background-image: url("assets/discover-02-objects.JPG"); }
+    .scene.scene-3 { background-image: url("assets/discover-03-water.JPG"); }
+
+    /* text overlay */
+    .discover-copy {
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 0 20px;
+      text-align:center;
+      z-index: 5;
     }
 
-    .scene.active .scene-content {
-      opacity: 1;
-      transform: translateY(0);
+    .copy-inner{
+      max-width: 860px;
+      padding: 26px 22px 22px;
+      background: rgba(255,255,255,0.0);
     }
 
-    .scene h1,
-    .scene h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 54px;
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color:#111;
+      opacity: 0.65;
+      margin-bottom: 14px;
     }
 
-    .scene p {
+    h1 {
+      font-family:'Playfair Display', serif;
+      font-size: 58px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color:#111;
+    }
+
+    .sub {
       font-size: 15px;
-      line-height: 1.6;
-      max-width: 720px;
-      margin: 0 auto 36px;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+      color:#111;
+      opacity: 0.82;
+      margin: 0 auto 28px;
+      max-width: 680px;
     }
 
-    .discover-cta {
-      display: inline-block;
+    .cta {
+      display:inline-block;
       padding: 16px 56px;
-      border: 1px solid #111;
+      border: 1px solid rgba(17,17,17,0.85);
       font-size: 12px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
       transition: all 0.25s ease;
+      color:#111;
     }
+    .cta:hover { background:#111; color:#fff; }
 
-    .discover-cta:hover {
-      background: #111;
-      color: #fff;
-    }
-
-    /* ================= RESPONSIVE ================= */
-
-    @media (max-width: 768px) {
-      .desktop-header {
-        display: none;
-      }
-
-      .mobile-shell {
-        display: block;
-      }
-
-      .scene {
-        padding: 80px 18px 80px;
-      }
-
-      .scene h1,
-      .scene h2 {
-        font-size: 38px;
-      }
-
-      .scene p {
-        font-size: 14px;
-      }
+    /* mobile sizing */
+    @media (max-width: 768px){
+      h1 { font-size: 40px; }
+      .sub { font-size: 14px; }
+      .cta { padding: 16px 44px; }
+      .discover-scroll { height: 340vh; }
     }
   </style>
 </head>
@@ -237,52 +233,85 @@
     </nav>
   </header>
 
-  <!-- DISCOVER -->
-  <main class="discover">
+  <!-- DISCOVER: scroll + cinematic crossfade -->
+  <main class="discover-scroll" id="discoverScroll">
+    <section class="discover-stage" aria-label="Discover Lunavell">
 
-    <section class="scene" style="background-image:url('assets/discover-01-bath.JPG')">
-      <div class="scene-content">
-        <h1>Inhale. Exhale. We take care of the rest.</h1>
-        <p>London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world.</p>
-        <a href="shop.html" class="discover-cta">Explore the Collection</a>
+      <div class="scene scene-1" id="scene1"></div>
+      <div class="scene scene-2" id="scene2"></div>
+      <div class="scene scene-3" id="scene3"></div>
+
+      <div class="discover-copy">
+        <div class="copy-inner">
+          <div class="kicker">Discover Lunavell</div>
+          <h1 id="headline">Inhale. Exhale. We take care of the rest.</h1>
+          <p class="sub" id="subline">
+            London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world.
+          </p>
+          <a class="cta" href="shop.html">Explore the Collection</a>
+        </div>
       </div>
-    </section>
 
-    <section class="scene" style="background-image:url('assets/discover-02-objects.JPG')">
-      <div class="scene-content">
-        <h2>Objects for stillness.</h2>
-        <p>Calm, shaped into form.</p>
-        <a href="shop.html" class="discover-cta">Explore the Collection</a>
-      </div>
     </section>
-
-    <section class="scene" style="background-image:url('assets/discover-03-water.JPG')">
-      <div class="scene-content">
-        <h2>Everyday, turned into ritual.</h2>
-        <p>
-          From the first drop of water to the final breath of steam, Lunavell exists to transform ordinary moments
-          into calm, repeatable rituals that hold you together when the world feels loud.
-        </p>
-        <a href="shop.html" class="discover-cta">Explore the Collection</a>
-      </div>
-    </section>
-
   </main>
 
   <script>
-    const scenes = document.querySelectorAll('.scene');
+    // Cinematic crossfade (C behavior): scroll drives opacity & copy swaps smoothly.
+    const wrap = document.getElementById('discoverScroll');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    }, { threshold: 0.6 });
+    const scenes = [
+      { el: document.getElementById('scene1'),
+        headline: "Inhale. Exhale. We take care of the rest.",
+        sub: "London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world."
+      },
+      { el: document.getElementById('scene2'),
+        headline: "Objects for stillness.",
+        sub: "Calm, shaped into form."
+      },
+      { el: document.getElementById('scene3'),
+        headline: "Everyday, turned into ritual.",
+        sub: "From the first drop of water to the final breath of steam, Lunavell exists to transform ordinary moments into calm, repeatable rituals that hold you together when the world feels loud."
+      }
+    ];
 
-    scenes.forEach(scene => observer.observe(scene));
+    const headlineEl = document.getElementById('headline');
+    const sublineEl  = document.getElementById('subline');
+
+    function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
+    function render(){
+      const rect = wrap.getBoundingClientRect();
+      const total = wrap.offsetHeight - window.innerHeight;
+      const scrolled = clamp(-rect.top, 0, total);
+      const t = total === 0 ? 0 : (scrolled / total); // 0..1
+
+      // Split into 3 segments (0..1/2..1)
+      const seg = t * (scenes.length - 1); // 0..2
+      const i = Math.floor(seg);
+      const f = seg - i; // 0..1
+
+      // Reset
+      scenes.forEach(s => s.el.style.opacity = 0);
+
+      // Crossfade between current & next
+      const current = scenes[i] || scenes[0];
+      const next = scenes[i + 1] || scenes[scenes.length - 1];
+
+      if (current) current.el.style.opacity = 1 - f;
+      if (next) next.el.style.opacity = f;
+
+      // Copy: switch when more than half into the transition
+      const showIndex = (f < 0.5) ? i : Math.min(i + 1, scenes.length - 1);
+      headlineEl.textContent = scenes[showIndex].headline;
+      sublineEl.textContent  = scenes[showIndex].sub;
+    }
+
+    // Initial state (scene 1 visible)
+    scenes[0].el.style.opacity = 1;
+
+    window.addEventListener('scroll', render, { passive: true });
+    window.addEventListener('resize', render);
+    render();
   </script>
 
 </body>
