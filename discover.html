@@ -1,288 +1,312 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lunavell — Discover</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover — Lunavell</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      /* Lunavell cold neutral palette */
+      --c0:#ffffff;
+      --c1:#f6f6f6;
+      --c2:#e9e9e9;
+      --c3:#dcdcdc;
+
+      --ink:#0f0f10;
+      --paper: var(--c0);
+
+      /* overlay: subtle, not that "black kill" */
+      --scrim: rgba(10, 10, 12, 0.14);
+      --scrim-strong: rgba(10, 10, 12, 0.22);
+
+      --maxw: 980px;
+      --pad: clamp(18px, 3.5vw, 44px);
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #111;
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ========== DESKTOP HEADER ========== */
-
-    .desktop-header {
-      position: absolute;
+    /* Optional: if you already have a global header, you can delete this */
+    header{
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      padding: 28px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 30;
+      z-index: 50;
+      background: rgba(255,255,255,0.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(15,15,16,0.06);
     }
-
-    .desktop-logo img {
-      height: 46px;
-      display: block;
+    .nav{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 20px;
     }
-
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 13px;
-      letter-spacing: 0.25em;
+    .brand{
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing: .12em;
+      font-size: 16px;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+    .menu{
+      display:flex; gap: 22px;
+      font-size: 12px;
+      letter-spacing: .28em;
       text-transform: uppercase;
     }
-
-    .desktop-nav a {
-      color: #111;
+    .menu a{
+      text-decoration:none;
+      color: rgba(15,15,16,0.70);
     }
+    .menu a:hover{ color: rgba(15,15,16,0.95); }
 
-    /* ========== MOBILE HEADER (LOGO + 4 LINKS) ========== */
+    /* ===== Discover: scroll + cinematic fade ===== */
 
-    .mobile-shell {
-      display: none;
-      background: #fff;
+    /* This creates a 3-screen scroll runway */
+    .scroll-runway{
+      height: 300vh; /* 3 scenes */
       position: relative;
-      z-index: 25;
+      background: var(--paper);
     }
 
-    .mobile-logo {
-      padding: 22px 0 10px;
-      text-align: center;
+    /* Sticky viewport */
+    .sticky-stage{
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      isolation: isolate;
     }
 
-    .mobile-logo img {
-      height: 120px;
-      display: inline-block;
+    /* Each scene is a full-bleed layer */
+    .scene{
+      position:absolute;
+      inset:0;
+      opacity: 0;
+      transition: opacity 420ms linear; /* will be controlled by JS; this is a fallback */
+      will-change: opacity, transform;
     }
 
-    .mobile-nav-top {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 12px 0 16px;
-      border-top: 1px solid #f1f1f1;
-      border-bottom: 1px solid #f1f1f1;
-      font-size: 13px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+    .scene::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: var(--scrim);
+      z-index: 1;
     }
 
-    .mobile-nav-top a {
-      color: #111;
-    }
-
-    /* ========== PANELS (3 TELAS) ========== */
-
-    .panel {
-      position: relative;
-      min-height: 100vh;
-      width: 100%;
+    /* background image */
+    .scene__bg{
+      position:absolute;
+      inset:0;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 40px;
-      color: #fff;
-      overflow: hidden;
+      /* ultra clean, no warm */
+      filter: saturate(0.98) contrast(1.02);
+      transform: scale(1.02);
     }
 
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      /* leve véu frio para leitura */
-      background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 20, 0.55),
-        rgba(10, 10, 20, 0.35)
-      );
-      mix-blend-mode: multiply;
-    }
-
-    .panel-inner {
+    /* central text */
+    .scene__content{
       position: relative;
-      max-width: 820px;
+      z-index: 2;
+      height: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: var(--pad);
+      text-align:center;
     }
 
-    .panel h1,
-    .panel h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .copy{
+      width: min(var(--maxw), 92vw);
+      color: rgba(255,255,255,0.96);
+      text-shadow: 0 1px 18px rgba(0,0,0,0.10);
     }
 
-    .panel-1 h1 {
-      font-size: 52px;
+    .headline{
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.06;
+      margin: 0 0 16px;
+      font-size: clamp(34px, 5.2vw, 72px);
     }
 
-    .panel-2 h2,
-    .panel-3 h2 {
-      font-size: 40px;
-    }
-
-    .panel p {
-      font-size: 16px;
+    .sub{
+      margin: 0 auto;
+      max-width: 62ch;
+      font-size: clamp(14px, 1.6vw, 18px);
       line-height: 1.7;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.86);
     }
 
-    .panel-1 p {
-      margin-top: 16px;
+    /* Slightly longer paragraph on scene 3 */
+    .sub.long{
+      max-width: 72ch;
+      font-size: clamp(14px, 1.7vw, 18px);
     }
 
-    .panel-2 p,
-    .panel-3 p {
-      margin-top: 10px;
+    /* Optional: make scene 2 a touch cleaner (less scrim) */
+    .scene[data-scene="2"]::before{ background: rgba(10,10,12,0.12); }
+
+    /* Optional: scene 3 can be a hair stronger so text stays crisp */
+    .scene[data-scene="3"]::before{ background: var(--scrim-strong); }
+
+    /* Mobile: reduce header weight */
+    @media (max-width: 520px){
+      .menu{ gap: 14px; letter-spacing: .18em; }
+      .brand{ letter-spacing: .10em; }
+      .sub{ max-width: 38ch; }
+      .sub.long{ max-width: 44ch; }
     }
 
-    /* backgrounds */
-    .panel-1 {
-      background-image: url("assets/discover-space.jpg");       /* banheiro cinematográfico */
-    }
-
-    .panel-2 {
-      background-image: url("assets/discover-objects.jpg");     /* still life produtos + vela */
-    }
-
-    .panel-3 {
-      background-image: url("assets/discover-ritual.jpg");      /* gesto / mãos / água / vapor */
-    }
-
-    /* ========== RESPONSIVE ========== */
-
-    @media (max-width: 900px) {
-      .panel {
-        padding: 0 22px;
+    /* Accessibility: if user prefers reduced motion, show stacked sections instead */
+    @media (prefers-reduced-motion: reduce){
+      .scroll-runway{ height:auto; }
+      .sticky-stage{ position: static; height:auto; }
+      .scene{
+        position: relative;
+        opacity: 1 !important;
+        min-height: 100vh;
+        transition: none !important;
       }
-
-      .panel-1 h1 {
-        font-size: 38px;
-      }
-
-      .panel-2 h2,
-      .panel-3 h2 {
-        font-size: 30px;
-      }
-
-      .panel p {
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .desktop-header {
-        display: none;
-      }
-
-      .mobile-shell {
-        display: block;
-      }
-
-      .panel {
-        min-height: calc(100vh - 180px); /* compensa área da logo + menu */
-        padding: 40px 18px 70px;
-      }
-
-      .panel-inner {
-        max-width: 640px;
-      }
+      .scene__bg{ transform:none; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MOBILE: LOGO + 4 LINKS -->
-  <div class="mobile-shell">
-    <div class="mobile-logo">
-      <!-- usa a MESMA logo .jpeg alta que você já está usando no index -->
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
+  <!-- If you already have a site-wide header, remove this block -->
+  <header>
+    <div class="nav">
+      <div class="brand">LUNAVELL</div>
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="mission.html">Mission</a>
+        <a href="shop.html">Shop</a>
+        <a href="more.html">More</a>
+      </nav>
     </div>
-    <nav class="mobile-nav-top">
-      <a href="index.html">Home</a>
-      <a href="discover.html">Mission</a>
-      <a href="discover.html">Shop</a>
-      <a href="discover.html">More</a>
-    </nav>
-  </div>
-
-  <!-- DESKTOP HEADER -->
-  <header class="desktop-header">
-    <div class="desktop-logo">
-      <!-- mesma logo .png do desktop do index -->
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
-    </div>
-    <nav class="desktop-nav">
-      <a href="index.html">Home</a>
-      <a href="discover.html">Shop</a>
-      <a href="discover.html">Mission</a>
-      <a href="discover.html">Approach</a>
-      <a href="#">Journal</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
   </header>
 
-  <!-- PANEL 1 – THE SPACE -->
-  <section class="panel panel-1">
-    <div class="panel-inner">
-      <h1>Inhale. Exhale. We take care of the rest.</h1>
-      <p>
-        Lunavell is a London-based retail brand born from the desire to bring clarity
-        back into an increasingly chaotic world.
-      </p>
-    </div>
-  </section>
+  <main>
+    <section class="scroll-runway" id="discover-runway" aria-label="Discover Lunavell">
+      <div class="sticky-stage" id="sticky-stage">
 
-  <!-- PANEL 2 – THE OBJECTS -->
-  <section class="panel panel-2">
-    <div class="panel-inner">
-      <h2>Objects of quiet luxury.</h2>
-      <p>
-        We create practical, sensory companions – candles, oils and treatments –
-        designed to soften the everyday, slow the tempo and bring the body gently
-        back into the room.
-      </p>
-    </div>
-  </section>
+        <!-- Scene 1 -->
+        <article class="scene" data-scene="1" aria-hidden="false">
+          <div class="scene__bg" style="background-image:url('assets/discover-01-bath.jpg');"></div>
+          <div class="scene__content">
+            <div class="copy">
+              <h1 class="headline">Inhale. Exhale. We take care of the rest.</h1>
+              <p class="sub">
+                London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world.
+              </p>
+            </div>
+          </div>
+        </article>
 
-  <!-- PANEL 3 – THE RITUAL -->
-  <section class="panel panel-3">
-    <div class="panel-inner">
-      <h2>Everyday, turned into ritual.</h2>
-      <p>
-        From the first drop of water to the final breath of steam, Lunavell exists
-        to transform ordinary moments into calm, repeatable rituals that hold you
-        together when the world feels loud.
-      </p>
-    </div>
-  </section>
+        <!-- Scene 2 -->
+        <article class="scene" data-scene="2" aria-hidden="true">
+          <div class="scene__bg" style="background-image:url('assets/discover-02-objects.jpg');"></div>
+          <div class="scene__content">
+            <div class="copy">
+              <h2 class="headline">Objects for stillness.</h2>
+              <p class="sub">Calm, shaped into form.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Scene 3 -->
+        <article class="scene" data-scene="3" aria-hidden="true">
+          <div class="scene__bg" style="background-image:url('assets/discover-03-water.jpg');"></div>
+          <div class="scene__content">
+            <div class="copy">
+              <h2 class="headline">Everyday, turned into ritual.</h2>
+              <p class="sub long">
+                From the first drop of water to the final breath of steam, Lunavell exists to transform ordinary moments into calm, repeatable rituals that hold you together when the world feels loud.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const runway = document.getElementById('discover-runway');
+      const stage  = document.getElementById('sticky-stage');
+      const scenes = Array.from(stage.querySelectorAll('.scene'));
+
+      function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+      function smoothstep(t){ return t*t*(3 - 2*t); } // cinematic ease
+
+      let ticking = false;
+
+      function update(){
+        ticking = false;
+
+        const rect = runway.getBoundingClientRect();
+        const vh = window.innerHeight || 1;
+
+        // progress = 0..3 across runway
+        const scrolled = clamp((vh - rect.top) / vh, 0, 3);
+        // sceneIndex: 0,1,2 and local t 0..1
+        const idx = clamp(Math.floor(scrolled), 0, 2);
+        const tRaw = scrolled - idx;           // 0..1 inside the segment
+        const t = smoothstep(clamp(tRaw, 0, 1));
+
+        // crossfade between idx and idx+1
+        scenes.forEach((s, i) => {
+          let op = 0;
+
+          if (i === idx) op = 1 - t;
+          if (i === idx + 1) op = t;
+
+          // keep first visible at very top, last visible at end
+          if (scrolled <= 0.001 && i === 0) op = 1;
+          if (scrolled >= 2.999 && i === 2) op = 1;
+
+          s.style.opacity = op.toFixed(4);
+          s.setAttribute('aria-hidden', op > 0.5 ? 'false' : 'true');
+        });
+      }
+
+      function onScroll(){
+        if (!ticking){
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive:true });
+      window.addEventListener('resize', onScroll, { passive:true });
+
+      // init
+      update();
+    })();
+  </script>
 
 </body>
 </html>
