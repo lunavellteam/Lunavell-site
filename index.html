@@ -9,11 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -21,13 +17,9 @@
       color: #111;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     /* ========== DESKTOP HEADER ========== */
-
     .desktop-header {
       position: absolute;
       top: 0;
@@ -41,7 +33,8 @@
     }
 
     .desktop-logo img {
-      height: 46px;
+      height: 82px;          /* 🔥 AQUI RESOLVE O PROBLEMA */
+      width: auto;
       display: block;
     }
 
@@ -54,27 +47,18 @@
       text-transform: uppercase;
     }
 
-    .desktop-nav a {
-      color: #111;
-    }
-
     /* ========== HERO ========== */
-
     .hero {
       min-height: 100vh;
-      width: 100%;
       background: url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 0 24px;
-      position: relative;
     }
 
-    .hero-inner {
-      max-width: 900px;
-    }
+    .hero-inner { max-width: 900px; }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
@@ -87,7 +71,6 @@
     .hero p {
       font-size: 14px;
       letter-spacing: 0.12em;
-      text-transform: none;
       margin-bottom: 40px;
     }
 
@@ -98,7 +81,6 @@
       font-size: 12px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      background: rgba(255,255,255,0.1);
       transition: all 0.25s ease;
     }
 
@@ -107,29 +89,19 @@
       color: #fff;
     }
 
-    /* ========== MOBILE HEADER (LOGO + 4 LINKS) ========== */
-
-    .mobile-shell {
-      display: none;
-      background: #fff;
-      position: relative;
-      z-index: 15;
-    }
+    /* ========== MOBILE HEADER ========== */
+    .mobile-shell { display: none; background: #fff; }
 
     .mobile-logo {
       padding: 22px 0 10px;
       text-align: center;
     }
 
-    .mobile-logo img {
-      height: 120px;
-      display: inline-block;
-    }
+    .mobile-logo img { height: 120px; }
 
     .mobile-nav-top {
       display: flex;
       justify-content: space-around;
-      align-items: center;
       padding: 12px 0 16px;
       border-top: 1px solid #f1f1f1;
       border-bottom: 1px solid #f1f1f1;
@@ -138,42 +110,19 @@
       text-transform: uppercase;
     }
 
-    .mobile-nav-top a {
-      color: #111;
-    }
-
-    /* ========== RESPONSIVE ========== */
-
     @media (max-width: 768px) {
-      /* some desktop stuff off */
-      .desktop-header {
-        display: none;
-      }
+      .desktop-header { display: none; }
+      .mobile-shell { display: block; }
 
-      /* mobile shell on */
-      .mobile-shell {
-        display: block;
-      }
-
-      .hero {
-        min-height: calc(100vh - 180px); /* compensa área da logo + menu */
-        padding: 40px 18px 70px;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 13px;
-      }
+      .hero { min-height: calc(100vh - 180px); }
+      .hero h1 { font-size: 40px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MOBILE: LOGO + 4 LINKS (HOME / MISSION / SHOP / MORE) -->
+  <!-- MOBILE -->
   <div class="mobile-shell">
     <div class="mobile-logo">
       <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
@@ -186,10 +135,11 @@
     </nav>
   </div>
 
-  <!-- DESKTOP HEADER (LOGO ESQUERDA + MENU COMPLETO DIREITA) -->
+  <!-- DESKTOP -->
   <header class="desktop-header">
     <div class="desktop-logo">
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+      <!-- 🔥 USANDO JPEG AQUI -->
+      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
     </div>
     <nav class="desktop-nav">
       <a href="index.html">Home</a>
