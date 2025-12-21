@@ -167,29 +167,48 @@
     }
     .cta:hover{ background:#111; color:#fff; }
 
-    /* Indicador discreto (opcional, mas ajuda o user entender que “troca”) */
-    .dots{
-      position: absolute;
-      right: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 20;
-      opacity: 0.55;
+    /* ====== DOTS (AGORA INVISÍVEIS) ====== */
+    .dots, .dot{
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    /* ====== MICRO HINT “SCROLL TO REVEAL” (Aesop vibes) ====== */
+    .scroll-hint{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 80;
+
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.55);
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      padding: 10px 14px;
+      border: 1px solid rgba(17,17,17,0.18);
+      border-radius: 999px;
+
+      opacity: 0;
+      transition: opacity 450ms ease, transform 450ms ease;
       pointer-events: none;
     }
-    .dot{
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      border: 1px solid rgba(17,17,17,0.55);
-      background: transparent;
+
+    .scroll-hint.is-visible{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
-    .dot.on{
-      background: rgba(17,17,17,0.75);
-      border-color: rgba(17,17,17,0.75);
+
+    .scroll-hint.is-hidden{
+      opacity: 0;
+      transform: translateX(-50%) translateY(8px);
     }
 
     /* MOBILE AJUSTES (IGUAL AO HERO) */
@@ -211,11 +230,17 @@
         padding: 16px 0;
       }
 
-      .dots{ right: 10px; }
+      .scroll-hint{
+        bottom: 16px;
+        font-size: 10px;
+        letter-spacing: 0.26em;
+        padding: 9px 12px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .scene{ transition: none; }
+      .scroll-hint{ transition: none; }
     }
   </style>
 </head>
@@ -259,6 +284,7 @@
 
     <div class="veil"></div>
 
+    <!-- dots continuam no HTML mas ficam invisíveis via CSS -->
     <div class="dots" aria-hidden="true">
       <div class="dot on" id="dot1"></div>
       <div class="dot" id="dot2"></div>
@@ -276,6 +302,9 @@
       </div>
     </div>
   </div>
+
+  <!-- micro hint -->
+  <div class="scroll-hint" id="scrollHint" aria-hidden="true">Scroll to reveal</div>
 
   <script>
     // ====== TEXTOS ======
@@ -303,6 +332,8 @@
     const dot2 = document.getElementById('dot2');
     const dot3 = document.getElementById('dot3');
 
+    const hint = document.getElementById('scrollHint');
+
     const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
     // progress: 0..1 (0=scene1, 0.5=scene2, 1=scene3)
@@ -314,6 +345,7 @@
     const TOUCH_SENS = 0.0019;   // mobile
 
     function setDots(idx){
+      // continua existindo (caso você queira voltar) mas fica invisível pelo CSS
       dot1.classList.toggle('on', idx === 0);
       dot2.classList.toggle('on', idx === 1);
       dot3.classList.toggle('on', idx === 2);
@@ -353,18 +385,28 @@
 
     // anima suavemente até o target (cinema)
     function tick(){
-      // easing
       current += (target - current) * 0.10;
       if(Math.abs(target - current) < 0.0005) current = target;
-
       render(current);
       requestAnimationFrame(tick);
     }
-    tick();
+
+    // ====== HINT: aparece levemente e some no 1º gesto ======
+    function showHintSoon(){
+      if(!hint) return;
+      setTimeout(() => hint.classList.add('is-visible'), 650);
+    }
+
+    function hideHint(){
+      if(!hint) return;
+      hint.classList.remove('is-visible');
+      hint.classList.add('is-hidden');
+    }
 
     // ====== CONTROLES (sem scroll de página) ======
     function onWheel(e){
       e.preventDefault();
+      if (hint) hideHint();
       target = clamp(target + (e.deltaY * WHEEL_SENS), 0, 1);
     }
     window.addEventListener('wheel', onWheel, { passive: false });
@@ -373,6 +415,7 @@
     let lastY = null;
     function onTouchStart(e){
       if(!e.touches || !e.touches[0]) return;
+      if (hint) hideHint();
       lastY = e.touches[0].clientY;
     }
     function onTouchMove(e){
@@ -394,7 +437,10 @@
     // Teclado (setas / page down/up)
     window.addEventListener('keydown', (e) => {
       const step = 0.08;
-      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      const keys = ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '];
+      if(keys.includes(e.key) || keys.includes(e.code)) hideHint();
+
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.code === 'Space') {
         e.preventDefault(); target = clamp(target + step, 0, 1);
       }
       if (e.key === 'ArrowUp' || e.key === 'PageUp') {
@@ -406,6 +452,8 @@
 
     // Estado inicial
     render(0);
+    tick();
+    showHintSoon();
   </script>
 
 </body>
