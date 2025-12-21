@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Lunavell</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,24 +11,19 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root{
-      /* Ajuste fino do desktop sem mexer no header */
-      --desktop-logo-height: 58px;   /* tamanho “real” do container */
-      --desktop-logo-scale: 1.35;    /* compensa margens do PNG */
-    }
-
-    body{
+    body {
       font-family: 'Inter', sans-serif;
       background: #fff;
       color: #111;
     }
 
-    a{ text-decoration: none; color: inherit; }
+    a { text-decoration: none; color: inherit; }
 
     /* ========== DESKTOP HEADER ========== */
-    .desktop-header{
+    .desktop-header {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       padding: 28px 60px;
       display: flex;
@@ -37,22 +32,13 @@
       z-index: 20;
     }
 
-    .desktop-logo{
-      display: flex;
-      align-items: center;
-      height: var(--desktop-logo-height);
-      overflow: visible;
-    }
-
-    .desktop-logo img{
-      height: var(--desktop-logo-height);
+    .desktop-logo img {
+      height: 82px;          /* 🔥 AQUI RESOLVE O PROBLEMA */
       width: auto;
       display: block;
-      transform-origin: left center;
-      transform: scale(var(--desktop-logo-scale));
     }
 
-    .desktop-nav{
+    .desktop-nav {
       display: flex;
       align-items: center;
       gap: 32px;
@@ -61,24 +47,20 @@
       text-transform: uppercase;
     }
 
-    .desktop-nav a{ color: #111; }
-
     /* ========== HERO ========== */
-    .hero{
+    .hero {
       min-height: 100vh;
-      width: 100%;
       background: url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 0 24px;
-      position: relative;
     }
 
-    .hero-inner{ max-width: 900px; }
+    .hero-inner { max-width: 900px; }
 
-    .hero h1{
+    .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 58px;
       font-weight: 600;
@@ -86,52 +68,40 @@
       margin-bottom: 18px;
     }
 
-    .hero p{
+    .hero p {
       font-size: 14px;
       letter-spacing: 0.12em;
-      text-transform: none;
       margin-bottom: 40px;
     }
 
-    .hero-button{
+    .hero-button {
       display: inline-block;
       padding: 16px 56px;
       border: 1px solid #111;
       font-size: 12px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      background: rgba(255,255,255,0.1);
       transition: all 0.25s ease;
     }
 
-    .hero-button:hover{
+    .hero-button:hover {
       background: #111;
       color: #fff;
     }
 
-    /* ========== MOBILE HEADER (LOGO + 4 LINKS) ========== */
-    .mobile-shell{
-      display: none;
-      background: #fff;
-      position: relative;
-      z-index: 15;
-    }
+    /* ========== MOBILE HEADER ========== */
+    .mobile-shell { display: none; background: #fff; }
 
-    .mobile-logo{
+    .mobile-logo {
       padding: 22px 0 10px;
       text-align: center;
     }
 
-    .mobile-logo img{
-      height: 120px;
-      width: auto;
-      display: inline-block;
-    }
+    .mobile-logo img { height: 120px; }
 
-    .mobile-nav-top{
+    .mobile-nav-top {
       display: flex;
       justify-content: space-around;
-      align-items: center;
       padding: 12px 0 16px;
       border-top: 1px solid #f1f1f1;
       border-bottom: 1px solid #f1f1f1;
@@ -140,20 +110,12 @@
       text-transform: uppercase;
     }
 
-    .mobile-nav-top a{ color: #111; }
+    @media (max-width: 768px) {
+      .desktop-header { display: none; }
+      .mobile-shell { display: block; }
 
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 768px){
-      .desktop-header{ display: none; }
-      .mobile-shell{ display: block; }
-
-      .hero{
-        min-height: calc(100vh - 180px);
-        padding: 40px 18px 70px;
-      }
-
-      .hero h1{ font-size: 40px; }
-      .hero p{ font-size: 13px; }
+      .hero { min-height: calc(100vh - 180px); }
+      .hero h1 { font-size: 40px; }
     }
   </style>
 </head>
@@ -163,8 +125,7 @@
   <!-- MOBILE -->
   <div class="mobile-shell">
     <div class="mobile-logo">
-      <!-- usa PNG também (consistência total) -->
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
     </div>
     <nav class="mobile-nav-top">
       <a href="index.html">Home</a>
@@ -177,7 +138,8 @@
   <!-- DESKTOP -->
   <header class="desktop-header">
     <div class="desktop-logo">
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+      <!-- 🔥 USANDO JPEG AQUI -->
+      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
     </div>
     <nav class="desktop-nav">
       <a href="index.html">Home</a>
