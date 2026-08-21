@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lunavell — Mission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #111111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==============================
+       DESKTOP HEADER
+    ============================== */
+
+    .desktop-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 28px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+    }
+
+    .desktop-logo img {
+      height: 110px;
+      width: auto;
+      display: block;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    /* ==============================
+       MOBILE HEADER
+    ============================== */
+
+    .mobile-shell {
+      display: none;
+      background: #fff;
+    }
+
+    .mobile-logo {
+      padding: 22px 0 10px;
+      text-align: center;
+    }
+
+    .mobile-logo img {
+      height: 120px;
+      display: inline-block;
+    }
+
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 12px 0 16px;
+      border-top: 1px solid #f1f1f1;
+      border-bottom: 1px solid #f1f1f1;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    /* ==============================
+       MISSION HERO
+    ============================== */
+
+    .mission-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 160px 24px 100px;
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.74),
+          rgba(255,255,255,0.86)
+        ),
+        url("assets/discover-01-bath.JPG") center/cover no-repeat;
+    }
+
+    .mission-hero-inner {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(17,17,17,0.55);
+      margin-bottom: 24px;
+    }
+
+    .mission-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      line-height: 1.05;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .mission-copy {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .mission-copy p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: rgba(17,17,17,0.72);
+      margin-bottom: 22px;
+    }
+
+    /* ==============================
+       PRINCIPLE
+    ============================== */
+
+    .principle {
+      padding: 130px 24px;
+      background: #f6f6f6;
+      text-align: center;
+    }
+
+    .principle-inner {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .principle h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      line-height: 1.1;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .principle p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(17,17,17,0.68);
+    }
+
+    /* ==============================
+       GUIDING PILLARS
+    ============================== */
+
+    .pillars {
+      padding: 130px 60px;
+      background: #ffffff;
+    }
+
+    .pillars-title {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .pillars-title .eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .pillars-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .pillars-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 70px;
+    }
+
+    .pillar {
+      text-align: center;
+      padding: 10px 18px;
+    }
+
+    .pillar-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      margin-bottom: 28px;
+      color: rgba(17,17,17,0.35);
+    }
+
+    .pillar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .pillar p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(17,17,17,0.65);
+    }
+
+    /* ==============================
+       CLOSING
+    ============================== */
+
+    .closing {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px;
+      background: #e9e9e9;
+      text-align: center;
+    }
+
+    .closing-inner {
+      max-width: 800px;
+    }
+
+    .closing h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 58px;
+      line-height: 1.08;
+      font-weight: 600;
+      margin-bottom: 34px;
+    }
+
+    .closing-button {
+      display: inline-block;
+      padding: 16px 56px;
+      border: 1px solid #111;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .closing-button:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    footer {
+      padding: 36px 24px;
+      text-align: center;
+      background: #ffffff;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(17,17,17,0.45);
+    }
+
+    /* ==============================
+       MOBILE
+    ============================== */
+
+    @media (max-width: 768px) {
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .mission-hero {
+        min-height: calc(100vh - 180px);
+        padding: 70px 22px 80px;
+      }
+
+      .mission-hero h1 {
+        font-size: 42px;
+      }
+
+      .mission-copy p {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .principle {
+        padding: 90px 22px;
+      }
+
+      .principle h2 {
+        font-size: 40px;
+      }
+
+      .principle p {
+        font-size: 14px;
+      }
+
+      .pillars {
+        padding: 90px 24px;
+      }
+
+      .pillars-title {
+        margin-bottom: 55px;
+      }
+
+      .pillars-title h2 {
+        font-size: 38px;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 65px;
+      }
+
+      .pillar h3 {
+        font-size: 28px;
+      }
+
+      .closing {
+        min-height: 60vh;
+        padding: 90px 22px;
+      }
+
+      .closing h2 {
+        font-size: 42px;
+      }
+
+      .closing-button {
+        width: min(92vw, 520px);
+        padding: 16px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MOBILE HEADER -->
+  <div class="mobile-shell">
+    <div class="mobile-logo">
+      <img
+        src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg"
+        alt="Lunavell Logo"
+      >
+    </div>
+
+    <nav class="mobile-nav-top">
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="shop.html">Shop</a>
+      <a href="discover.html">More</a>
+    </nav>
+  </div>
+
+  <!-- DESKTOP HEADER -->
+  <header class="desktop-header">
+
+    <div class="desktop-logo">
+      <img
+        src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+        alt="Lunavell Logo"
+      >
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="mission.html">Mission</a>
+      <a href="discover.html">Approach</a>
+      <a href="#">Journal</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- MISSION HERO -->
+  <section class="mission-hero">
+
+    <div class="mission-hero-inner">
+
+      <div class="eyebrow">Our Mission</div>
+
+      <h1>
+        Making everyday life feel a little less chaotic.
+      </h1>
+
+      <div class="mission-copy">
+
+        <p>
+          Lunavell is a London-based retail brand created around a simple belief:
+          the objects we live with every day should do more than simply exist.
+        </p>
+
+        <p>
+          They should solve problems beautifully, bring comfort naturally
+          and make ordinary routines feel considered.
+        </p>
+
+        <p>
+          We curate and develop practical, design-led products for modern living,
+          combining function, simplicity and sensory experience.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRINCIPLE -->
+  <section class="principle">
+
+    <div class="principle-inner">
+
+      <div class="eyebrow">Our Point of View</div>
+
+      <h2>
+        Calm doesn't always require changing your life.
+      </h2>
+
+      <p>
+        Sometimes, it begins with changing the things you live with.
+        Small improvements in the objects, routines and spaces around us
+        can make everyday life feel softer, clearer and more intentional.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+
+    <div class="pillars-title">
+
+      <div class="eyebrow">What Guides Us</div>
+
+      <h2>
+        Useful by design.<br>
+        Beautiful by nature.<br>
+        Made for real life.
+      </h2>
+
+    </div>
+
+    <div class="pillars-grid">
+
+      <div class="pillar">
+        <div class="pillar-number">01</div>
+        <h3>Function</h3>
+        <p>
+          Products chosen with a clear purpose and genuine everyday usefulness.
+          Nothing unnecessary. Nothing without reason.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-number">02</div>
+        <h3>Design</h3>
+        <p>
+          Thoughtful forms, materials and details designed to belong naturally
+          within modern spaces and modern lives.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-number">03</div>
+        <h3>Experience</h3>
+        <p>
+          Small improvements that make routines softer, simpler
+          and more intentional.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+
+    <div class="closing-inner">
+
+      <div class="eyebrow">Lunavell</div>
+
+      <h2>
+        Calm solutions for modern life.
+      </h2>
+
+      <a class="closing-button" href="shop.html">
+        Explore the Collection
+      </a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    Lunavell Ltd · London, United Kingdom
+  </footer>
+
+</body>
+</html>
