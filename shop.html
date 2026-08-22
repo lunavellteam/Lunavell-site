@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lunavell — Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #111111;
+      overflow: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================================
+       DESKTOP HEADER
+    ========================================= */
+
+    .desktop-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      padding: 28px 60px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      z-index: 30;
+    }
+
+    .desktop-logo img {
+      height: 110px;
+      width: auto;
+      display: block;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav a {
+      color: #111111;
+    }
+
+    /* =========================================
+       MOBILE HEADER
+    ========================================= */
+
+    .mobile-shell {
+      display: none;
+      background: #ffffff;
+      position: relative;
+      z-index: 40;
+    }
+
+    .mobile-logo {
+      padding: 22px 0 10px;
+      text-align: center;
+    }
+
+    .mobile-logo img {
+      height: 120px;
+      width: auto;
+      display: inline-block;
+    }
+
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      padding: 12px 0 16px;
+
+      border-top: 1px solid #f1f1f1;
+      border-bottom: 1px solid #f1f1f1;
+
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       SHOP HERO
+    ========================================= */
+
+    .shop-hero {
+      position: relative;
+
+      width: 100%;
+      height: 100vh;
+
+      overflow: hidden;
+
+      background: #f6f6f6;
+    }
+
+    .shop-image {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center center;
+
+      display: block;
+    }
+
+    .shop-veil {
+      position: absolute;
+      inset: 0;
+
+      background: rgba(255,255,255,0.03);
+
+      pointer-events: none;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .shop-footer {
+      position: absolute;
+
+      left: 50%;
+      bottom: 22px;
+
+      transform: translateX(-50%);
+
+      z-index: 10;
+
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.42);
+
+      white-space: nowrap;
+    }
+
+    /* =========================================
+       SEO / ACCESSIBILITY TEXT
+    ========================================= */
+
+    .visually-hidden {
+      position: absolute !important;
+
+      width: 1px !important;
+      height: 1px !important;
+
+      padding: 0 !important;
+      margin: -1px !important;
+
+      overflow: hidden !important;
+
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+
+      border: 0 !important;
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 768px) {
+
+      body {
+        overflow: hidden;
+      }
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .shop-hero {
+        height: calc(100vh - 180px);
+        min-height: 560px;
+      }
+
+      .shop-image {
+        object-fit: cover;
+        object-position: center center;
+      }
+
+      .shop-footer {
+        bottom: 14px;
+
+        font-size: 9px;
+        letter-spacing: 0.18em;
+      }
+    }
+
+    /* =========================================
+       VERY SMALL MOBILE
+    ========================================= */
+
+    @media (max-width: 430px) {
+
+      .shop-image {
+        object-position: 50% center;
+      }
+
+      .shop-footer {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       MOBILE HEADER
+  ========================================== -->
+
+  <div class="mobile-shell">
+
+    <div class="mobile-logo">
+      <img
+        src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg"
+        alt="Lunavell Logo"
+      >
+    </div>
+
+    <nav class="mobile-nav-top">
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="shop.html">Shop</a>
+      <a href="discover.html">More</a>
+    </nav>
+
+  </div>
+
+  <!-- =========================================
+       DESKTOP HEADER
+  ========================================== -->
+
+  <header class="desktop-header">
+
+    <div class="desktop-logo">
+      <img
+        src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+        alt="Lunavell Logo"
+      >
+    </div>
+
+    <nav class="desktop-nav">
+
+      <a href="index.html">Home</a>
+
+      <a href="shop.html">Shop</a>
+
+      <a href="mission.html">Mission</a>
+
+      <a href="discover.html">Approach</a>
+
+      <a href="#">Journal</a>
+
+      <a href="#">About</a>
+
+      <a href="#">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <!-- =========================================
+       SHOP
+  ========================================== -->
+
+  <main class="shop-hero">
+
+    <img
+      class="shop-image"
+      src="./assets/B5C0296F-462F-4D2F-8699-B622C7162521.png"
+      alt="Lunavell Collection — Objects for a calmer everyday"
+    >
+
+    <div class="shop-veil"></div>
+
+    <!--
+      Texto semântico para acessibilidade e SEO.
+      Ele não aparece visualmente porque a campanha
+      já contém toda a mensagem na própria imagem.
+    -->
+
+    <section class="visually-hidden">
+
+      <h1>
+        The Collection
+      </h1>
+
+      <h2>
+        Objects for a calmer everyday.
+      </h2>
+
+      <p>
+        Thoughtfully selected objects designed to bring
+        function, comfort and intention into everyday life.
+      </p>
+
+      <p>
+        Coming soon.
+      </p>
+
+    </section>
+
+    <div class="shop-footer">
+      Lunavell Ltd · London, United Kingdom
+    </div>
+
+  </main>
+
+</body>
+</html>
