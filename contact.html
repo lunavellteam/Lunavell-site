@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
+
   <title>Lunavell — Contact</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
-    content="Get in touch with Lunavell for general enquiries, business opportunities and partnerships."
+    content="Contact Lunavell for customer care, business enquiries, partnerships and general information."
   >
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
 
   <style>
 
@@ -21,17 +32,30 @@
       box-sizing: border-box;
     }
 
+
     html,
     body {
       width: 100%;
-      min-height: 100%;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #111111;
+
+    html {
+      scroll-behavior: smooth;
     }
+
+
+    body {
+
+      font-family: 'Inter', sans-serif;
+
+      background: #ffffff;
+
+      color: #111111;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
 
     a {
       text-decoration: none;
@@ -39,435 +63,1000 @@
     }
 
 
+
     /* =========================================
        DESKTOP HEADER
     ========================================= */
 
+
     .desktop-header {
-      position: relative;
+
       width: 100%;
 
       padding: 28px 60px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       background: #ffffff;
 
+      position: relative;
+
       z-index: 30;
+
     }
+
 
     .desktop-logo img {
+
       height: 110px;
+
       width: auto;
+
       display: block;
+
     }
 
+
     .desktop-nav {
+
       display: flex;
+
       align-items: center;
+
       gap: 32px;
 
       font-size: 13px;
+
       letter-spacing: 0.25em;
+
       text-transform: uppercase;
+
     }
 
+
     .desktop-nav a {
+
       color: #111111;
+
     }
+
 
 
     /* =========================================
        MOBILE HEADER
-       SAME AS SHOP.HTML
+       SAME AS SHOP
     ========================================= */
 
+
     .mobile-shell {
+
       display: none;
+
       background: #ffffff;
+
       position: relative;
+
       z-index: 40;
+
     }
+
 
     .mobile-logo {
+
       padding: 22px 0 10px;
+
       text-align: center;
+
     }
+
 
     .mobile-logo img {
+
       height: 120px;
+
       width: auto;
+
       display: inline-block;
+
     }
 
+
     .mobile-nav-top {
+
       display: flex;
+
       justify-content: space-around;
+
       align-items: center;
 
       padding: 12px 0 16px;
 
       border-top: 1px solid #f1f1f1;
+
       border-bottom: 1px solid #f1f1f1;
 
       font-size: 13px;
+
       letter-spacing: 0.3em;
+
       text-transform: uppercase;
+
     }
 
 
+
     /* =========================================
-       CONTACT HERO
+       HERO
     ========================================= */
+
 
     .contact-hero {
-      width: 100%;
-      min-height: 620px;
 
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      min-height: 720px;
 
-      border-top: 1px solid #f1f1f1;
-    }
-
-    .contact-intro {
-      padding: 110px 8vw;
+      padding: 130px 24px 125px;
 
       display: flex;
-      flex-direction: column;
+
+      align-items: center;
+
       justify-content: center;
 
-      background: #ffffff;
+      text-align: center;
+
+      background: #f6f6f5;
+
     }
 
-    .contact-kicker {
-      margin-bottom: 22px;
+
+    .hero-inner {
+
+      width: 100%;
+
+      max-width: 900px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .hero-kicker {
+
+      margin-bottom: 38px;
 
       font-size: 11px;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
 
-      color: rgba(17,17,17,0.52);
-    }
+      letter-spacing: 0.38em;
 
-    .contact-title {
-      max-width: 700px;
-
-      font-family: 'Playfair Display', serif;
-      font-size: 68px;
-      line-height: 1.05;
-      font-weight: 400;
-
-      letter-spacing: -0.025em;
-    }
-
-    .contact-description {
-      max-width: 570px;
-
-      margin-top: 30px;
-
-      font-size: 15px;
-      line-height: 1.85;
-
-      color: rgba(17,17,17,0.62);
-    }
-
-
-    /* =========================================
-       CONTACT DETAILS
-    ========================================= */
-
-    .contact-details {
-      padding: 100px 7vw;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      background: #f5f4f1;
-    }
-
-    .contact-item {
-      padding: 30px 0;
-
-      border-top: 1px solid rgba(17,17,17,0.12);
-    }
-
-    .contact-item:last-child {
-      border-bottom: 1px solid rgba(17,17,17,0.12);
-    }
-
-    .contact-label {
-      display: block;
-
-      margin-bottom: 12px;
-
-      font-size: 10px;
-      letter-spacing: 0.28em;
       text-transform: uppercase;
 
       color: rgba(17,17,17,0.46);
+
     }
 
-    .contact-value {
+
+    .hero-title {
+
+      max-width: 850px;
+
+      margin: 0 auto;
+
       font-family: 'Playfair Display', serif;
 
-      font-size: 28px;
-      font-weight: 400;
-      line-height: 1.35;
+      font-size: 66px;
+
+      line-height: 1.05;
+
+      font-weight: 500;
+
+      letter-spacing: -0.025em;
+
     }
 
-    .contact-value a {
-      transition: opacity 0.25s ease;
+
+    .hero-description {
+
+      max-width: 690px;
+
+      margin: 42px auto 0;
+
+      font-size: 17px;
+
+      line-height: 1.9;
+
+      color: rgba(17,17,17,0.60);
+
     }
 
-    .contact-value a:hover {
-      opacity: 0.55;
+
+    .hero-email {
+
+      display: inline-block;
+
+      margin-top: 54px;
+
+      padding-bottom: 5px;
+
+      border-bottom: 1px solid rgba(17,17,17,0.40);
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 32px;
+
     }
+
 
 
     /* =========================================
-       CLOSING SECTION
+       HOW CAN WE HELP
     ========================================= */
 
-    .contact-closing {
-      padding: 110px 24px;
+
+    .help {
+
+      padding: 120px 7vw 130px;
+
+      background: #ffffff;
+
+      text-align: center;
+
+    }
+
+
+    .section-kicker {
+
+      font-size: 11px;
+
+      letter-spacing: 0.38em;
+
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.44);
+
+    }
+
+
+    .section-title {
+
+      margin-top: 26px;
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 55px;
+
+      line-height: 1.08;
+
+      font-weight: 500;
+
+    }
+
+
+    .help-grid {
+
+      max-width: 1100px;
+
+      margin: 85px auto 0;
+
+      border-top: 1px solid rgba(17,17,17,0.16);
+
+    }
+
+
+    .help-item {
+
+      padding: 70px 20px 72px;
+
+      border-bottom: 1px solid rgba(17,17,17,0.16);
+
+    }
+
+
+    .help-number {
+
+      margin-bottom: 30px;
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 20px;
+
+      color: rgba(17,17,17,0.22);
+
+    }
+
+
+    .help-title {
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 37px;
+
+      font-weight: 500;
+
+    }
+
+
+    .help-description {
+
+      max-width: 600px;
+
+      margin: 24px auto 0;
+
+      font-size: 16px;
+
+      line-height: 1.9;
+
+      color: rgba(17,17,17,0.58);
+
+    }
+
+
+    .help-link {
+
+      display: inline-block;
+
+      margin-top: 33px;
+
+      padding-bottom: 6px;
+
+      border-bottom: 1px solid rgba(17,17,17,0.40);
+
+      font-size: 11px;
+
+      letter-spacing: 0.30em;
+
+      text-transform: uppercase;
+
+    }
+
+
+
+    /* =========================================
+       BUSINESS INFORMATION
+    ========================================= */
+
+
+    .business-info {
+
+      padding: 120px 6vw 135px;
+
+      background: #efefee;
+
+      text-align: center;
+
+    }
+
+
+    .business-inner {
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .business-title {
+
+      margin-top: 30px;
+
+      margin-bottom: 70px;
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 55px;
+
+      line-height: 1.1;
+
+      font-weight: 500;
+
+    }
+
+
+    .business-row {
+
+      padding: 38px 20px;
+
+      border-bottom: 1px solid rgba(17,17,17,0.13);
+
+    }
+
+
+    .business-label {
+
+      display: block;
+
+      margin-bottom: 14px;
+
+      font-size: 10px;
+
+      letter-spacing: 0.34em;
+
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.40);
+
+    }
+
+
+    .business-value {
+
+      font-size: 17px;
+
+      line-height: 1.7;
+
+      color: rgba(17,17,17,0.70);
+
+    }
+
+
+
+    /* =========================================
+       COLLECTION CTA
+    ========================================= */
+
+
+    .collection-cta {
+
+      min-height: 650px;
+
+      padding: 120px 24px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
 
       text-align: center;
 
       background: #ffffff;
+
     }
 
-    .closing-inner {
+
+    .collection-inner {
+
+      max-width: 900px;
+
       width: 100%;
-      max-width: 760px;
 
-      margin: 0 auto;
     }
 
-    .closing-kicker {
-      margin-bottom: 20px;
 
-      font-size: 10px;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
+    .collection-title {
 
-      color: rgba(17,17,17,0.46);
-    }
+      margin-top: 28px;
 
-    .closing-title {
       font-family: 'Playfair Display', serif;
 
-      font-size: 46px;
-      line-height: 1.15;
-      font-weight: 400;
+      font-size: 64px;
+
+      line-height: 1.05;
+
+      font-weight: 500;
+
+      letter-spacing: -0.02em;
+
     }
 
-    .closing-description {
-      max-width: 570px;
 
-      margin: 24px auto 0;
+    .collection-button {
 
-      font-size: 14px;
-      line-height: 1.8;
+      width: 100%;
 
-      color: rgba(17,17,17,0.58);
-    }
+      max-width: 760px;
 
-    .contact-button {
+      margin-top: 55px;
+
+      padding: 25px 30px;
+
       display: inline-block;
-
-      margin-top: 34px;
-      padding: 15px 26px;
 
       border: 1px solid #111111;
 
-      font-size: 10px;
-      letter-spacing: 0.28em;
+      font-size: 12px;
+
+      letter-spacing: 0.34em;
+
       text-transform: uppercase;
 
       transition:
         background 0.25s ease,
         color 0.25s ease;
+
     }
 
-    .contact-button:hover {
+
+    .collection-button:hover {
+
       background: #111111;
+
       color: #ffffff;
+
     }
+
 
 
     /* =========================================
        FOOTER
     ========================================= */
 
-    .contact-footer {
-      padding: 28px 24px 32px;
 
-      text-align: center;
+    .site-footer {
 
-      border-top: 1px solid #f1f1f1;
+      padding: 80px 60px 50px;
 
-      font-size: 10px;
-      letter-spacing: 0.22em;
+      background: #efede8;
+
+    }
+
+
+    .footer-inner {
+
+      max-width: 1400px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .footer-brand {
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 36px;
+
+      letter-spacing: 0.03em;
+
+    }
+
+
+    .footer-tagline {
+
+      margin-top: 10px;
+
+      font-size: 15px;
+
+      color: rgba(17,17,17,0.55);
+
+    }
+
+
+    .footer-shop {
+
+      display: inline-block;
+
+      margin-top: 42px;
+
+      padding-bottom: 5px;
+
+      border-bottom: 1px solid #111111;
+
+      font-size: 11px;
+
+      letter-spacing: 0.25em;
+
       text-transform: uppercase;
 
-      color: rgba(17,17,17,0.42);
-
-      background: #ffffff;
     }
+
+
+    .footer-line {
+
+      margin: 55px 0 32px;
+
+      height: 1px;
+
+      background: rgba(17,17,17,0.14);
+
+    }
+
+
+    .footer-bottom {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 30px;
+
+      color: rgba(17,17,17,0.52);
+
+      font-size: 10px;
+
+      letter-spacing: 0.20em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .footer-nav {
+
+      display: flex;
+
+      gap: 28px;
+
+    }
+
 
 
     /* =========================================
        MOBILE
     ========================================= */
 
+
     @media (max-width: 768px) {
 
+
       .desktop-header {
+
         display: none;
+
       }
+
 
       .mobile-shell {
+
         display: block;
+
       }
+
+
+
+      /* HERO */
+
 
       .contact-hero {
-        min-height: auto;
 
-        display: block;
+        min-height: 650px;
 
-        border-top: none;
+        padding: 100px 24px 105px;
+
       }
 
-      .contact-intro {
-        padding: 70px 26px 72px;
+
+      .hero-kicker {
+
+        margin-bottom: 30px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.36em;
+
       }
 
-      .contact-kicker {
-        margin-bottom: 20px;
 
-        font-size: 10px;
-        letter-spacing: 0.30em;
-      }
+      .hero-title {
 
-      .contact-title {
-        max-width: 480px;
+        max-width: 670px;
 
-        font-size: 46px;
+        font-size: 45px;
+
         line-height: 1.08;
 
-        letter-spacing: -0.02em;
       }
 
-      .contact-description {
-        max-width: 500px;
 
-        margin-top: 26px;
+      .hero-description {
+
+        max-width: 600px;
+
+        margin-top: 34px;
 
         font-size: 14px;
-        line-height: 1.8;
+
+        line-height: 1.85;
+
       }
 
-      .contact-details {
-        padding: 42px 26px 48px;
+
+      .hero-email {
+
+        margin-top: 45px;
+
+        font-size: 24px;
+
       }
 
-      .contact-item {
-        padding: 24px 0;
+
+
+      /* HELP */
+
+
+      .help {
+
+        padding: 90px 22px 100px;
+
       }
 
-      .contact-label {
+
+      .section-kicker {
+
         font-size: 9px;
-        letter-spacing: 0.26em;
+
+        letter-spacing: 0.36em;
+
       }
 
-      .contact-value {
-        font-size: 23px;
+
+      .section-title {
+
+        margin-top: 24px;
+
+        font-size: 41px;
+
       }
 
-      .contact-closing {
-        padding: 76px 24px 82px;
+
+      .help-grid {
+
+        margin-top: 65px;
+
       }
 
-      .closing-title {
-        font-size: 36px;
-        line-height: 1.18;
+
+      .help-item {
+
+        padding: 58px 8px 60px;
+
       }
 
-      .closing-description {
-        font-size: 13px;
+
+      .help-number {
+
+        margin-bottom: 26px;
+
+        font-size: 17px;
+
       }
 
-      .contact-button {
+
+      .help-title {
+
+        font-size: 31px;
+
+      }
+
+
+      .help-description {
+
+        max-width: 520px;
+
+        margin-top: 22px;
+
+        font-size: 14px;
+
+        line-height: 1.85;
+
+      }
+
+
+      .help-link {
+
         margin-top: 30px;
 
-        padding: 14px 22px;
+        font-size: 10px;
 
-        font-size: 9px;
       }
 
-      .contact-footer {
-        padding-bottom: 30px;
+
+
+      /* BUSINESS */
+
+
+      .business-info {
+
+        padding: 95px 22px 100px;
+
+      }
+
+
+      .business-title {
+
+        margin-top: 24px;
+
+        margin-bottom: 55px;
+
+        font-size: 43px;
+
+      }
+
+
+      .business-row {
+
+        padding: 34px 8px;
+
+      }
+
+
+      .business-label {
 
         font-size: 9px;
-        letter-spacing: 0.18em;
+
+      }
+
+
+      .business-value {
+
+        font-size: 15px;
+
+      }
+
+
+
+      /* COLLECTION */
+
+
+      .collection-cta {
+
+        min-height: 590px;
+
+        padding: 95px 22px;
+
+      }
+
+
+      .collection-title {
+
+        margin-top: 24px;
+
+        font-size: 44px;
+
+        line-height: 1.06;
+
+      }
+
+
+      .collection-button {
+
+        margin-top: 48px;
+
+        padding: 22px 16px;
+
+        font-size: 10px;
+
+        letter-spacing: 0.30em;
+
+      }
+
+
+
+      /* FOOTER */
+
+
+      .site-footer {
+
+        padding: 70px 24px 42px;
+
+      }
+
+
+      .footer-brand {
+
+        font-size: 33px;
+
+      }
+
+
+      .footer-tagline {
+
+        font-size: 14px;
+
+      }
+
+
+      .footer-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        line-height: 1.7;
+
+      }
+
+
+      .footer-nav {
+
+        gap: 22px;
+
+        flex-wrap: wrap;
+
       }
 
     }
+
 
 
     /* =========================================
        SMALL MOBILE
     ========================================= */
 
+
     @media (max-width: 430px) {
 
-      .contact-intro {
-        padding-left: 22px;
-        padding-right: 22px;
+
+      .contact-hero {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
       }
 
-      .contact-title {
-        font-size: 42px;
+
+      .hero-title {
+
+        font-size: 41px;
+
       }
 
-      .contact-description {
-        font-size: 13px;
+
+      .hero-email {
+
+        font-size: 22px;
+
       }
 
-      .contact-details {
-        padding-left: 22px;
-        padding-right: 22px;
+
+      .section-title {
+
+        font-size: 38px;
+
       }
 
-      .contact-value {
-        font-size: 21px;
+
+      .help-title {
+
+        font-size: 29px;
+
       }
 
-      .closing-title {
-        font-size: 33px;
+
+      .business-title {
+
+        font-size: 40px;
+
+      }
+
+
+      .collection-title {
+
+        font-size: 40px;
+
       }
 
     }
 
+
   </style>
+
 </head>
+
 
 
 <body>
 
 
+
   <!-- =========================================
        MOBILE HEADER
-       EXACT SAME STRUCTURE AS SHOP
+       EXACTLY BASED ON SHOP.HTML
   ========================================== -->
+
 
   <div class="mobile-shell">
 
+
     <div class="mobile-logo">
+
       <a href="index.html">
 
         <img
@@ -476,7 +1065,9 @@
         >
 
       </a>
+
     </div>
+
 
 
     <nav class="mobile-nav-top">
@@ -499,14 +1090,18 @@
 
     </nav>
 
+
   </div>
+
 
 
   <!-- =========================================
        DESKTOP HEADER
   ========================================== -->
 
+
   <header class="desktop-header">
+
 
     <div class="desktop-logo">
 
@@ -520,6 +1115,7 @@
       </a>
 
     </div>
+
 
 
     <nav class="desktop-nav">
@@ -554,46 +1150,255 @@
 
     </nav>
 
+
   </header>
 
 
+
   <!-- =========================================
-       CONTACT
+       HERO
   ========================================== -->
 
+
   <main>
+
 
     <section class="contact-hero">
 
 
-      <div class="contact-intro">
+      <div class="hero-inner">
 
-        <div class="contact-kicker">
-          Contact
+
+        <div class="hero-kicker">
+          Contact Lunavell
         </div>
 
-        <h1 class="contact-title">
-          We’d love to hear from you.
+
+        <h1 class="hero-title">
+          Let’s make everyday life feel a little better.
         </h1>
 
-        <p class="contact-description">
-          Whether you have a question, a business enquiry
-          or simply want to connect, our inbox is always open.
+
+        <p class="hero-description">
+
+          Questions about Lunavell, our collection or our business?
+
+          <br>
+
+          We’d be happy to hear from you.
+
         </p>
+
+
+        <a
+          class="hero-email"
+          href="mailto:hello@lunavell.co.uk"
+        >
+          hello@lunavell.co.uk
+        </a>
+
 
       </div>
 
 
-      <div class="contact-details">
+    </section>
 
 
-        <div class="contact-item">
 
-          <span class="contact-label">
-            General enquiries
+    <!-- =========================================
+         HOW CAN WE HELP
+    ========================================== -->
+
+
+    <section class="help">
+
+
+      <div class="section-kicker">
+        Get in touch
+      </div>
+
+
+      <h2 class="section-title">
+        How can we help?
+      </h2>
+
+
+
+      <div class="help-grid">
+
+
+
+        <!-- CUSTOMER CARE -->
+
+
+        <div class="help-item">
+
+
+          <div class="help-number">
+            01
+          </div>
+
+
+          <h3 class="help-title">
+            Customer Care
+          </h3>
+
+
+          <p class="help-description">
+
+            Questions about products, availability,
+            orders or the Lunavell collection.
+
+          </p>
+
+
+          <a
+            class="help-link"
+            href="mailto:hello@lunavell.co.uk?subject=Customer%20Care"
+          >
+            Email us
+          </a>
+
+
+        </div>
+
+
+
+        <!-- BUSINESS -->
+
+
+        <div class="help-item">
+
+
+          <div class="help-number">
+            02
+          </div>
+
+
+          <h3 class="help-title">
+            Business
+          </h3>
+
+
+          <p class="help-description">
+
+            Retail, supplier, commercial
+            and business-related enquiries.
+
+          </p>
+
+
+          <a
+            class="help-link"
+            href="mailto:hello@lunavell.co.uk?subject=Business%20Enquiry"
+          >
+            Contact Lunavell
+          </a>
+
+
+        </div>
+
+
+
+        <!-- PARTNERSHIPS -->
+
+
+        <div class="help-item">
+
+
+          <div class="help-number">
+            03
+          </div>
+
+
+          <h3 class="help-title">
+            Partnerships
+          </h3>
+
+
+          <p class="help-description">
+
+            Collaborations, partnerships
+            and brand opportunities.
+
+          </p>
+
+
+          <a
+            class="help-link"
+            href="mailto:hello@lunavell.co.uk?subject=Partnership%20Enquiry"
+          >
+            Get in touch
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         BUSINESS INFORMATION
+    ========================================== -->
+
+
+    <section class="business-info">
+
+
+      <div class="business-inner">
+
+
+        <div class="section-kicker">
+          Business Information
+        </div>
+
+
+        <h2 class="business-title">
+          Lunavell Ltd.
+        </h2>
+
+
+
+        <div class="business-row">
+
+          <span class="business-label">
+            Company
           </span>
 
-          <div class="contact-value">
+          <div class="business-value">
+            Lunavell Ltd
+          </div>
+
+        </div>
+
+
+
+        <div class="business-row">
+
+          <span class="business-label">
+            Location
+          </span>
+
+          <div class="business-value">
+            London, United Kingdom
+          </div>
+
+        </div>
+
+
+
+        <div class="business-row">
+
+          <span class="business-label">
+            Email
+          </span>
+
+          <div class="business-value">
 
             <a href="mailto:hello@lunavell.co.uk">
               hello@lunavell.co.uk
@@ -604,33 +1409,15 @@
         </div>
 
 
-        <div class="contact-item">
 
-          <span class="contact-label">
-            Business &amp; partnerships
+        <div class="business-row">
+
+          <span class="business-label">
+            Business
           </span>
 
-          <div class="contact-value">
-
-            <a
-              href="mailto:hello@lunavell.co.uk?subject=Business%20%26%20Partnership%20Enquiry"
-            >
-              Get in touch
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="contact-item">
-
-          <span class="contact-label">
-            Based in
-          </span>
-
-          <div class="contact-value">
-            London, United Kingdom
+          <div class="business-value">
+            Retail · Home · Wellness · Personal Care · Everyday Living
           </div>
 
         </div>
@@ -644,35 +1431,36 @@
 
 
     <!-- =========================================
-         CLOSING
+         COLLECTION CTA
     ========================================== -->
 
-    <section class="contact-closing">
 
-      <div class="closing-inner">
+    <section class="collection-cta">
 
-        <div class="closing-kicker">
+
+      <div class="collection-inner">
+
+
+        <div class="section-kicker">
           Lunavell
         </div>
 
-        <h2 class="closing-title">
-          Thoughtful objects.<br>
-          Considered living.
+
+        <h2 class="collection-title">
+          Objects for a calmer everyday.
         </h2>
 
-        <p class="closing-description">
-          We’re building a collection designed to bring
-          more function, comfort and intention into everyday life.
-        </p>
 
         <a
-          class="contact-button"
-          href="mailto:hello@lunavell.co.uk"
+          class="collection-button"
+          href="shop.html"
         >
-          Email Lunavell
+          Explore the Collection
         </a>
 
+
       </div>
+
 
     </section>
 
@@ -685,9 +1473,64 @@
        FOOTER
   ========================================== -->
 
-  <footer class="contact-footer">
 
-    Lunavell Ltd · London, United Kingdom
+  <footer class="site-footer">
+
+
+    <div class="footer-inner">
+
+
+      <div class="footer-brand">
+        LUNAVELL
+      </div>
+
+
+      <div class="footer-tagline">
+        Calm solutions for modern life.
+      </div>
+
+
+      <a
+        class="footer-shop"
+        href="shop.html"
+      >
+        Explore the Collection
+      </a>
+
+
+      <div class="footer-line"></div>
+
+
+      <div class="footer-bottom">
+
+
+        <div>
+          Lunavell Ltd · London, United Kingdom
+        </div>
+
+
+        <nav class="footer-nav">
+
+          <a href="mission.html">
+            Mission
+          </a>
+
+          <a href="shop.html">
+            Shop
+          </a>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+        </nav>
+
+
+      </div>
+
+
+    </div>
+
 
   </footer>
 
