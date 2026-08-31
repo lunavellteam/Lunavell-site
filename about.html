@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lunavell — About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #111111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================================
+       DESKTOP HEADER
+    ========================================= */
+
+    .desktop-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      padding: 28px 60px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      z-index: 30;
+    }
+
+    .desktop-logo img {
+      height: 110px;
+      width: auto;
+      display: block;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav a {
+      color: #111111;
+    }
+
+    /* =========================================
+       MOBILE HEADER
+    ========================================= */
+
+    .mobile-shell {
+      display: none;
+      background: #ffffff;
+      position: relative;
+      z-index: 40;
+    }
+
+    .mobile-logo {
+      padding: 22px 0 10px;
+      text-align: center;
+    }
+
+    .mobile-logo img {
+      height: 120px;
+      width: auto;
+      display: inline-block;
+    }
+
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      padding: 12px 0 16px;
+
+      border-top: 1px solid #f1f1f1;
+      border-bottom: 1px solid #f1f1f1;
+
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       ABOUT HERO
+    ========================================= */
+
+    .about-hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 160px 24px 110px;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.78),
+          rgba(255,255,255,0.90)
+        ),
+        url("assets/C4A37407-A725-4558-8E5F-61D951834C9E.png")
+        center/cover no-repeat;
+    }
+
+    .about-hero-inner {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(17,17,17,0.54);
+
+      margin-bottom: 24px;
+    }
+
+    .about-hero h1 {
+      font-family: 'Playfair Display', serif;
+
+      font-size: 66px;
+      line-height: 1.04;
+      font-weight: 600;
+
+      margin-bottom: 30px;
+    }
+
+    .about-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+
+      font-size: 16px;
+      line-height: 1.9;
+
+      color: rgba(17,17,17,0.70);
+    }
+
+    /* =========================================
+       ACT SECTIONS
+    ========================================= */
+
+    .act {
+      min-height: 78vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 120px 28px;
+    }
+
+    .act:nth-of-type(even) {
+      background: #f6f6f6;
+    }
+
+    .act:nth-of-type(odd) {
+      background: #ffffff;
+    }
+
+    .act-inner {
+      width: 100%;
+      max-width: 980px;
+
+      text-align: center;
+    }
+
+    .act-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+
+      color: rgba(17,17,17,0.30);
+
+      margin-bottom: 18px;
+    }
+
+    .act h2 {
+      font-family: 'Playfair Display', serif;
+
+      font-size: 54px;
+      line-height: 1.08;
+      font-weight: 600;
+
+      margin-bottom: 26px;
+    }
+
+    .act-copy {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .act-copy p {
+      font-size: 16px;
+      line-height: 1.9;
+
+      color: rgba(17,17,17,0.68);
+
+      margin-bottom: 20px;
+    }
+
+    /* =========================================
+       CATEGORY GRID
+    ========================================= */
+
+    .category-grid {
+      max-width: 1000px;
+      margin: 52px auto 0;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .category {
+      padding: 28px 18px;
+
+      border-top: 1px solid rgba(17,17,17,0.16);
+
+      text-align: center;
+    }
+
+    .category span {
+      display: block;
+
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.56);
+    }
+
+    /* =========================================
+       STANDARD
+    ========================================= */
+
+    .standard {
+      min-height: 85vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 120px 24px;
+
+      background: #e9e9e9;
+
+      text-align: center;
+    }
+
+    .standard-inner {
+      width: 100%;
+      max-width: 920px;
+    }
+
+    .standard h2 {
+      font-family: 'Playfair Display', serif;
+
+      font-size: 58px;
+      line-height: 1.08;
+      font-weight: 600;
+
+      margin-bottom: 42px;
+    }
+
+    .standards-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 18px 34px;
+
+      margin-bottom: 42px;
+    }
+
+    .standards-list span {
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.62);
+    }
+
+    .standard p {
+      max-width: 680px;
+      margin: 0 auto 34px;
+
+      font-size: 15px;
+      line-height: 1.85;
+
+      color: rgba(17,17,17,0.66);
+    }
+
+    .about-button {
+      display: inline-block;
+
+      padding: 16px 56px;
+
+      border: 1px solid #111;
+
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+
+      transition: all 0.25s ease;
+    }
+
+    .about-button:hover {
+      background: #111;
+      color: #ffffff;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      padding: 38px 24px;
+
+      text-align: center;
+
+      background: #ffffff;
+
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.45);
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 768px) {
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .about-hero {
+        min-height: calc(100vh - 180px);
+
+        padding: 74px 22px 82px;
+
+        background:
+          linear-gradient(
+            rgba(255,255,255,0.76),
+            rgba(255,255,255,0.90)
+          ),
+          url("assets/C4A37407-A725-4558-8E5F-61D951834C9E.png")
+          62% center/cover no-repeat;
+      }
+
+      .about-hero h1 {
+        font-size: 43px;
+        line-height: 1.06;
+
+        margin-bottom: 26px;
+      }
+
+      .about-hero p {
+        font-size: 14px;
+        line-height: 1.85;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.30em;
+
+        margin-bottom: 20px;
+      }
+
+      .act {
+        min-height: auto;
+
+        padding: 94px 22px;
+      }
+
+      .act h2 {
+        font-size: 40px;
+        line-height: 1.08;
+
+        margin-bottom: 26px;
+      }
+
+      .act-copy p {
+        font-size: 14px;
+        line-height: 1.88;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px 16px;
+
+        margin-top: 44px;
+      }
+
+      .category {
+        padding: 24px 10px;
+      }
+
+      .category span {
+        font-size: 10px;
+        letter-spacing: 0.20em;
+      }
+
+      .standard {
+        min-height: 70vh;
+
+        padding: 94px 22px;
+      }
+
+      .standard h2 {
+        font-size: 42px;
+        line-height: 1.08;
+
+        margin-bottom: 36px;
+      }
+
+      .standards-list {
+        flex-direction: column;
+        gap: 16px;
+
+        margin-bottom: 34px;
+      }
+
+      .standards-list span {
+        font-size: 11px;
+      }
+
+      .standard p {
+        font-size: 14px;
+        line-height: 1.88;
+      }
+
+      .about-button {
+        width: min(92vw, 520px);
+
+        padding: 16px 0;
+      }
+
+      footer {
+        padding: 36px 18px;
+
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       MOBILE HEADER
+  ========================================== -->
+
+  <div class="mobile-shell">
+
+    <div class="mobile-logo">
+      <img
+        src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg"
+        alt="Lunavell Logo"
+      >
+    </div>
+
+    <nav class="mobile-nav-top">
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="shop.html">Shop</a>
+      <a href="discover.html">More</a>
+    </nav>
+
+  </div>
+
+  <!-- =========================================
+       DESKTOP HEADER
+  ========================================== -->
+
+  <header class="desktop-header">
+
+    <div class="desktop-logo">
+      <img
+        src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+        alt="Lunavell Logo"
+      >
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="mission.html">Mission</a>
+      <a href="discover.html">Approach</a>
+      <a href="#">Journal</a>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- =========================================
+       ABOUT HERO
+  ========================================== -->
+
+  <section class="about-hero">
+
+    <div class="about-hero-inner">
+
+      <div class="eyebrow">
+        About Lunavell
+      </div>
+
+      <h1>
+        Designed for the life we actually live.
+      </h1>
+
+      <p>
+        Lunavell is a London-based retail brand focused on thoughtful objects
+        for modern living — practical, considered and designed to make
+        everyday routines feel a little easier.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       ACT 01
+  ========================================== -->
+
+  <section class="act">
+
+    <div class="act-inner">
+
+      <div class="act-number">
+        01
+      </div>
+
+      <div class="eyebrow">
+        Born in London
+      </div>
+
+      <h2>
+        A new retail brand shaped by modern life.
+      </h2>
+
+      <div class="act-copy">
+
+        <p>
+          Lunavell was created in London with a simple idea:
+          everyday objects can be more useful, more considered
+          and more beautiful without becoming complicated.
+        </p>
+
+        <p>
+          We are building a modern retail brand around the small things
+          that quietly shape how a day feels — the objects we reach for,
+          the routines we repeat and the spaces we return to.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       ACT 02
+  ========================================== -->
+
+  <section class="act">
+
+    <div class="act-inner">
+
+      <div class="act-number">
+        02
+      </div>
+
+      <div class="eyebrow">
+        Why We Exist
+      </div>
+
+      <h2>
+        Better everyday objects can create better everyday moments.
+      </h2>
+
+      <div class="act-copy">
+
+        <p>
+          Modern life is already full of noise, friction and unnecessary complexity.
+          We do not believe the objects around us should add more of it.
+        </p>
+
+        <p>
+          Lunavell exists to identify simple opportunities to make ordinary
+          routines feel more comfortable, more functional and more intentional.
+        </p>
+
+        <p>
+          Not by asking people to completely change the way they live,
+          but by improving the things they already live with.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       ACT 03
+  ========================================== -->
+
+  <section class="act">
+
+    <div class="act-inner">
+
+      <div class="act-number">
+        03
+      </div>
+
+      <div class="eyebrow">
+        What We Create
+      </div>
+
+      <h2>
+        Thoughtful products for everyday living.
+      </h2>
+
+      <div class="act-copy">
+
+        <p>
+          Our collection is built around useful, design-led products
+          that sit naturally within modern homes and modern routines.
+        </p>
+
+        <p>
+          We look for the balance between function, comfort,
+          simplicity and visual clarity — products that solve
+          real needs while still feeling considered.
+        </p>
+
+      </div>
+
+      <div class="category-grid">
+
+        <div class="category">
+          <span>Home</span>
+        </div>
+
+        <div class="category">
+          <span>Wellness</span>
+        </div>
+
+        <div class="category">
+          <span>Personal Care</span>
+        </div>
+
+        <div class="category">
+          <span>Everyday Living</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       ACT 04
+  ========================================== -->
+
+  <section class="standard">
+
+    <div class="standard-inner">
+
+      <div class="act-number">
+        04
+      </div>
+
+      <div class="eyebrow">
+        Our Standard
+      </div>
+
+      <h2>
+        Useful first.<br>
+        Considered always.
+      </h2>
+
+      <div class="standards-list">
+        <span>Useful</span>
+        <span>Considered</span>
+        <span>Beautiful</span>
+        <span>Accessible</span>
+      </div>
+
+      <p>
+        We believe good design should earn its place in everyday life.
+        Each Lunavell product begins with usefulness and is shaped
+        through simplicity, comfort and intention.
+      </p>
+
+      <a
+        class="about-button"
+        href="shop.html"
+      >
+        Explore the Collection
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer>
+    Lunavell Ltd · London, United Kingdom
+  </footer>
+
+</body>
+</html>
