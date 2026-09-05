@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Privacy Policy | Lunavell</title>
+
+  <meta
+    name="description"
+    content="Read the Lunavell Ltd Privacy Policy and learn how we collect, use and protect personal information."
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --white: #ffffff;
+      --cloud: #f6f6f6;
+      --soft: #eceae5;
+      --text: #111111;
+      --muted: #6f6f6b;
+      --line: rgba(17,17,17,0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================================
+       DESKTOP HEADER
+    ========================================= */
+
+    .desktop-header {
+      position: relative;
+      width: 100%;
+
+      padding: 28px 60px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: #ffffff;
+
+      z-index: 30;
+    }
+
+    .desktop-logo img {
+      height: 110px;
+      width: auto;
+      display: block;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav a {
+      color: #111111;
+    }
+
+    /* =========================================
+       MOBILE HEADER
+    ========================================= */
+
+    .mobile-shell {
+      display: none;
+      background: #ffffff;
+      position: relative;
+      z-index: 40;
+    }
+
+    .mobile-logo {
+      padding: 22px 0 10px;
+      text-align: center;
+    }
+
+    .mobile-logo img {
+      height: 120px;
+      width: auto;
+      display: inline-block;
+    }
+
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      padding: 12px 0 16px;
+
+      border-top: 1px solid #f1f1f1;
+      border-bottom: 1px solid #f1f1f1;
+
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .privacy-hero {
+      background: var(--cloud);
+
+      padding: 120px 24px 110px;
+
+      text-align: center;
+    }
+
+    .privacy-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+
+      color: var(--muted);
+
+      margin-bottom: 28px;
+    }
+
+    .privacy-hero h1 {
+      font-family: 'Playfair Display', serif;
+
+      font-size: clamp(3.6rem, 6vw, 6rem);
+      line-height: 1;
+      font-weight: 600;
+
+      margin-bottom: 26px;
+    }
+
+    .privacy-hero p {
+      max-width: 660px;
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* =========================================
+       POLICY
+    ========================================= */
+
+    .policy {
+      padding: 105px 24px 125px;
+
+      background: #ffffff;
+    }
+
+    .policy-inner {
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .policy-section {
+      padding: 0 0 54px;
+      margin-bottom: 54px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+
+      color: rgba(17,17,17,0.28);
+
+      margin-bottom: 14px;
+    }
+
+    .policy-section h2 {
+      font-family: 'Playfair Display', serif;
+
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 600;
+
+      margin-bottom: 22px;
+    }
+
+    .policy-section p,
+    .policy-section li {
+      color: var(--muted);
+
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .policy-section p + p {
+      margin-top: 18px;
+    }
+
+    .policy-section ul {
+      margin-top: 18px;
+      padding-left: 22px;
+    }
+
+    .policy-section li + li {
+      margin-top: 10px;
+    }
+
+    .policy-section strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .policy-email {
+      display: inline-block;
+
+      margin-top: 18px;
+
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+
+      border-bottom: 1px solid rgba(17,17,17,0.32);
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      background: var(--soft);
+
+      padding: 68px 48px 34px;
+    }
+
+    .footer-inner {
+      max-width: 1450px;
+      margin: 0 auto;
+    }
+
+    .footer-main {
+      padding-bottom: 42px;
+
+      border-bottom: 1px solid var(--line);
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 35px;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+
+      font-size: 32px;
+    }
+
+    .footer-tagline {
+      margin-top: 10px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .footer-contact {
+      padding-bottom: 4px;
+
+      border-bottom: 1px solid var(--text);
+
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .footer-bottom {
+      padding-top: 26px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 768px) {
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .privacy-hero {
+        padding: 88px 24px 86px;
+      }
+
+      .privacy-hero h1 {
+        font-size: 46px;
+      }
+
+      .privacy-hero p {
+        font-size: 14px;
+      }
+
+      .policy {
+        padding: 75px 24px 90px;
+      }
+
+      .policy-section {
+        padding-bottom: 44px;
+        margin-bottom: 44px;
+      }
+
+      .policy-section h2 {
+        font-size: 29px;
+      }
+
+      .policy-section p,
+      .policy-section li {
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 56px 24px 28px;
+      }
+
+      .footer-main {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 390px) {
+
+      .mobile-nav-top {
+        font-size: 11px;
+        letter-spacing: 0.24em;
+      }
+
+      .privacy-hero h1 {
+        font-size: 41px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       MOBILE HEADER
+  ========================================== -->
+
+  <div class="mobile-shell">
+
+    <div class="mobile-logo">
+
+      <a href="index.html">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
+    </div>
+
+    <nav class="mobile-nav-top">
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="shop.html">Shop</a>
+      <a href="discover.html">More</a>
+    </nav>
+
+  </div>
+
+  <!-- =========================================
+       DESKTOP HEADER
+  ========================================== -->
+
+  <header class="desktop-header">
+
+    <div class="desktop-logo">
+
+      <a href="index.html">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="mission.html">Mission</a>
+      <a href="discover.html">Approach</a>
+      <a href="#">Journal</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- =========================================
+       HERO
+  ========================================== -->
+
+  <section class="privacy-hero">
+
+    <div class="privacy-hero-inner">
+
+      <div class="eyebrow">
+        Lunavell Ltd
+      </div>
+
+      <h1>
+        Privacy Policy
+      </h1>
+
+      <p>
+        This Privacy Policy explains how Lunavell Ltd collects,
+        uses and protects personal information when you visit
+        our website or contact us.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       POLICY
+  ========================================== -->
+
+  <main class="policy">
+
+    <div class="policy-inner">
+
+      <section class="policy-section">
+
+        <div class="policy-number">01</div>
+
+        <h2>
+          Who we are
+        </h2>
+
+        <p>
+          Lunavell Ltd is a company based in London, United Kingdom.
+          For the purposes of applicable UK data protection law,
+          Lunavell Ltd is responsible for the personal information
+          described in this Privacy Policy.
+        </p>
+
+        <p>
+          You can contact us at:
+        </p>
+
+        <a
+          class="policy-email"
+          href="mailto:hello@lunavell.co.uk"
+        >
+          hello@lunavell.co.uk
+        </a>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">02</div>
+
+        <h2>
+          Information we may collect
+        </h2>
+
+        <p>
+          Depending on how you interact with Lunavell, we may collect
+          personal information that you provide directly to us,
+          including:
+        </p>
+
+        <ul>
+          <li>Your name.</li>
+          <li>Your email address.</li>
+          <li>Information contained in messages or enquiries you send us.</li>
+          <li>Business or professional information you choose to provide.</li>
+        </ul>
+
+        <p>
+          Our website may also receive limited technical information
+          automatically, such as browser type, device information,
+          IP address and basic website usage information where this
+          is necessary for security, functionality or website operation.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">03</div>
+
+        <h2>
+          How we use your information
+        </h2>
+
+        <p>
+          We may use personal information to:
+        </p>
+
+        <ul>
+          <li>Respond to questions, enquiries and requests.</li>
+          <li>Communicate with customers, suppliers and business partners.</li>
+          <li>Operate, maintain and protect our website.</li>
+          <li>Manage our business and administrative activities.</li>
+          <li>Comply with legal or regulatory obligations.</li>
+        </ul>
+
+        <p>
+          If Lunavell introduces online purchasing, account creation,
+          newsletters or other services in the future, this policy may
+          be updated to explain any additional processing.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">04</div>
+
+        <h2>
+          Lawful bases
+        </h2>
+
+        <p>
+          Under UK data protection law, we only process personal
+          information where we have a lawful basis to do so.
+        </p>
+
+        <p>
+          Depending on the circumstances, we may rely on:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Legitimate interests</strong>, where processing is
+            reasonably necessary to operate and protect our business
+            or respond to enquiries.
+          </li>
+
+          <li>
+            <strong>Contract</strong>, where information is required
+            to provide a service or take steps requested before entering
+            into a contract.
+          </li>
+
+          <li>
+            <strong>Legal obligation</strong>, where we are required
+            to process information by law.
+          </li>
+
+          <li>
+            <strong>Consent</strong>, where we specifically ask for
+            your permission.
+          </li>
+        </ul>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">05</div>
+
+        <h2>
+          Sharing information
+        </h2>
+
+        <p>
+          We do not sell personal information.
+        </p>
+
+        <p>
+          We may share information with trusted service providers
+          where necessary to operate our website, email services,
+          hosting, business systems or professional services.
+        </p>
+
+        <p>
+          We may also disclose information where required by law,
+          regulation, legal process or to protect the rights and
+          security of Lunavell Ltd or others.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">06</div>
+
+        <h2>
+          International transfers
+        </h2>
+
+        <p>
+          Some service providers used by Lunavell may process or store
+          information outside the United Kingdom.
+        </p>
+
+        <p>
+          Where personal information is transferred internationally,
+          we take appropriate steps to ensure that relevant safeguards
+          required by applicable data protection law are in place.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">07</div>
+
+        <h2>
+          Data retention
+        </h2>
+
+        <p>
+          We retain personal information only for as long as reasonably
+          necessary for the purposes for which it was collected,
+          including to satisfy legal, accounting, regulatory or
+          business requirements.
+        </p>
+
+        <p>
+          Retention periods may vary depending on the nature of the
+          information and our relationship with you.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">08</div>
+
+        <h2>
+          Your rights
+        </h2>
+
+        <p>
+          Depending on the circumstances, UK data protection law may
+          give you rights in relation to your personal information,
+          including the right to:
+        </p>
+
+        <ul>
+          <li>Request access to your personal information.</li>
+          <li>Ask us to correct inaccurate information.</li>
+          <li>Request deletion of your information in certain circumstances.</li>
+          <li>Request restriction of processing.</li>
+          <li>Object to certain uses of your information.</li>
+          <li>Request data portability where applicable.</li>
+          <li>Withdraw consent where processing is based on consent.</li>
+        </ul>
+
+        <p>
+          To exercise a privacy right, contact us at
+          hello@lunavell.co.uk.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">09</div>
+
+        <h2>
+          Cookies
+        </h2>
+
+        <p>
+          Our website may use cookies or similar technologies that are
+          necessary for basic website functionality and security.
+        </p>
+
+        <p>
+          If we introduce analytics, advertising or other non-essential
+          cookies in the future, we will provide appropriate information
+          and controls where required.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">10</div>
+
+        <h2>
+          Complaints
+        </h2>
+
+        <p>
+          If you have concerns about how we handle your personal
+          information, please contact us first so we can try to resolve
+          the issue.
+        </p>
+
+        <p>
+          You may also have the right to make a complaint to the
+          Information Commissioner's Office (ICO), the UK's independent
+          data protection regulator.
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">11</div>
+
+        <h2>
+          Changes to this policy
+        </h2>
+
+        <p>
+          We may update this Privacy Policy from time to time to reflect
+          changes to our business, website, services or legal obligations.
+        </p>
+
+        <p>
+          The latest version will always be published on this page.
+        </p>
+
+        <p>
+          <strong>Last updated: September 2026.</strong>
+        </p>
+
+      </section>
+
+
+      <section class="policy-section">
+
+        <div class="policy-number">12</div>
+
+        <h2>
+          Contact
+        </h2>
+
+        <p>
+          For questions about this Privacy Policy or the way Lunavell
+          handles personal information, contact:
+        </p>
+
+        <a
+          class="policy-email"
+          href="mailto:hello@lunavell.co.uk"
+        >
+          hello@lunavell.co.uk
+        </a>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-main">
+
+        <div>
+
+          <div class="footer-brand">
+            LUNAVELL
+          </div>
+
+          <div class="footer-tagline">
+            Calm solutions for modern life.
+          </div>
+
+        </div>
+
+        <a
+          href="contact.html"
+          class="footer-contact"
+        >
+          Contact Lunavell
+        </a>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <div>
+          LUNAVELL LTD · LONDON, UNITED KINGDOM
+        </div>
+
+        <nav class="footer-nav">
+          <a href="mission.html">Mission</a>
+          <a href="shop.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
