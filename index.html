@@ -9,7 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -17,9 +21,13 @@
       color: #111;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     /* ========== DESKTOP HEADER ========== */
+
     .desktop-header {
       position: absolute;
       top: 0;
@@ -33,7 +41,7 @@
     }
 
     .desktop-logo img {
-      height: 110px;          /* 🔥 AQUI RESOLVE O PROBLEMA */
+      height: 110px;
       width: auto;
       display: block;
     }
@@ -47,18 +55,30 @@
       text-transform: uppercase;
     }
 
+    .desktop-nav a {
+      color: #111;
+    }
+
     /* ========== HERO ========== */
+
     .hero {
       min-height: 100vh;
-      background: url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png") center/cover no-repeat;
+      background:
+        url("assets/2099BEB4-7660-4480-ABAE-EB6649960A4A.png")
+        center/cover no-repeat;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
+
       padding: 0 24px;
     }
 
-    .hero-inner { max-width: 900px; }
+    .hero-inner {
+      max-width: 900px;
+    }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
@@ -76,11 +96,15 @@
 
     .hero-button {
       display: inline-block;
+
       padding: 16px 56px;
+
       border: 1px solid #111;
+
       font-size: 12px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
+
       transition: all 0.25s ease;
     }
 
@@ -90,75 +114,185 @@
     }
 
     /* ========== MOBILE HEADER ========== */
-    .mobile-shell { display: none; background: #fff; }
+
+    .mobile-shell {
+      display: none;
+      background: #fff;
+    }
 
     .mobile-logo {
       padding: 22px 0 10px;
       text-align: center;
     }
 
-    .mobile-logo img { height: 120px; }
+    .mobile-logo img {
+      height: 120px;
+      width: auto;
+    }
 
     .mobile-nav-top {
       display: flex;
       justify-content: space-around;
+      align-items: center;
+
       padding: 12px 0 16px;
+
       border-top: 1px solid #f1f1f1;
       border-bottom: 1px solid #f1f1f1;
+
       font-size: 13px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
     }
 
-    @media (max-width: 768px) {
-      .desktop-header { display: none; }
-      .mobile-shell { display: block; }
+    /* ========== RESPONSIVE ========== */
 
-      .hero { min-height: calc(100vh - 180px); }
-      .hero h1 { font-size: 40px; }
+    @media (max-width: 768px) {
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .hero {
+        min-height: calc(100vh - 180px);
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MOBILE -->
+  <!-- =========================================
+       MOBILE HEADER
+  ========================================== -->
+
   <div class="mobile-shell">
+
     <div class="mobile-logo">
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
+
+      <a href="index.html" aria-label="Lunavell home">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
     </div>
+
     <nav class="mobile-nav-top">
-      <a href="index.html">Home</a>
-      <a href="discover.html">Mission</a>
-      <a href="discover.html">Shop</a>
-      <a href="discover.html">More</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="discover.html">
+        Discover
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
+      <a href="more.html">
+        More
+      </a>
+
     </nav>
+
   </div>
 
-  <!-- DESKTOP -->
+  <!-- =========================================
+       DESKTOP HEADER
+  ========================================== -->
+
   <header class="desktop-header">
+
     <div class="desktop-logo">
-      <!-- 🔥 USANDO JPEG AQUI -->
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+
+      <a href="index.html" aria-label="Lunavell home">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
     </div>
+
     <nav class="desktop-nav">
-      <a href="index.html">Home</a>
-      <a href="discover.html">Shop</a>
-      <a href="discover.html">Mission</a>
-      <a href="discover.html">Approach</a>
-      <a href="#">Journal</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="discover.html">
+        Discover
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
+      <a href="mission.html">
+        Mission
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="privacy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
     </nav>
+
   </header>
 
-  <!-- HERO -->
+  <!-- =========================================
+       HERO
+  ========================================== -->
+
   <section class="hero">
+
     <div class="hero-inner">
-      <h1>Calm solutions for modern life.</h1>
-      <p>Silence is our raw material. London-based. Globally designed.</p>
-      <a class="hero-button" href="discover.html">DISCOVER LUNAVELL</a>
+
+      <h1>
+        Calm solutions for modern life.
+      </h1>
+
+      <p>
+        Silence is our raw material. London-based. Globally designed.
+      </p>
+
+      <a
+        class="hero-button"
+        href="discover.html"
+      >
+        DISCOVER LUNAVELL
+      </a>
+
     </div>
+
   </section>
 
 </body>
