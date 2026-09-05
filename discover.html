@@ -5,51 +5,80 @@
   <title>Lunavell — Discover</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts (mesmas do Hero) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    /* TRAVA A “PÁGINA DESCENDO” */
-    body{
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
-      background:#fff;
-      color:#111;
-      overflow: hidden;         /* <- mata o scroll */
+      background: #fff;
+      color: #111;
+      overflow: hidden;
       height: 100vh;
       width: 100vw;
-      touch-action: none;       /* <- evita “scroll nativo” no iOS/Android */
+      touch-action: none;
       overscroll-behavior: none;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    /* ========== DESKTOP HEADER (IGUAL AO HERO) ========== */
+    /* =========================================
+       DESKTOP HEADER
+    ========================================= */
+
     .desktop-header {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
+
       padding: 28px 60px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       z-index: 50;
     }
 
-    .desktop-logo img { height: 110px; display: block; }
+    .desktop-logo img {
+      height: 110px;
+      width: auto;
+      display: block;
+    }
 
     .desktop-nav {
       display: flex;
       align-items: center;
       gap: 32px;
+
       font-size: 13px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
     }
 
-    /* ========== MOBILE HEADER (IGUAL AO HERO) ========== */
+    .desktop-nav a {
+      color: #111;
+    }
+
+    /* =========================================
+       MOBILE HEADER
+    ========================================= */
+
     .mobile-shell {
       display: none;
       background: #fff;
@@ -64,6 +93,7 @@
 
     .mobile-logo img {
       height: 120px;
+      width: auto;
       display: inline-block;
     }
 
@@ -71,16 +101,22 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       padding: 12px 0 16px;
+
       border-top: 1px solid #f1f1f1;
       border-bottom: 1px solid #f1f1f1;
+
       font-size: 13px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
     }
 
-    /* ========== CANVAS FIXO (CENAS) ========== */
-    .fixed-canvas{
+    /* =========================================
+       FIXED CANVAS
+    ========================================= */
+
+    .fixed-canvas {
       position: fixed;
       inset: 0;
       z-index: 1;
@@ -90,96 +126,149 @@
     .scene {
       position: absolute;
       inset: 0;
+
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
+
       opacity: 0;
+
       will-change: opacity;
+
       transition: opacity 180ms linear;
     }
 
-    .scene.s1 { background-image: url("assets/discover-01-bath.JPG"); }
-    .scene.s2 { background-image: url("assets/discover-02-objects.JPG"); }
-    .scene.s3 { background-image: url("assets/discover-03-water.JPG"); }
+    .scene.s1 {
+      background-image: url("assets/discover-01-bath.JPG");
+    }
 
-    /* véu leve pra leitura */
-    .veil{
+    .scene.s2 {
+      background-image: url("assets/discover-02-objects.JPG");
+    }
+
+    .scene.s3 {
+      background-image: url("assets/discover-03-water.JPG");
+    }
+
+    /* =========================================
+       VEIL
+    ========================================= */
+
+    .veil {
       position: absolute;
       inset: 0;
+
       background: rgba(255,255,255,0.18);
+
       z-index: 5;
       pointer-events: none;
     }
 
-    /* TEXTO CENTRAL */
-    .overlay{
+    /* =========================================
+       TEXT OVERLAY
+    ========================================= */
+
+    .overlay {
       position: absolute;
       inset: 0;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 0 24px;
+
       text-align: center;
+
       z-index: 10;
+
       pointer-events: none;
     }
 
-    .overlay-inner{
+    .overlay-inner {
       max-width: 900px;
-      pointer-events: auto; /* botão clicável */
+
+      pointer-events: auto;
     }
 
-    .kicker{
+    .kicker {
       font-size: 12px;
       letter-spacing: 0.32em;
       text-transform: uppercase;
+
       margin-bottom: 16px;
+
       color: rgba(17,17,17,0.65);
     }
 
-    .overlay h1{
+    .overlay h1 {
       font-family: 'Playfair Display', serif;
+
       font-size: 58px;
       font-weight: 600;
       line-height: 1.1;
+
       margin-bottom: 18px;
+
       color: #111;
     }
 
-    .overlay p{
+    .overlay p {
+      max-width: 720px;
+
+      margin: 0 auto 34px;
+
       font-size: 14px;
       letter-spacing: 0.02em;
       line-height: 1.7;
-      margin: 0 auto 34px;
-      max-width: 720px;
+
       color: rgba(17,17,17,0.78);
     }
 
-    .cta{
+    .cta {
       display: inline-block;
+
       padding: 16px 56px;
+
       border: 1px solid #111;
+
       font-size: 12px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
+
       background: rgba(255,255,255,0.08);
+
       transition: all 0.25s ease;
     }
-    .cta:hover{ background:#111; color:#fff; }
 
-    /* ====== DOTS (AGORA INVISÍVEIS) ====== */
-    .dots, .dot{
+    .cta:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* =========================================
+       DOTS HIDDEN
+    ========================================= */
+
+    .dots,
+    .dot {
       display: none !important;
       opacity: 0 !important;
       pointer-events: none !important;
     }
 
-    /* ====== MICRO HINT “SCROLL TO REVEAL” (Aesop vibes) ====== */
-    .scroll-hint{
+    /* =========================================
+       SCROLL HINT
+    ========================================= */
+
+    .scroll-hint {
       position: fixed;
+
       left: 50%;
       bottom: 18px;
+
       transform: translateX(-50%);
+
       z-index: 80;
 
       font-family: 'Inter', sans-serif;
@@ -188,272 +277,643 @@
       text-transform: uppercase;
 
       color: rgba(17,17,17,0.55);
+
       background: rgba(255,255,255,0.35);
+
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
 
       padding: 10px 14px;
+
       border: 1px solid rgba(17,17,17,0.18);
       border-radius: 999px;
 
       opacity: 0;
-      transition: opacity 450ms ease, transform 450ms ease;
+
+      transition:
+        opacity 450ms ease,
+        transform 450ms ease;
+
       pointer-events: none;
     }
 
-    .scroll-hint.is-visible{
+    .scroll-hint.is-visible {
       opacity: 1;
-      transform: translateX(-50%) translateY(0);
+
+      transform:
+        translateX(-50%)
+        translateY(0);
     }
 
-    .scroll-hint.is-hidden{
+    .scroll-hint.is-hidden {
       opacity: 0;
-      transform: translateX(-50%) translateY(8px);
+
+      transform:
+        translateX(-50%)
+        translateY(8px);
     }
 
-    /* MOBILE AJUSTES (IGUAL AO HERO) */
-    @media (max-width: 768px) {
-      .desktop-header{ display:none; }
-      .mobile-shell{ display:block; }
+    /* =========================================
+       MOBILE
+    ========================================= */
 
-      .fixed-canvas{
+    @media (max-width: 768px) {
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .fixed-canvas {
         top: 180px;
+
         height: calc(100vh - 180px);
       }
 
-      .overlay h1{ font-size: 40px; }
-      .overlay p{ font-size: 13px; }
-      .kicker{ font-size: 11px; }
+      .overlay h1 {
+        font-size: 40px;
+      }
 
-      .cta{
+      .overlay p {
+        font-size: 13px;
+      }
+
+      .kicker {
+        font-size: 11px;
+      }
+
+      .cta {
         width: min(92vw, 520px);
+
         padding: 16px 0;
       }
 
-      .scroll-hint{
+      .scroll-hint {
         bottom: 16px;
+
         font-size: 10px;
         letter-spacing: 0.26em;
+
         padding: 9px 12px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .scene{ transition: none; }
-      .scroll-hint{ transition: none; }
+
+      .scene {
+        transition: none;
+      }
+
+      .scroll-hint {
+        transition: none;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MOBILE HEADER (IGUAL AO HERO) -->
+  <!-- =========================================
+       MOBILE HEADER
+  ========================================== -->
+
   <div class="mobile-shell">
+
     <div class="mobile-logo">
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg" alt="Lunavell Logo">
+
+      <a href="index.html" aria-label="Lunavell home">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
     </div>
+
     <nav class="mobile-nav-top">
-      <a href="index.html">Home</a>
-      <a href="discover.html">Mission</a>
-      <a href="discover.html">Shop</a>
-      <a href="discover.html">More</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="discover.html">
+        Discover
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
+      <a href="more.html">
+        More
+      </a>
+
     </nav>
+
   </div>
 
-  <!-- DESKTOP HEADER (IGUAL AO HERO) -->
+  <!-- =========================================
+       DESKTOP HEADER
+  ========================================== -->
+
   <header class="desktop-header">
+
     <div class="desktop-logo">
-      <img src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png" alt="Lunavell Logo">
+
+      <a href="index.html" aria-label="Lunavell home">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
     </div>
+
     <nav class="desktop-nav">
-      <a href="index.html">Home</a>
-      <a href="discover.html">Shop</a>
-      <a href="discover.html">Mission</a>
-      <a href="discover.html">Approach</a>
-      <a href="#">Journal</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="discover.html">
+        Discover
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
+      <a href="mission.html">
+        Mission
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="privacy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
     </nav>
+
   </header>
 
-  <!-- CENAS FIXAS (NÃO DESCE, SÓ FADE) -->
+  <!-- =========================================
+       FIXED SCENES
+  ========================================== -->
+
   <div class="fixed-canvas" id="fixedCanvas">
+
     <div class="scene s1" id="scene1"></div>
+
     <div class="scene s2" id="scene2"></div>
+
     <div class="scene s3" id="scene3"></div>
 
     <div class="veil"></div>
 
-    <!-- dots continuam no HTML mas ficam invisíveis via CSS -->
     <div class="dots" aria-hidden="true">
+
       <div class="dot on" id="dot1"></div>
+
       <div class="dot" id="dot2"></div>
+
       <div class="dot" id="dot3"></div>
+
     </div>
 
     <div class="overlay">
+
       <div class="overlay-inner">
-        <div class="kicker" id="kicker">DISCOVER LUNAVELL</div>
-        <h1 id="headline">Inhale. Exhale. We take care of the rest.</h1>
+
+        <div class="kicker" id="kicker">
+          DISCOVER LUNAVELL
+        </div>
+
+        <h1 id="headline">
+          Inhale. Exhale. We take care of the rest.
+        </h1>
+
         <p id="sub">
-          London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world.
+          London-based retail brand born from the desire
+          to bring clarity back into an increasingly chaotic world.
         </p>
-        <a class="cta" href="discover.html">Explore the Collection</a>
+
+        <a
+          class="cta"
+          href="shop.html"
+        >
+          Explore the Collection
+        </a>
+
       </div>
+
     </div>
+
   </div>
 
-  <!-- micro hint -->
-  <div class="scroll-hint" id="scrollHint" aria-hidden="true">Scroll to reveal</div>
+  <!-- =========================================
+       MICRO HINT
+  ========================================== -->
+
+  <div
+    class="scroll-hint"
+    id="scrollHint"
+    aria-hidden="true"
+  >
+    Scroll to reveal
+  </div>
 
   <script>
-    // ====== TEXTOS ======
+
     const scenes = [
+
       {
         el: document.getElementById('scene1'),
-        headline: "Inhale. Exhale. We take care of the rest.",
-        sub: "London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world."
+
+        headline:
+          "Inhale. Exhale. We take care of the rest.",
+
+        sub:
+          "London-based retail brand born from the desire to bring clarity back into an increasingly chaotic world."
       },
+
       {
         el: document.getElementById('scene2'),
-        headline: "Objects for stillness.",
-        sub: "Calm, shaped into form."
+
+        headline:
+          "Objects for stillness.",
+
+        sub:
+          "Calm, shaped into form."
       },
+
       {
         el: document.getElementById('scene3'),
-        headline: "Everyday, turned into ritual.",
-        sub: "From the first drop of water to the final breath of steam, Lunavell exists to transform ordinary moments into calm, repeatable rituals that hold you together when the world feels loud."
+
+        headline:
+          "Everyday, turned into ritual.",
+
+        sub:
+          "From the first drop of water to the final breath of steam, Lunavell exists to transform ordinary moments into calm, repeatable rituals that hold you together when the world feels loud."
       }
+
     ];
 
-    const headlineEl = document.getElementById('headline');
-    const subEl = document.getElementById('sub');
-    const dot1 = document.getElementById('dot1');
-    const dot2 = document.getElementById('dot2');
-    const dot3 = document.getElementById('dot3');
+    const headlineEl =
+      document.getElementById('headline');
 
-    const hint = document.getElementById('scrollHint');
+    const subEl =
+      document.getElementById('sub');
 
-    const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+    const dot1 =
+      document.getElementById('dot1');
 
-    // progress: 0..1 (0=scene1, 0.5=scene2, 1=scene3)
+    const dot2 =
+      document.getElementById('dot2');
+
+    const dot3 =
+      document.getElementById('dot3');
+
+    const hint =
+      document.getElementById('scrollHint');
+
+    const clamp = (n, min, max) =>
+      Math.max(min, Math.min(max, n));
+
     let target = 0;
+
     let current = 0;
 
-    // Ajuste fino da sensibilidade
-    const WHEEL_SENS = 0.00135;  // desktop
-    const TOUCH_SENS = 0.0019;   // mobile
+    const WHEEL_SENS = 0.00135;
 
-    function setDots(idx){
-      // continua existindo (caso você queira voltar) mas fica invisível pelo CSS
-      dot1.classList.toggle('on', idx === 0);
-      dot2.classList.toggle('on', idx === 1);
-      dot3.classList.toggle('on', idx === 2);
+    const TOUCH_SENS = 0.0019;
+
+
+    function setDots(idx) {
+
+      dot1.classList.toggle(
+        'on',
+        idx === 0
+      );
+
+      dot2.classList.toggle(
+        'on',
+        idx === 1
+      );
+
+      dot3.classList.toggle(
+        'on',
+        idx === 2
+      );
+
     }
 
-    function render(p){
-      const seg = p * 2; // 0..2
 
-      let o1=0,o2=0,o3=0;
-      if(seg <= 1){
+    function render(p) {
+
+      const seg = p * 2;
+
+      let o1 = 0;
+      let o2 = 0;
+      let o3 = 0;
+
+      if (seg <= 1) {
+
         o1 = 1 - seg;
         o2 = seg;
         o3 = 0;
-      }else{
+
+      } else {
+
         const t = seg - 1;
+
         o1 = 0;
         o2 = 1 - t;
         o3 = t;
+
       }
 
-      scenes[0].el.style.opacity = o1.toFixed(4);
-      scenes[1].el.style.opacity = o2.toFixed(4);
-      scenes[2].el.style.opacity = o3.toFixed(4);
+      scenes[0].el.style.opacity =
+        o1.toFixed(4);
+
+      scenes[1].el.style.opacity =
+        o2.toFixed(4);
+
+      scenes[2].el.style.opacity =
+        o3.toFixed(4);
 
       const dominantIndex =
-        (o1 >= o2 && o1 >= o3) ? 0 :
-        (o2 >= o1 && o2 >= o3) ? 1 : 2;
+        (o1 >= o2 && o1 >= o3)
+          ? 0
+          : (o2 >= o1 && o2 >= o3)
+            ? 1
+            : 2;
 
       setDots(dominantIndex);
 
-      const s = scenes[dominantIndex];
-      if(headlineEl.textContent !== s.headline){
-        headlineEl.textContent = s.headline;
-        subEl.textContent = s.sub;
+      const s =
+        scenes[dominantIndex];
+
+      if (
+        headlineEl.textContent !== s.headline
+      ) {
+
+        headlineEl.textContent =
+          s.headline;
+
+        subEl.textContent =
+          s.sub;
+
       }
+
     }
 
-    // anima suavemente até o target (cinema)
-    function tick(){
-      current += (target - current) * 0.10;
-      if(Math.abs(target - current) < 0.0005) current = target;
+
+    function tick() {
+
+      current +=
+        (target - current) * 0.10;
+
+      if (
+        Math.abs(target - current) < 0.0005
+      ) {
+
+        current = target;
+
+      }
+
       render(current);
+
       requestAnimationFrame(tick);
+
     }
 
-    // ====== HINT: aparece levemente e some no 1º gesto ======
-    function showHintSoon(){
-      if(!hint) return;
-      setTimeout(() => hint.classList.add('is-visible'), 650);
+
+    function showHintSoon() {
+
+      if (!hint) return;
+
+      setTimeout(
+        () =>
+          hint.classList.add('is-visible'),
+        650
+      );
+
     }
 
-    function hideHint(){
-      if(!hint) return;
-      hint.classList.remove('is-visible');
-      hint.classList.add('is-hidden');
+
+    function hideHint() {
+
+      if (!hint) return;
+
+      hint.classList.remove(
+        'is-visible'
+      );
+
+      hint.classList.add(
+        'is-hidden'
+      );
+
     }
 
-    // ====== CONTROLES (sem scroll de página) ======
-    function onWheel(e){
+
+    function onWheel(e) {
+
       e.preventDefault();
-      if (hint) hideHint();
-      target = clamp(target + (e.deltaY * WHEEL_SENS), 0, 1);
-    }
-    window.addEventListener('wheel', onWheel, { passive: false });
 
-    // Touch (swipe) para iPhone
+      hideHint();
+
+      target =
+        clamp(
+          target +
+          (e.deltaY * WHEEL_SENS),
+          0,
+          1
+        );
+
+    }
+
+    window.addEventListener(
+      'wheel',
+      onWheel,
+      { passive: false }
+    );
+
+
     let lastY = null;
-    function onTouchStart(e){
-      if(!e.touches || !e.touches[0]) return;
-      if (hint) hideHint();
-      lastY = e.touches[0].clientY;
+
+
+    function onTouchStart(e) {
+
+      if (
+        !e.touches ||
+        !e.touches[0]
+      ) return;
+
+      hideHint();
+
+      lastY =
+        e.touches[0].clientY;
+
     }
-    function onTouchMove(e){
+
+
+    function onTouchMove(e) {
+
       e.preventDefault();
-      if(lastY === null || !e.touches || !e.touches[0]) return;
-      const y = e.touches[0].clientY;
-      const dy = lastY - y;  // swipe up -> dy positivo
+
+      if (
+        lastY === null ||
+        !e.touches ||
+        !e.touches[0]
+      ) return;
+
+      const y =
+        e.touches[0].clientY;
+
+      const dy =
+        lastY - y;
+
       lastY = y;
-      target = clamp(target + (dy * TOUCH_SENS), 0, 1);
+
+      target =
+        clamp(
+          target +
+          (dy * TOUCH_SENS),
+          0,
+          1
+        );
+
     }
-    function onTouchEnd(){
+
+
+    function onTouchEnd() {
+
       lastY = null;
+
     }
 
-    window.addEventListener('touchstart', onTouchStart, { passive: false });
-    window.addEventListener('touchmove', onTouchMove, { passive: false });
-    window.addEventListener('touchend', onTouchEnd, { passive: true });
 
-    // Teclado (setas / page down/up)
-    window.addEventListener('keydown', (e) => {
-      const step = 0.08;
-      const keys = ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '];
-      if(keys.includes(e.key) || keys.includes(e.code)) hideHint();
+    window.addEventListener(
+      'touchstart',
+      onTouchStart,
+      { passive: false }
+    );
 
-      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.code === 'Space') {
-        e.preventDefault(); target = clamp(target + step, 0, 1);
-      }
-      if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        e.preventDefault(); target = clamp(target - step, 0, 1);
-      }
-      if (e.key === 'Home') { e.preventDefault(); target = 0; }
-      if (e.key === 'End')  { e.preventDefault(); target = 1; }
-    }, { passive: false });
+    window.addEventListener(
+      'touchmove',
+      onTouchMove,
+      { passive: false }
+    );
 
-    // Estado inicial
+    window.addEventListener(
+      'touchend',
+      onTouchEnd,
+      { passive: true }
+    );
+
+
+    window.addEventListener(
+      'keydown',
+      (e) => {
+
+        const step = 0.08;
+
+        const keys = [
+          'ArrowDown',
+          'ArrowUp',
+          'PageDown',
+          'PageUp',
+          'Home',
+          'End',
+          ' '
+        ];
+
+        if (
+          keys.includes(e.key) ||
+          keys.includes(e.code)
+        ) {
+
+          hideHint();
+
+        }
+
+        if (
+          e.key === 'ArrowDown' ||
+          e.key === 'PageDown' ||
+          e.code === 'Space'
+        ) {
+
+          e.preventDefault();
+
+          target =
+            clamp(
+              target + step,
+              0,
+              1
+            );
+
+        }
+
+        if (
+          e.key === 'ArrowUp' ||
+          e.key === 'PageUp'
+        ) {
+
+          e.preventDefault();
+
+          target =
+            clamp(
+              target - step,
+              0,
+              1
+            );
+
+        }
+
+        if (e.key === 'Home') {
+
+          e.preventDefault();
+
+          target = 0;
+
+        }
+
+        if (e.key === 'End') {
+
+          e.preventDefault();
+
+          target = 1;
+
+        }
+
+      },
+      { passive: false }
+    );
+
     render(0);
+
     tick();
+
     showHintSoon();
+
   </script>
 
 </body>
