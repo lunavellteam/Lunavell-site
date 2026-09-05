@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>More | Lunavell</title>
+
+  <meta
+    name="description"
+    content="Explore more about Lunavell, including our mission, company information, contact details, privacy policy and terms."
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --white: #ffffff;
+      --cloud: #f6f6f6;
+      --soft: #eceae5;
+      --text: #111111;
+      --muted: #6f6f6b;
+      --line: rgba(17,17,17,0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================================
+       DESKTOP HEADER
+    ========================================= */
+
+    .desktop-header {
+      position: relative;
+      width: 100%;
+
+      padding: 28px 60px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: #ffffff;
+
+      z-index: 30;
+    }
+
+    .desktop-logo img {
+      height: 110px;
+      width: auto;
+      display: block;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav a {
+      color: #111111;
+    }
+
+    /* =========================================
+       MOBILE HEADER
+    ========================================= */
+
+    .mobile-shell {
+      display: none;
+      background: #ffffff;
+      position: relative;
+      z-index: 40;
+    }
+
+    .mobile-logo {
+      padding: 22px 0 10px;
+      text-align: center;
+    }
+
+    .mobile-logo img {
+      height: 120px;
+      width: auto;
+      display: inline-block;
+    }
+
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      padding: 12px 0 16px;
+
+      border-top: 1px solid #f1f1f1;
+      border-bottom: 1px solid #f1f1f1;
+
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       MORE HERO
+    ========================================= */
+
+    .more-hero {
+      padding: 110px 24px 95px;
+
+      background: var(--cloud);
+
+      text-align: center;
+    }
+
+    .more-hero-inner {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin-bottom: 24px;
+
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+
+      color: var(--muted);
+    }
+
+    .more-hero h1 {
+      font-family: 'Playfair Display', serif;
+
+      font-size: clamp(3.5rem, 6vw, 5.8rem);
+      line-height: 1.02;
+      font-weight: 600;
+
+      margin-bottom: 26px;
+    }
+
+    .more-hero p {
+      max-width: 650px;
+      margin: 0 auto;
+
+      font-size: 16px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+    /* =========================================
+       HUB LINKS
+    ========================================= */
+
+    .more-links {
+      padding: 85px 24px 100px;
+
+      background: var(--white);
+    }
+
+    .more-links-inner {
+      max-width: 900px;
+      margin: 0 auto;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .more-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding: 30px 0;
+
+      border-bottom: 1px solid var(--line);
+
+      transition: opacity 0.25s ease;
+    }
+
+    .more-link:hover {
+      opacity: 0.55;
+    }
+
+    .more-link-title {
+      font-family: 'Playfair Display', serif;
+
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 400;
+    }
+
+    .more-link-arrow {
+      font-size: 22px;
+      line-height: 1;
+
+      color: var(--muted);
+    }
+
+    /* =========================================
+       INFO
+    ========================================= */
+
+    .more-info {
+      padding: 85px 24px 95px;
+
+      background: var(--soft);
+
+      text-align: center;
+    }
+
+    .more-info-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .more-info h2 {
+      margin-top: 22px;
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 42px;
+      line-height: 1.08;
+      font-weight: 400;
+    }
+
+    .more-info p {
+      margin-top: 24px;
+
+      color: var(--muted);
+
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .more-email {
+      display: inline-block;
+
+      margin-top: 32px;
+      padding-bottom: 5px;
+
+      border-bottom: 1px solid rgba(17,17,17,0.30);
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 23px;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      background: #ffffff;
+
+      padding: 38px 24px;
+
+      text-align: center;
+
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      color: rgba(17,17,17,0.45);
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 768px) {
+
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-shell {
+        display: block;
+      }
+
+      .more-hero {
+        padding: 82px 24px 78px;
+      }
+
+      .more-hero h1 {
+        font-size: 44px;
+      }
+
+      .more-hero p {
+        font-size: 14px;
+      }
+
+      .more-links {
+        padding: 60px 24px 75px;
+      }
+
+      .more-link {
+        padding: 27px 0;
+      }
+
+      .more-link-title {
+        font-size: 29px;
+      }
+
+      .more-link-arrow {
+        font-size: 19px;
+      }
+
+      .more-info {
+        padding: 72px 24px 78px;
+      }
+
+      .more-info h2 {
+        font-size: 36px;
+      }
+
+      .more-info p {
+        font-size: 14px;
+      }
+
+      .more-email {
+        font-size: 20px;
+      }
+
+    }
+
+    @media (max-width: 390px) {
+
+      .mobile-nav-top {
+        font-size: 11px;
+        letter-spacing: 0.24em;
+      }
+
+      .more-hero h1 {
+        font-size: 40px;
+      }
+
+      .more-link-title {
+        font-size: 27px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       MOBILE HEADER
+  ========================================== -->
+
+  <div class="mobile-shell">
+
+    <div class="mobile-logo">
+
+      <a href="index.html" aria-label="Lunavell home">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.jpeg"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
+    </div>
+
+    <nav class="mobile-nav-top">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="discover.html">
+        Discover
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
+      <a href="more.html">
+        More
+      </a>
+
+    </nav>
+
+  </div>
+
+  <!-- =========================================
+       DESKTOP HEADER
+  ========================================== -->
+
+  <header class="desktop-header">
+
+    <div class="desktop-logo">
+
+      <a href="index.html" aria-label="Lunavell home">
+
+        <img
+          src="./assets/9be6b2d6-57f5-4415-8d28-b5da178fdb3a.png"
+          alt="Lunavell Logo"
+        >
+
+      </a>
+
+    </div>
+
+    <nav class="desktop-nav">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="discover.html">
+        Discover
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
+      <a href="mission.html">
+        Mission
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="privacy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
+    </nav>
+
+  </header>
+
+  <!-- =========================================
+       MORE HERO
+  ========================================== -->
+
+  <section class="more-hero">
+
+    <div class="more-hero-inner">
+
+      <div class="eyebrow">
+        Explore Lunavell
+      </div>
+
+      <h1>
+        More about us.
+      </h1>
+
+      <p>
+        Discover our mission, learn more about Lunavell
+        or find the information you need.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       HUB
+  ========================================== -->
+
+  <main class="more-links">
+
+    <div class="more-links-inner">
+
+      <a
+        class="more-link"
+        href="mission.html"
+      >
+
+        <span class="more-link-title">
+          Mission
+        </span>
+
+        <span class="more-link-arrow">
+          →
+        </span>
+
+      </a>
+
+      <a
+        class="more-link"
+        href="about.html"
+      >
+
+        <span class="more-link-title">
+          About
+        </span>
+
+        <span class="more-link-arrow">
+          →
+        </span>
+
+      </a>
+
+      <a
+        class="more-link"
+        href="contact.html"
+      >
+
+        <span class="more-link-title">
+          Contact
+        </span>
+
+        <span class="more-link-arrow">
+          →
+        </span>
+
+      </a>
+
+      <a
+        class="more-link"
+        href="privacy.html"
+      >
+
+        <span class="more-link-title">
+          Privacy Policy
+        </span>
+
+        <span class="more-link-arrow">
+          →
+        </span>
+
+      </a>
+
+      <a
+        class="more-link"
+        href="terms.html"
+      >
+
+        <span class="more-link-title">
+          Terms of Use
+        </span>
+
+        <span class="more-link-arrow">
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- =========================================
+       COMPANY INFO
+  ========================================== -->
+
+  <section class="more-info">
+
+    <div class="more-info-inner">
+
+      <div class="eyebrow">
+        Lunavell Ltd
+      </div>
+
+      <h2>
+        London, United Kingdom.
+      </h2>
+
+      <p>
+        For general enquiries, business opportunities,
+        partnerships or questions about Lunavell,
+        you can reach us directly by email.
+      </p>
+
+      <a
+        class="more-email"
+        href="mailto:hello@lunavell.co.uk"
+      >
+        hello@lunavell.co.uk
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer>
+    Lunavell Ltd · London, United Kingdom
+  </footer>
+
+</body>
+</html>
